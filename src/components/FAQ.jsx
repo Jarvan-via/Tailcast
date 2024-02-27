@@ -3,24 +3,24 @@ import { motion } from "framer-motion";
 
 const FAQData = [
   {
-    question: "Can I upgrade or downgrade my plan at any time?",
+    question: "如何收费？",
     answer:
-      "Yes, you can easily upgrade or downgrade your plan at any time. Simply navigate to the account settings in your dashboard and choose the desired plan. The changes will be reflected immediately, and any adjustments in pricing will be applied on your next billing cycle. Our support team is more than happy to provide guidance and recommendations.",
+      "每个店铺 100 元每月",
   },
   {
-    question: "How to claim your 25% discount offer?",
+    question: "支持私有部署和需求定制吗",
     answer:
-      "To claim your 25% discount, simply sign up for an account and enter the promotional code at checkout. The discount will be applied automatically to your purchase.",
+      "支持",
   },
   {
-    question: "What's your refund policy?",
+    question: "还支持其他平台的跟卖吗？",
     answer:
-      "We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with our product, simply contact our support team within 30 days of purchase for a full refund.",
+      "目前只支持 Worten 平台的跟卖调价，frugoo、OZON、fyndiq 正在接入",
   },
   {
-    question: "How to get support for the product?",
+    question: "不会使用跟卖软件怎么办?",
     answer:
-      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
+      "我们有使用说明，同时有售后群 24 小时在线解决问题",
   },
 ];
 
@@ -39,7 +39,7 @@ export const FAQ = () => (
             Have any questions?
           </p>
           <h2 className="mb-16 custom-block-big-title text-center">
-            Frequently Asked Questions
+            常见问题
           </h2>
           <div className="mb-11 flex flex-wrap -m-1">
             {FAQData.map((item, index) => (
