@@ -5,7 +5,7 @@ const FAQData = [
   {
     question: "如何收费？",
     answer:
-      "每个店铺 100 元每月",
+      "每个店铺 300 元每月",
   },
   {
     question: "支持私有部署和需求定制吗",
