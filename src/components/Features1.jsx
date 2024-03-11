@@ -53,6 +53,8 @@ export const Features1 = () => {
                   src={feature1}
                   alt="f1"
                   className="rounded-xl  custom-border-gray mx-auto sm:mx-unset"
+                  width="100%"
+                  height="100%"
                 />
               </div>
               {/* <div className="py-3 pl-3 pr-2 rounded ">

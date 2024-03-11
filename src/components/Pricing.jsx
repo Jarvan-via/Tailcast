@@ -31,10 +31,10 @@ export const Pricing = () => {
         >
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
-         
-              <h2 className="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-white">
+              
+              <h1 className="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-white">
                 价格方案
-              </h2>
+              </h1>
               {/* <p className="mb-6 text-customGrayText">
                 Select the plan that suits your needs and benefit from our
                 analytics tools.
@@ -95,9 +95,9 @@ export const Pricing = () => {
               </div>
               <div className="w-[350px] sm:w-[380px] lg:w-1/3 px-4 mb-8 lg:mb-0">
                 <div className="px-8 py-8 bg-customDarkBg3 rounded-3xl">
-                  <h4 className="mb-2 2xl:mb-4 text-2xl font-bold font-heading text-white text-left">
+                  <h2 className="mb-2 2xl:mb-4 text-2xl font-bold font-heading text-white text-left">
                     Standard
-                  </h4>
+                  </h2>
                   <div className="flex justify-start items-end">
                     <div className="text-4xl sm:text-5xl font-bold text-white text-left mt-4 mr-2">
                       {isMonthly ? "¥300" : "¥3000"}
