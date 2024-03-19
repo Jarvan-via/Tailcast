@@ -5,7 +5,7 @@ import { InvitationModal } from "./InvitationModal";
 import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 
 const pricingData = [
-  "24/7调价，赢在价格之巅",
+  "24H/7调价，赢在价格之巅",
   "时刻保持最佳价格，持续吸引更多客户！",
   "即时监控，即时调整，让你的产品始终抢先一步！",
   "定价优化，销售加速，一键实现你的销售目标！",
