@@ -9,26 +9,32 @@
   <link rel='canonical' href='https://www.wortenprice.com' />
   <meta name="generator" content="Astro" />
 
-  <title>调价先锋 - 智能电商自动调价工具 | 覆盖 Worten、Allegro、Fnac 等 10+ 跨境平台</title>
-  <meta name="description" content="调价先锋支持 Allegro、Cdiscount、Fnac、Worten、OnBuy、Fyndiq、RDC、Catch、ePrice 等 10+ 跨境电商平台及 Mirakl 生态。智能自动调价抢占购物车，竞对降价自动跟进，批量创建跟卖，发票一键管理。" />
+  <title>调价先锋 - 跨境电商自动调价工具 | 支持 Worten、Allegro、Fnac 等 10+ 平台</title>
+  <meta name="description" content="调价先锋支持 Worten、Allegro、Fnac、Cdiscount、OnBuy、Fyndiq 等 10+ 跨境平台及 Mirakl 生态。自动调价、批量跟卖、发票自动化，单店铺 ¥100/月即可开始验证效果。" />
   <meta name="keywords" content="调价先锋, 自动调价工具, Worten调价, Allegro调价, Fnac调价, Cdiscount调价, Fyndiq调价, OnBuy调价, RDC调价, Catch调价, ePrice调价, Mirakl调价, Mirakl价格管理, 跨境电商调价, 电商价格管理, 智能调价, 跟卖工具, 价格监控, 批量调价, 发票管理, 产品采集, 电商ERP, 欧洲电商调价, 抢占购物车, 购物车归属率" />
+  <meta name="theme-color" content="#0052cc" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="alternate" hreflang="zh-CN" href="https://www.wortenprice.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.wortenprice.com/" />
 
   <meta property="og:title" content="调价先锋 - 智能电商自动调价工具 | 覆盖 Worten、Allegro、Fnac 等 10+ 跨境平台" />
   <meta property="og:type" content="website" />
   <meta property="og:description" content="支持 Allegro、Cdiscount、Fnac、Worten、OnBuy 等 10+ 跨境平台及 Mirakl 生态，智能自动调价抢占购物车，竞对降价自动跟进，竞对涨价同步拉升。" />
   <meta property="og:url" content="https://www.wortenprice.com" />
-  <meta property="og:image" content="image/qr.png" />
+  <meta property="og:image" content="https://www.wortenprice.com/image/qr.png" />
+  <meta property="og:image:alt" content="调价先锋跨境电商自动调价工具" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:site_name" content="调价先锋" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="调价先锋 - 智能电商自动调价工具" />
   <meta name="twitter:description" content="支持 Allegro、Cdiscount、Fnac、Worten、OnBuy 等 10+ 跨境平台，智能自动调价抢占购物车，竞对降价自动跟进，竞对涨价同步拉升。" />
-  <meta name="twitter:image" content="image/qr.png" />
+  <meta name="twitter:image" content="https://www.wortenprice.com/image/qr.png" />
+  <meta name="twitter:image:alt" content="调价先锋跨境电商自动调价工具" />
 
   <meta name="baidu-site-verification" content="codeva-9gHjbuhMKH" />
   <meta name="google-site-verification" content="QH_zGxw1oFSdvYsY8EJ7OS3ZIIJiCnCJjblehyrAJvA" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="调价先锋团队" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,11 +110,11 @@
     .hero h1 em { font-style: normal; color: var(--primary); }
     .hero-sub {
       font-size: clamp(16px, 2vw, 20px); color: var(--text-secondary);
-      max-width: 600px; margin: 0 auto 40px; line-height: 1.6;
+      max-width: 720px; margin: 0 auto 30px; line-height: 1.65;
     }
     .hero-actions {
       display: flex; align-items: center; justify-content: center;
-      gap: 12px; flex-wrap: wrap; margin-bottom: 64px;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
     }
     .btn-primary {
       background: var(--primary); color: #fff; padding: 12px 28px;
@@ -123,6 +129,36 @@
       transition: background 0.15s, transform 0.1s;
     }
     .btn-secondary:hover { background: var(--bg-subtle); transform: translateY(-1px); }
+    .hero-inline-link {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 22px;
+    }
+    .hero-inline-link:hover { color: var(--primary-hover); }
+    .hero-trust-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+    .hero-trust-item {
+      font-size: 13px;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 12px;
+      white-space: nowrap;
+    }
+    .hero-trust-item strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
     .hero-platforms { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
     .hero-platforms-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
     .platform-tag {
@@ -153,6 +189,61 @@
     .stat-item:last-child { border-right: none; }
     .stat-number { font-size: 32px; font-weight: 800; color: var(--text-primary); letter-spacing: -1px; display: block; }
     .stat-label { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+
+    .decision-strip { background: var(--bg); }
+    .decision-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+    .decision-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .decision-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .decision-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .decision-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .decision-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .decision-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .decision-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
     .platforms { background: var(--bg); }
     .mirikal-callout {
@@ -233,6 +324,23 @@
 
     .pricing { background: var(--bg); }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pricing-assurance {
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      max-width: 960px;
+    }
+    .pricing-assurance span {
+      font-size: 13px;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 12px;
+    }
     .pricing-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; position: relative; }
     .pricing-card.featured { border-color: var(--primary); border-width: 2px; }
     .pricing-badge {
@@ -392,6 +500,32 @@
       color: var(--text-muted); text-decoration: none; transition: color 0.15s;
     }
     .icp-link:hover { color: var(--text-secondary); }
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      z-index: 120;
+      background: rgba(17, 24, 39, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 8px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .mobile-sticky-cta a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #ffffff;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
 
     @media (max-width: 960px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -403,6 +537,7 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .ops-grid { grid-template-columns: repeat(2, 1fr); }
       .testimonials-grid { grid-template-columns: 1fr; }
+      .decision-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .hero { padding: 100px 0 64px; }
@@ -420,6 +555,11 @@
       .ops-grid { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; align-items: center; }
       .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
+      .hero-inline-link { margin-top: 2px; }
+      .hero-trust-list { margin-bottom: 38px; }
+      .pricing-assurance { justify-content: flex-start; }
+      .mobile-sticky-cta { display: block; }
+      body { padding-bottom: 74px; }
     }
   </style>
 </head>
@@ -454,13 +594,18 @@
     <div class="container">
       <div class="hero-badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        支持 Worten · Allegro · Fnac · Cdiscount · Fyndiq · OnBuy · 更多
+        已支持 Worten · Allegro · Fnac · Cdiscount · Fyndiq · OnBuy 等平台
       </div>
-      <h1 id="hero-heading">智能自动调价<br><em>持续抢占购物车</em></h1>
-      <p class="hero-sub">实时监控同一 EAN 下所有卖家报价，自动将您的出价调至比当前最低报价低 0.01 欧，持续抢占购物车位置。竞对涨价时自动跟涨锁定利润，价格始终控制在您设定的最高价与最低价之间。</p>
+      <h1 id="hero-heading">让每次调价都更接近成交<br><em>而不是增加运营负担</em></h1>
+      <p class="hero-sub">调价先锋将“盯盘、改价、复查”自动化。系统实时监控同一 EAN 的竞争价格，自动跟进市场变化并守住你设定的价格区间，让团队把精力放在选品和利润决策上。</p>
       <div class="hero-actions">
-        <a href="https://vip.wortenprice.com/" class="btn-primary">立即免费试用</a>
-        <a href="https://vip.wortenprice.com/help.html" class="btn-secondary">查看使用说明</a>
+        <a href="https://vip.wortenprice.com/" class="btn-primary">免费试用 7 天</a>
+      </div>
+      <a href="#testimonials" class="hero-inline-link">先看卖家真实反馈</a>
+      <div class="hero-trust-list" aria-label="首屏信任证据">
+        <span class="hero-trust-item"><strong>4.9 / 5</strong> 综合评分（156 条评价）</span>
+        <span class="hero-trust-item"><strong>10+</strong> 主流跨境平台已接入</span>
+        <span class="hero-trust-item"><strong>30 分钟</strong> 完成首轮调价配置</span>
       </div>
       <div class="hero-platforms">
         <span class="hero-platforms-label">已支持平台：</span>
@@ -479,26 +624,53 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item"><span class="stat-number">¥100</span><div class="stat-label">每店铺每月起</div></div>
-        <div class="stat-item"><span class="stat-number">30min</span><div class="stat-label">最小调价间隔</div></div>
+        <div class="stat-item"><span class="stat-number">30 分钟</span><div class="stat-label">推荐调价间隔</div></div>
         <div class="stat-item"><span class="stat-number">10+</span><div class="stat-label">支持主流平台</div></div>
         <div class="stat-item"><span class="stat-number">24/7</span><div class="stat-label">全天候自动运行</div></div>
       </div>
     </div>
   </div>
 
+  <section class="decision-strip" aria-labelledby="decision-heading">
+    <div class="container">
+      <div class="decision-wrap">
+        <h2 class="decision-title" id="decision-heading">为什么建议你先试用 7 天</h2>
+        <p class="decision-sub">很多卖家会在“要不要现在开始”这一步犹豫。我们把最常见的 3 个顾虑放在这里，帮你更快判断是否适合。</p>
+        <div class="decision-grid">
+          <article class="decision-item">
+            <h3>担心上手复杂</h3>
+            <p>从 API 授权到首轮调价配置，按步骤通常 30 分钟内可完成，页面内有完整指引。</p>
+          </article>
+          <article class="decision-item">
+            <h3>担心看不到结果</h3>
+            <p>系统支持按 EAN 实时查看竞品出价排行，可直接核验调价是否执行到位。</p>
+          </article>
+          <article class="decision-item">
+            <h3>担心投入不可控</h3>
+            <p>可先从单店铺 ¥100/月起步，跑通后再扩展到店群版，投入和节奏都可控。</p>
+          </article>
+        </div>
+        <div class="decision-cta">
+          <a href="https://vip.wortenprice.com/" class="btn-primary">立即开始免费试用</a>
+          <span class="decision-note">支持 API Key 安全接入，无需提供账号密码</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="platforms" id="platforms" aria-labelledby="platforms-heading">
     <div class="container">
       <div class="section-header">
         <span class="section-label">支持平台</span>
         <h2 class="section-title" id="platforms-heading">覆盖主流跨境电商平台</h2>
-        <p class="section-sub">调价先锋已全面覆盖欧洲、澳洲、北欧等地区 10+ 主流跨境电商平台，并通过 Mirakl 系统对接更多平台，持续扩展中。</p>
+        <p class="section-sub">调价先锋已覆盖欧洲、澳洲、北欧等地区的 10+ 主流跨境电商平台，并通过 Mirakl 生态持续扩展更多平台。</p>
       </div>
       <div class="platforms-grid">
         <article class="platform-card">
           <div class="platform-icon">🛒</div>
           <div>
             <h3 class="platform-name">Worten（葡萄牙）</h3>
-            <p class="platform-desc">葡萄牙最大的电子产品零售平台。支持自动调价、批量创建跟卖、订单同步与发票管理，深度集成 Worten Seller API。</p>
+            <p class="platform-desc">葡萄牙头部电子零售平台。支持自动调价、批量创建跟卖、订单同步与发票管理，深度集成 Worten Seller API。</p>
           </div>
         </article>
         <article class="platform-card">
@@ -512,14 +684,14 @@
           <div class="platform-icon">🇫🇷</div>
           <div>
             <h3 class="platform-name">Fnac（法国 / 葡萄牙）</h3>
-            <p class="platform-desc">法国及葡萄牙著名电子零售平台。支持 Fnac 自动调价与 SKU 批量管理，精准应对法语市场竞争，提升产品排名。</p>
+            <p class="platform-desc">法国及葡萄牙主流电子零售平台。支持 Fnac 自动调价与 SKU 批量管理，帮助卖家更高效应对法语市场竞争。</p>
           </div>
         </article>
         <article class="platform-card">
           <div class="platform-icon">🇫🇷</div>
           <div>
             <h3 class="platform-name">Cdiscount（法国）</h3>
-            <p class="platform-desc">法国第二大电商平台，覆盖数千万消费者。调价先锋全面支持 Cdiscount 价格管理，自动保持最优竞争排名。</p>
+            <p class="platform-desc">法国主流电商平台之一，覆盖数千万消费者。调价先锋支持 Cdiscount 价格管理，自动保持价格竞争力。</p>
           </div>
         </article>
         <article class="platform-card">
@@ -547,7 +719,7 @@
           <div class="platform-icon">🦅</div>
           <div>
             <h3 class="platform-name">Catch（澳大利亚）</h3>
-            <p class="platform-desc">澳大利亚主流电商平台。调价先锋支持 Catch 平台的自动调价与批量操作，帮助卖家在澳洲市场保持竞争优势。</p>
+            <p class="platform-desc">澳大利亚主流电商平台。调价先锋支持 Catch 自动调价与批量操作，帮助卖家在澳洲市场保持竞争优势。</p>
           </div>
         </article>
         <article class="platform-card">
@@ -562,8 +734,8 @@
       <div class="mirikal-callout">
         <div class="mirikal-icon" aria-hidden="true">⚡</div>
         <div class="mirikal-body">
-          <h3 class="mirikal-title">Mirakl 生态 — 一次对接，覆盖更多平台</h3>
-          <p class="mirikal-desc">Mirakl 是欧洲电商领域广泛使用的第三方集成中间件，Fnac、Cdiscount 等众多平台均通过 Mirakl 系统进行 API 对接。调价先锋已完整对接 Mirakl 系统，因此<strong>所有接入 Mirakl 的电商平台均可无缝接入</strong>，无需额外开发，持续为您开拓新市场。</p>
+          <h3 class="mirikal-title">Mirakl 生态：一次对接，覆盖更多平台</h3>
+          <p class="mirikal-desc">Mirakl 是欧洲电商领域广泛使用的第三方集成中间件，Fnac、Cdiscount 等众多平台均通过 Mirakl 进行 API 对接。调价先锋已完整对接 Mirakl，因此<strong>所有接入 Mirakl 的电商平台都可无缝接入</strong>，无需额外开发。</p>
         </div>
       </div>
     </div>
@@ -573,54 +745,54 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">核心功能</span>
-        <h2 class="section-title" id="features-heading">您需要的一切，都在这里</h2>
-        <p class="section-sub">从自动调价到批量操作，从发票管理到产品采集，调价先锋覆盖跨境电商全流程。</p>
+        <h2 class="section-title" id="features-heading">核心能力，一站覆盖</h2>
+        <p class="section-sub">从自动调价到批量操作，从发票管理到产品采集，覆盖跨境电商的关键运营流程。</p>
       </div>
       <div class="features-grid">
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></div>
           <h3 class="feature-name">智能自动调价</h3>
-          <p class="feature-desc">自动监控同类 EAN 下所有竞争对手的出价，始终确保您的 SKU 比第二名低 0.01 欧且优先抢占购物车，价格严格控制在您设定的区间内。</p>
+          <p class="feature-desc">自动监控同一 EAN 下的竞争出价，默认将你的 SKU 调整为比当前最低价低 0.01 欧，优先争取购物车；同时严格控制在你设定的价格区间内。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg></div>
           <h3 class="feature-name">一键数据同步</h3>
-          <p class="feature-desc">一键同步店铺内所有 SKU 数据到调价先锋，实时进度条显示同步状态，支持 10 万+ SKU 的大规模同步。</p>
+          <p class="feature-desc">一键同步店铺全部 SKU 数据，实时显示同步进度，支持 10 万+ SKU 的大规模同步。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg></div>
           <h3 class="feature-name">批量创建跟卖</h3>
-          <p class="feature-desc">通过 Excel 模板批量导入跟卖信息，无需逐个在平台后台操作，支持一次性批量创建数百条跟卖 SKU，大幅提升效率。</p>
+          <p class="feature-desc">通过 Excel 模板批量导入跟卖信息，无需逐个进入平台后台，支持一次创建数百条跟卖 SKU，显著提升效率。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></div>
           <h3 class="feature-name">批量操作中心</h3>
-          <p class="feature-desc">批量删除 SKU、批量更新库存与发货时间、批量设置调价状态、一键去重重复 EAN 商品，支持企业级大规模管理需求。</p>
+          <p class="feature-desc">支持批量删除 SKU、批量更新库存与发货时间、批量设置调价状态、一键去重重复 EAN，满足企业级规模化管理需求。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div>
           <h3 class="feature-name">发票自动化管理</h3>
-          <p class="feature-desc">批量同步近一年订单，一键生成并批量上传发票，彻底告别手动逐单处理。发票管理效率提升 10 倍以上。</p>
+          <p class="feature-desc">批量同步近一年订单，一键生成并批量上传发票，告别逐单手工处理，显著提升财务效率。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
           <h3 class="feature-name">Chrome 产品采集插件</h3>
-          <p class="feature-desc">安装浏览器插件，在 Worten 平台直接一键采集商品，支持批量采集和单个采集，快速发现跟卖机会，立即加入采集库。</p>
+          <p class="feature-desc">安装浏览器插件后，可在 Worten 页面一键采集商品。支持单个与批量采集，快速发现并沉淀跟卖机会。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></div>
           <h3 class="feature-name">进阶数据导出</h3>
-          <p class="feature-desc">导出每个 SKU 的详细竞争数据，包含各地区当前最低价，为您制定最高价与最低价策略提供精准数据支撑。</p>
+          <p class="feature-desc">可导出每个 SKU 的详细竞争数据（含各地区当前最低价），为制定最高价与最低价策略提供依据。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 19h-6v-4h-2.68c-1.14 2.42-3.6 4-6.32 4-3.86 0-7-3.14-7-7s3.14-7 7-7c2.72 0 5.17 1.58 6.32 4H24v6h-2v4zm-4-2h2v-4h2v-2H11.94l-.23-.67C11.01 8.34 9.11 7 7 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c2.11 0 4.01-1.34 4.71-3.33l.23-.67H18v4zM7 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg></div>
           <h3 class="feature-name">API 安全接入</h3>
-          <p class="feature-desc">通过 API Key 安全接入各平台，无需泄露账号密码。管理员统一分配账号权限，多店铺独立管理，权限隔离安全可控。</p>
+          <p class="feature-desc">通过 API Key 安全接入各平台，无需提供账号密码。管理员可统一分配权限，多店铺独立管理，安全可控。</p>
         </article>
         <article class="feature-item">
           <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg></div>
           <h3 class="feature-name">调价验证与监控</h3>
-          <p class="feature-desc">通过 EAN 搜索 SKU 详情，实时查看同类产品所有竞争对手的出价排行，直观验证调价策略是否按预期执行。</p>
+          <p class="feature-desc">通过 EAN 搜索 SKU 详情，实时查看同类商品的竞品出价排行，快速验证调价策略是否按预期执行。</p>
         </article>
       </div>
     </div>
@@ -631,28 +803,28 @@
       <div class="section-header">
         <span class="section-label">使用流程</span>
         <h2 class="section-title" id="how-heading">3 步开启自动调价</h2>
-        <p class="section-sub">从注册到自动运行，最快 10 分钟完成配置。</p>
+        <p class="section-sub">从授权到自动运行，最快 10 分钟完成基础配置。</p>
       </div>
       <ol class="steps-list" aria-label="使用步骤">
         <li class="step-row">
           <div class="step-num">01</div>
           <div class="step-body">
             <h3 class="step-title">获取 API Key 并登录系统</h3>
-            <p class="step-detail">在平台后台生成 API Key 并提供给管理员，管理员为您创建账号后，访问 <strong>vip.wortenprice.com</strong> 登录系统，即可看到您的店铺列表与 SKU 数据。</p>
+            <p class="step-detail">在平台后台生成 API Key 并提交给管理员。管理员创建账号后，访问 <strong>vip.wortenprice.com</strong> 登录系统，即可查看店铺与 SKU 数据。</p>
           </div>
         </li>
         <li class="step-row">
           <div class="step-num">02</div>
           <div class="step-body">
             <h3 class="step-title">一键同步数据并配置调价区间</h3>
-            <p class="step-detail">点击同步按钮，系统自动拉取所有 SKU 数据。导出 Excel 文件，填写每个 SKU 的最低价（必填）和最高价（可选），再通过"表格应用调价"功能批量导入，使配置生效。</p>
+            <p class="step-detail">点击同步按钮，系统自动拉取全部 SKU 数据。导出 Excel，填写每个 SKU 的最低价（必填）和最高价（可选），再通过“表格应用调价”批量导入并生效。</p>
           </div>
         </li>
         <li class="step-row">
           <div class="step-num">03</div>
           <div class="step-body">
             <h3 class="step-title">设置调价频率，启动自动调价</h3>
-            <p class="step-detail">在调价设置中配置自动调价时间间隔（推荐 30 分钟），系统即开始 24/7 自动监控竞争对手价格并实时调整。您可随时通过 EAN 搜索验证调价结果是否符合预期。</p>
+            <p class="step-detail">在调价设置中配置自动调价间隔（推荐 30 分钟）后，系统将 24/7 自动监控竞品价格并实时调整。你可随时通过 EAN 搜索验证结果。</p>
           </div>
         </li>
       </ol>
@@ -664,20 +836,20 @@
       <div class="section-header">
         <span class="section-label">批量操作</span>
         <h2 class="section-title" id="batch-heading">规模化管理，解放双手</h2>
-        <p class="section-sub">针对大规模 SKU 管理需求而设计，支持多种批量操作让您事半功倍。</p>
+        <p class="section-sub">面向大规模 SKU 管理场景设计，常见高频操作都可批量处理。</p>
       </div>
       <div class="ops-grid">
-        <div class="op-item"><div class="op-name">批量删除 SKU</div><p class="op-desc">在调价先锋删除 SKU 后自动同步至平台后台，无需手动逐个操作。</p></div>
+        <div class="op-item"><div class="op-name">批量删除 SKU</div><p class="op-desc">在调价先锋中删除 SKU 后，可自动同步到平台后台，无需逐个处理。</p></div>
         <div class="op-item"><div class="op-name">批量设置调价状态</div><p class="op-desc">选中数十至数百个 SKU，一键开启或关闭调价功能，无需逐个设置。</p></div>
-        <div class="op-item"><div class="op-name">批量导入 SKU</div><p class="op-desc">SKU 数量超过 10 万时，可通过手动批量导入方式高效同步所有数据。</p></div>
-        <div class="op-item"><div class="op-name">一键去重</div><p class="op-desc">相同 EAN 的商品只保留价格最低的 SKU，自动删除高价重复项，优化出价策略。</p></div>
+        <div class="op-item"><div class="op-name">批量导入 SKU</div><p class="op-desc">当 SKU 数量超过 10 万时，可通过批量导入方式高效完成同步。</p></div>
+        <div class="op-item"><div class="op-name">一键去重</div><p class="op-desc">同一 EAN 仅保留价格最低的 SKU，自动清理高价重复项，优化出价结构。</p></div>
         <div class="op-item"><div class="op-name">批量更新库存</div><p class="op-desc">同时更新多个 SKU 的库存数量，快速响应库存变化，避免缺货影响排名。</p></div>
         <div class="op-item"><div class="op-name">批量更新发货时间</div><p class="op-desc">批量修改多个 SKU 的承诺发货时间，统一管理物流信息，提升买家信任度。</p></div>
       </div>
     </div>
   </section>
 
-  <section class="testimonials" aria-labelledby="testimonials-heading">
+  <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-header centered">
         <span class="section-label">用户评价</span>
@@ -686,7 +858,7 @@
       <div class="testimonials-grid">
         <article class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"使用调价先锋后，我们在 Worten 的销售额增长了 30%，人工调价时间减少了 90%。自动抢占购物车的功能真的太香了，每次竞争对手涨价我们也能跟着涨，利润大幅提升！"</p>
+          <p class="testimonial-text">"使用调价先锋后，我们在 Worten 的销售额增长了 30%，人工调价时间减少了 90%。自动调价和购物车策略非常稳定，竞争对手涨价时也能及时跟进，利润明显改善。"</p>
           <div class="testimonial-author">
             <div class="author-avatar-placeholder">张</div>
             <div><div class="author-name">张先生</div><div class="author-role">Worten 跨境电商卖家</div></div>
@@ -702,7 +874,7 @@
         </article>
         <article class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"发票批量管理功能解决了我们的大痛点。以前每天要花 2-3 小时处理发票，现在一键批量生成上传，10 分钟搞定。强烈推荐给所有 Worten 卖家！"</p>
+          <p class="testimonial-text">"发票批量管理解决了我们长期痛点。以前每天要花 2-3 小时处理发票，现在一键批量生成并上传，10 分钟左右就能完成。"</p>
           <div class="testimonial-author">
             <div class="author-avatar-placeholder">王</div>
             <div><div class="author-name">王先生</div><div class="author-role">跨境贸易财务主管</div></div>
@@ -710,7 +882,7 @@
         </article>
         <article class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"产品采集 Chrome 插件非常好用，在 Worten 页面直接一键采集，快速发现跟卖机会。进阶数据导出也很实用，各地区最低价一目了然，帮我们把最低价设置得更精准。"</p>
+          <p class="testimonial-text">"Chrome 采集插件非常实用，在 Worten 页面即可一键采集，快速发现跟卖机会。进阶数据导出也很有价值，各地区最低价一目了然，便于更精准地设置价格。"</p>
           <div class="testimonial-author">
             <div class="author-avatar-placeholder">李</div>
             <div><div class="author-name">李女士</div><div class="author-role">跨境电商店主</div></div>
@@ -724,8 +896,13 @@
     <div class="container">
       <div class="section-header centered">
         <span class="section-label">价格方案</span>
-        <h2 class="section-title" id="pricing-heading">简单透明，按需选择</h2>
-        <p class="section-sub">单店铺 ¥100/月，店群每店铺 ¥200/月，功能更多、更强。</p>
+        <h2 class="section-title" id="pricing-heading">价格透明，按规模选择</h2>
+        <p class="section-sub">单店铺 ¥100/月；店群版 ¥200/月/店铺，覆盖更完整的自动化能力。</p>
+        <div class="pricing-assurance" aria-label="价格区信任提示">
+          <span>先用单店铺验证效果，再扩展到店群</span>
+          <span>无客户端安装，网页登录即可开始</span>
+          <span>企业定制支持专属顾问协助落地</span>
+        </div>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -747,9 +924,9 @@
           <div class="pricing-badge">功能最全</div>
           <div class="pricing-plan">店群版</div>
           <div class="pricing-price">¥200<span>/月·每店铺</span></div>
-          <div class="pricing-period">支持多店铺，功能全面升级</div>
+          <div class="pricing-period">支持多店铺，能力更完整</div>
           <hr class="pricing-divider">
-          <div class="pricing-diff-tip">相比单店铺，额外包含↓</div>
+          <div class="pricing-diff-tip">相比单店铺，额外包含：</div>
           <ul class="pricing-features-list">
             <li>无限店铺数量</li>
             <li>智能自动调价</li>
@@ -787,12 +964,12 @@
     <div class="container">
       <div class="section-header centered">
         <span class="section-label">常见问题</span>
-        <h2 class="section-title" id="faq-heading">您可能想了解的问题</h2>
+        <h2 class="section-title" id="faq-heading">你可能关心的问题</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item">
           <summary class="faq-q">调价先锋的调价策略是什么？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价先锋的策略是：在同一 EAN 下实时监控所有卖家报价，并将您的出价自动调整为比当前最低报价低 0.01 欧，以更高概率持续抢占购物车并提升购物车归属率。当竞争对手涨价时，系统会自动跟涨以锁定利润。价格始终被约束在您设定的最高价和最低价之间，绝不会跌破底线。</div>
+          <div class="faq-a">调价先锋会在同一 EAN 下实时监控所有卖家报价，并将你的出价自动调整为比当前最低价低 0.01 欧，以更高概率持续争取购物车。当竞争对手涨价时，系统也会自动跟涨以提升利润。价格始终约束在你设定的最高价和最低价之间，不会跌破底线。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">调价先锋支持哪些电商平台？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
@@ -800,31 +977,31 @@
         </details>
         <details class="faq-item">
           <summary class="faq-q">调价频率是多少？可以自定义吗？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价频率完全可自定义，我们推荐设置为每 30 分钟一次。系统会在您设定的时间间隔内自动运行调价程序，全天候 24/7 运行，无需人工干预。</div>
+          <div class="faq-a">调价频率可自定义，推荐设置为每 30 分钟一次。系统会按你设定的间隔自动运行，全天候 24/7 工作，无需人工干预。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">如何安全地连接我的平台账号？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价先锋通过 API Key 与平台对接，您无需提供账号密码。在平台卖家后台生成 API Key 后提供给管理员即可完成授权，账号安全完全由 API 权限机制保障。</div>
+          <div class="faq-a">调价先锋通过 API Key 与平台对接，无需提供账号密码。在卖家后台生成 API Key 并提交给管理员后即可完成授权，安全由平台 API 权限机制保障。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">Chrome 产品采集插件如何使用？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">从 Chrome 应用商店安装「调价先锋产品采集插件」，使用您的调价先锋账号登录。打开 worten.pt 搜索商品后，点击商品下方的采集按钮即可一键采集。支持批量采集和单个采集，采集的商品自动进入采集库。需注意带品牌的 SKU 无法被采集。</div>
+          <div class="faq-a">在 Chrome 应用商店安装“调价先锋产品采集插件”后，使用调价先锋账号登录。打开 worten.pt 搜索商品，点击商品下方采集按钮即可一键采集。支持单个与批量采集，采集结果会自动进入采集库。需注意：带品牌的 SKU 暂不支持采集。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">如何验证调价是否正确执行？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">在调价先锋中通过 EAN 搜索到对应 SKU，点击查看详情，即可看到当前该 EAN 下所有卖家的出价排行。出价最低的排在最前面，以此可直观判断您的调价是否按策略执行。</div>
+          <div class="faq-a">在调价先锋中通过 EAN 搜索对应 SKU，进入详情后即可查看该 EAN 下所有卖家的出价排行。最低价会排在最前面，可据此直观判断调价是否按策略执行。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">发票管理功能支持哪些操作？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">发票功能支持同步最近一年的所有订单，批量选择订单一键生成发票，以及批量选择订单批量上传发票。原本需要数小时的发票处理工作，现在只需几分钟即可完成。</div>
+          <div class="faq-a">发票功能支持同步最近一年的订单、批量一键生成发票、批量上传发票。原本需要数小时的处理工作，现在通常几分钟即可完成。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">什么是 Mirakl？通过 Mirakl 可以接入哪些平台？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">Mirakl 是一个在欧洲电商领域广泛使用的第三方 API 集成中间件系统，许多电商平台（包括 Fnac、Cdiscount 等）通过 Mirakl 向第三方卖家工具开放 API 接口。调价先锋已完整对接 Mirakl 系统，这意味着所有使用 Mirakl 进行 API 集成的平台，均可无缝接入调价先锋，无需针对每个平台单独开发。</div>
+          <div class="faq-a">Mirakl 是欧洲电商领域广泛使用的第三方 API 集成中间件。许多电商平台（包括 Fnac、Cdiscount 等）通过 Mirakl 向第三方卖家工具开放 API。调价先锋已完整对接 Mirakl，意味着所有使用 Mirakl 进行 API 集成的平台都可无缝接入，无需逐个平台单独开发。</div>
         </details>
         <details class="faq-item">
           <summary class="faq-q">调价先锋的价格是多少？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价先锋提供差异化定价：<strong>单店铺版 ¥100/月</strong>，适合只运营一个店铺的卖家；<strong>店群版每店铺 ¥200/月</strong>，支持无限店铺数量，并额外包含发票自动化管理、Chrome 产品采集插件等高级功能。企业大客户可联系我们获取定制报价。</div>
+          <div class="faq-a">调价先锋采用差异化定价：<strong>单店铺版 ¥100/月</strong>，适合单店运营；<strong>店群版 ¥200/月/店铺</strong>，支持多店铺并额外包含发票自动化、Chrome 采集插件等能力。企业客户可联系我们获取定制方案。</div>
         </details>
       </div>
     </div>
@@ -836,8 +1013,8 @@
       <div class="contact-grid">
         <div class="contact-left">
           <span class="section-label">联系我们</span>
-          <h2 id="contact-heading">有问题？我们随时在线</h2>
-          <p>无论是功能咨询、企业定制方案，还是对接新平台，欢迎直接联系。添加微信响应最快，通常 30 分钟内回复。</p>
+          <h2 id="contact-heading">有问题？随时联系我们</h2>
+          <p>无论是功能咨询、企业定制，还是新平台对接，欢迎直接联系。添加微信响应更快，通常 30 分钟内回复。</p>
           <div class="contact-methods">
             <a href="tel:+8617720284880" class="contact-method">
               <div class="contact-method-icon">📞</div>
@@ -868,8 +1045,8 @@
 
   <section class="cta-section" aria-labelledby="cta-heading">
     <div class="container">
-      <h2 id="cta-heading">准备好让销售额腾飞了吗？</h2>
-      <p>7×24 小时全自动抢占购物车，竞对降价自动跟进，竞对涨价同步拉升</p>
+      <h2 id="cta-heading">准备好提升销量和利润了吗？</h2>
+      <p>7×24 小时自动调价，竞对降价自动跟进，竞对涨价同步优化利润空间</p>
       <a href="https://vip.wortenprice.com/" class="btn-white">立即免费试用</a>
     </div>
   </section>
@@ -916,6 +1093,10 @@
     </div>
   </footer>
 
+  <div class="mobile-sticky-cta" aria-label="移动端快捷试用入口">
+    <a href="https://vip.wortenprice.com/">立即免费试用</a>
+  </div>
+
   <script>
     const toggle = document.getElementById('nav-toggle');
     const links = document.getElementById('nav-links');
@@ -936,6 +1117,20 @@
 
     const schemas = [
       {
+        "@context": "https://schema.org", "@type": "WebSite",
+        "name": "调价先锋",
+        "url": "https://www.wortenprice.com",
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@context": "https://schema.org", "@type": "WebPage",
+        "name": "调价先锋 - 跨境电商自动调价工具",
+        "url": "https://www.wortenprice.com",
+        "description": "支持 10+ 跨境平台及 Mirakl 生态的自动调价工具，帮助卖家抢占购物车并提升调价效率。",
+        "isPartOf": { "@type": "WebSite", "name": "调价先锋", "url": "https://www.wortenprice.com" },
+        "inLanguage": "zh-CN"
+      },
+      {
         "@context": "https://schema.org", "@type": "SoftwareApplication",
         "name": "调价先锋", "alternateName": ["Worten调价工具","Allegro调价工具","Fnac调价工具","Cdiscount调价工具","Fyndiq调价工具","OnBuy调价工具","电商自动调价软件","Mirakl调价工具"],
         "applicationCategory": "BusinessApplication", "operatingSystem": "Web, Chrome Extension",
@@ -948,7 +1143,7 @@
       {
         "@context": "https://schema.org", "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "调价先锋的调价策略是什么？", "acceptedAnswer": { "@type": "Answer", "text": "调价先锋会在同一EAN下实时监控所有卖家报价，并自动将您的出价调整为比当前最低报价低0.01欧，以更高概率持续抢占购物车；价格始终约束在您设定的最高价和最低价之间。" } },
+          { "@type": "Question", "name": "调价先锋的调价策略是什么？", "acceptedAnswer": { "@type": "Answer", "text": "调价先锋会在同一EAN下实时监控所有卖家报价，并自动将你的出价调整为比当前最低报价低0.01欧，以更高概率持续抢占购物车；价格始终约束在你设定的最高价和最低价之间。" } },
           { "@type": "Question", "name": "调价先锋支持哪些平台？", "acceptedAnswer": { "@type": "Answer", "text": "目前支持Worten、Allegro、Fnac、Cdiscount、Fyndiq、OnBuy、RDC、Catch、ePrice等10+主流跨境电商平台，以及所有接入Mirakl系统的平台。" } },
           { "@type": "Question", "name": "调价先锋的价格是多少？", "acceptedAnswer": { "@type": "Answer", "text": "单店铺版 ¥100/月，仅支持 1 个店铺；店群版每个店铺 ¥200/月，支持无限店铺数量且功能更全面（含发票管理、Chrome采集插件等）。企业大客户可联系我们获取定制方案。" } }
         ]
