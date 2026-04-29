@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调价工具 | 跨境电商自动调价软件 - 调价先锋</title>
+  <meta name="description" content="调价先锋是一款跨境电商调价工具，支持自动调价、竞争调价、批量调价和价格区间保护。适用于 Worten、RDC、Catch、ePrice 等平台。">
+  <link rel="canonical" href="https://www.wortenprice.com/tiaojia.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="调价工具 | 跨境电商自动调价软件 - 调价先锋">
+  <meta property="og:description" content="了解什么是调价工具、适用场景和落地流程。支持自动调价、竞争调价、批量调价。">
+  <meta property="og:url" content="https://www.wortenprice.com/tiaojia.html">
+  <meta property="og:image" content="https://www.wortenprice.com/image/qr.png">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <style>
+    :root {
+      --primary: #0052cc;
+      --primary-hover: #003f9f;
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --soft: #f8fafc;
+      --line: #e5e7eb;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .container { width: min(1040px, 92vw); margin: 0 auto; }
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .topbar-inner {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+    .cta {
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .cta:hover { background: var(--primary-hover); }
+    .hero {
+      padding: 56px 0 36px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .badge {
+      display: inline-block;
+      background: #eaf1ff;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.8px;
+    }
+    .hero p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    section { padding: 50px 0; }
+    h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 12px;
+      letter-spacing: -0.4px;
+    }
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .topic-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .topic-link {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      color: var(--ink);
+      background: #fff;
+      transition: border-color .15s, transform .15s;
+    }
+    .topic-link:hover {
+      border-color: #b9cffd;
+      transform: translateY(-2px);
+    }
+    .topic-link h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    .topic-link p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 18px;
+    }
+    .card h3 { font-size: 18px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; }
+    .faq {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq details { border-bottom: 1px solid var(--line); background: #fff; }
+    .faq details:last-child { border-bottom: none; }
+    .faq summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 16px 18px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq p { color: var(--muted); padding: 0 18px 16px; font-size: 15px; }
+    .bottom-cta {
+      background: #0f172a;
+      color: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .bottom-cta p { color: rgba(255,255,255,0.76); }
+    .footer {
+      padding: 30px 0 46px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .topic-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="/" class="brand">调价先锋</a>
+      <a href="https://vip.wortenprice.com/" class="cta">免费试用</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="badge">调价关键词专题页</span>
+        <h1>调价工具是什么？<br>如何用自动调价提升成交率</h1>
+        <p>调价工具是通过规则自动更新商品价格的软件。对跨境电商卖家来说，核心价值不是“频繁改价”，而是在可控利润区间内，持续保持价格竞争力。</p>
+        <div class="hero-links">
+          <a href="#how">查看调价流程</a>
+          <a href="#faq">查看调价常见问题</a>
+          <a href="/">返回首页</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <h2>调价工具如何工作</h2>
+        <p class="section-desc">以调价先锋为例，系统会实时监控同一 EAN 下的竞争价格，并根据你设定的最低价、最高价和策略规则自动执行调价。</p>
+        <div class="grid">
+          <article class="card">
+            <h3>1. 设定价格边界</h3>
+            <p>为每个 SKU 设置最低价和最高价，先保证利润底线，再追求竞争优势。</p>
+          </article>
+          <article class="card">
+            <h3>2. 自动监控竞品</h3>
+            <p>系统按设定频率监控竞争出价，发现变化后自动判断是否需要调价。</p>
+          </article>
+          <article class="card">
+            <h3>3. 执行并可验证</h3>
+            <p>调价后可按 EAN 查看排名与执行结果，便于复盘和优化规则。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>调价工具适合哪些卖家</h2>
+        <p class="section-desc">当你出现以下任一情况时，建议尽快引入自动调价能力。</p>
+        <div class="grid">
+          <article class="card">
+            <h3>SKU 多，人工来不及改价</h3>
+            <p>手动改价容易滞后，错过流量窗口，也难以长期稳定执行策略。</p>
+          </article>
+          <article class="card">
+            <h3>竞争激烈，价格波动频繁</h3>
+            <p>同一 EAN 下竞品频繁变价，靠人工追价成本高且准确率低。</p>
+          </article>
+          <article class="card">
+            <h3>想提升转化但守住利润</h3>
+            <p>自动调价可以兼顾转化效率与利润区间，避免盲目降价。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>调价工具常见问题</h2>
+        <div class="faq">
+          <details>
+            <summary>调价工具会不会导致商品价格失控？</summary>
+            <p>不会。只要设置好最低价和最高价，系统就会在区间内执行，不会突破边界。</p>
+          </details>
+          <details>
+            <summary>调价多久能看到效果？</summary>
+            <p>通常在跑通首轮配置后就能看到执行结果。是否提升成交，还与类目竞争强度和库存策略有关。</p>
+          </details>
+          <details>
+            <summary>调价先锋支持哪些平台？</summary>
+            <p>目前支持 Worten、RDC、Catch、ePrice 等平台，并在持续扩展接入范围。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>延伸阅读：调价关键词专题</h2>
+        <p class="section-desc">围绕“调价”核心需求，我们整理了 3 个更细分的实操专题。</p>
+        <div class="topic-links">
+          <a class="topic-link" href="/zidong-tiaojia.html">
+            <h3>自动调价工具</h3>
+            <p>从策略原理到上线流程，完整理解自动调价如何提效。</p>
+          </a>
+          <a class="topic-link" href="/jingzheng-tiaojia.html">
+            <h3>竞争调价工具</h3>
+            <p>聚焦竞品价格响应与利润边界，避免无序价格战。</p>
+          </a>
+          <a class="topic-link" href="/piliang-tiaojia.html">
+            <h3>批量调价工具</h3>
+            <p>面向海量 SKU 场景，建立可复制的批量调价体系。</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="bottom-cta">
+          <div>
+            <h2>想把“调价”从手工动作变成自动能力？</h2>
+            <p>先试用，再决定是否大规模上线。</p>
+          </div>
+          <a href="https://vip.wortenprice.com/" class="cta">立即免费试用</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 调价先锋 · <a href="/">返回首页</a></div>
+  </footer>
+
+  <script>
+    const schemas = [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "调价工具 | 跨境电商自动调价软件 - 调价先锋",
+        "url": "https://www.wortenprice.com/tiaojia.html",
+        "description": "调价工具专题页，介绍自动调价原理、适用场景和常见问题。",
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "调价工具会不会导致商品价格失控？",
+            "acceptedAnswer": { "@type": "Answer", "text": "不会。只要设置好最低价和最高价，系统就会在区间内执行，不会突破边界。" }
+          },
+          {
+            "@type": "Question",
+            "name": "调价多久能看到效果？",
+            "acceptedAnswer": { "@type": "Answer", "text": "通常在跑通首轮配置后就能看到执行结果。是否提升成交，还与类目竞争强度和库存策略有关。" }
+          },
+          {
+            "@type": "Question",
+            "name": "调价先锋支持哪些平台？",
+            "acceptedAnswer": { "@type": "Answer", "text": "目前支持 Worten、RDC、Catch、ePrice 等平台，并在持续扩展接入范围。" }
+          }
+        ]
+      }
+    ];
+    schemas.forEach(schema => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
+  </script>
+</body>
+</html>
