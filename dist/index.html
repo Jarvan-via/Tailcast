@@ -4,1162 +4,1110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel='canonical' href='https://autopricy.com' />
-  <meta name="generator" content="Astro" />
+  <link rel="canonical" href="https://autopricy.com/">
+  <title>调价先锋 Autopricy - 跨境电商多平台自动调价 SaaS</title>
+  <meta name="description" content="调价先锋 Autopricy 面向跨境电商团队，支持 Mirakl 全系、Worten、Fnac、Cdiscount、OnBuy、Fyndiq、Carrefour、MediaMarkt、RDC、Catch、ePRICE、PCCom、Leroy Merlin 等平台的店铺管理、Offer 管理、自动调价、批量操作和发票自动化。">
+  <meta name="keywords" content="Autopricy, 调价先锋, 自动调价, 跨境电商 SaaS, Mirakl 调价, Worten 调价, Cdiscount 调价, Fnac 调价, OnBuy 调价, Fyndiq 调价, Offer 管理, 店铺管理, 发票自动化">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0f4c81">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="alternate" hreflang="zh-CN" href="https://autopricy.com/">
+  <link rel="alternate" hreflang="x-default" href="https://autopricy.com/">
 
-  <title>调价先锋 - 跨境电商自动调价工具 | 支持 Worten、Allegro、Fnac 等 10+ 平台</title>
-  <meta name="description" content="调价先锋支持 Worten、Allegro、Fnac、Cdiscount、OnBuy、Fyndiq 等 10+ 跨境平台及 Mirakl 生态。自动调价、批量跟卖、发票自动化，单店铺 ¥100/月即可开始验证效果。" />
-  <meta name="keywords" content="调价先锋, 自动调价工具, Worten调价, Allegro调价, Fnac调价, Cdiscount调价, Fyndiq调价, OnBuy调价, RDC调价, Catch调价, ePrice调价, Mirakl调价, Mirakl价格管理, 跨境电商调价, 电商价格管理, 智能调价, 跟卖工具, 价格监控, 批量调价, 发票管理, 产品采集, 电商ERP, 欧洲电商调价, 抢占购物车, 购物车归属率" />
-  <meta name="theme-color" content="#0052cc" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <link rel="alternate" hreflang="zh-CN" href="https://autopricy.com/" />
-  <link rel="alternate" hreflang="x-default" href="https://autopricy.com/" />
-
-  <meta property="og:title" content="调价先锋 - 智能电商自动调价工具 | 覆盖 Worten、Allegro、Fnac 等 10+ 跨境平台" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="支持 Allegro、Cdiscount、Fnac、Worten、OnBuy 等 10+ 跨境平台及 Mirakl 生态，智能自动调价抢占购物车，竞对降价自动跟进，竞对涨价同步拉升。" />
-  <meta property="og:url" content="https://autopricy.com" />
-  <meta property="og:image" content="https://autopricy.com/image/qr.png" />
-  <meta property="og:image:alt" content="调价先锋跨境电商自动调价工具" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:site_name" content="调价先锋" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="调价先锋 - 智能电商自动调价工具" />
-  <meta name="twitter:description" content="支持 Allegro、Cdiscount、Fnac、Worten、OnBuy 等 10+ 跨境平台，智能自动调价抢占购物车，竞对降价自动跟进，竞对涨价同步拉升。" />
-  <meta name="twitter:image" content="https://autopricy.com/image/qr.png" />
-  <meta name="twitter:image:alt" content="调价先锋跨境电商自动调价工具" />
-
-  <meta name="baidu-site-verification" content="codeva-9gHjbuhMKH" />
-  <meta name="google-site-verification" content="QH_zGxw1oFSdvYsY8EJ7OS3ZIIJiCnCJjblehyrAJvA" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="author" content="调价先锋团队" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="调价先锋 Autopricy - 跨境电商多平台自动调价 SaaS">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="统一管理跨境店铺、Offer、自动调价、批量操作和发票流程，覆盖 Mirakl 全系和多个主流电商平台。">
+  <meta property="og:url" content="https://autopricy.com/">
+  <meta property="og:image" content="https://autopricy.com/doc-images/superData.png">
+  <meta property="og:image:alt" content="调价先锋 Autopricy 运营工作台">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="调价先锋 Autopricy">
 
   <style>
     :root {
-      --primary: #0052cc;
-      --primary-hover: #0041a3;
-      --text-primary: #111827;
-      --text-secondary: #6b7280;
-      --text-muted: #9ca3af;
-      --bg: #ffffff;
-      --bg-subtle: #f9fafb;
-      --bg-muted: #f3f4f6;
-      --border: #e5e7eb;
-      --border-strong: #d1d5db;
-      --radius-sm: 6px;
-      --radius: 10px;
-      --radius-lg: 16px;
+      --ink-950: #111827;
+      --ink-800: #1f2937;
+      --ink-650: #4b5563;
+      --ink-500: #6b7280;
+      --paper: #ffffff;
+      --paper-soft: #f7f9fc;
+      --paper-strong: #eef2f7;
+      --line: #dbe3ee;
+      --line-strong: #c6d1df;
+      --brand: #0f4c81;
+      --brand-strong: #0a3760;
+      --brand-soft: #e9f3fb;
+      --accent: #1f9d8a;
+      --accent-soft: #e8f6f3;
+      --warning: #b7791f;
+      --shadow: 0 18px 46px rgba(25, 47, 74, 0.14);
+      --radius: 8px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--text-primary); background: var(--bg);
-      -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden;
+      margin: 0;
+      color: var(--ink-950);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px; max-width: 1160px; margin: 0 auto; padding: 0 24px;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon {
-      width: 32px; height: 32px; background: var(--primary); border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .nav-logo-icon svg { width: 18px; height: 18px; fill: white; }
-    .nav-logo-text { font-size: 16px; font-weight: 700; color: var(--text-primary); }
-    .nav-links { display: flex; align-items: center; list-style: none; gap: 4px; }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--text-secondary);
-      text-decoration: none; padding: 6px 12px; border-radius: var(--radius-sm);
-      transition: color 0.15s, background 0.15s;
-    }
-    .nav-links a:hover { color: var(--text-primary); background: var(--bg-muted); }
-    .nav-cta {
-      background: var(--primary) !important; color: #fff !important;
-      padding: 8px 18px !important; border-radius: var(--radius-sm) !important; font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: var(--primary-hover) !important; }
-    .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    img { max-width: 100%; display: block; }
 
-    .hero { padding: 140px 0 100px; text-align: center; background: var(--bg); }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #eff6ff; color: var(--primary); font-size: 13px; font-weight: 600;
-      padding: 5px 14px; border-radius: 100px; margin-bottom: 28px; border: 1px solid #dbeafe;
+    a { color: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
     }
-    .hero h1 {
-      font-size: clamp(36px, 5vw, 60px); font-weight: 800;
-      letter-spacing: -1.5px; line-height: 1.1; color: var(--text-primary); margin-bottom: 20px;
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(219, 227, 238, 0.86);
     }
-    .hero h1 em { font-style: normal; color: var(--primary); }
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 20px); color: var(--text-secondary);
-      max-width: 720px; margin: 0 auto 30px; line-height: 1.65;
-    }
-    .hero-actions {
-      display: flex; align-items: center; justify-content: center;
-      gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
-    }
-    .btn-primary {
-      background: var(--primary); color: #fff; padding: 12px 28px;
-      border-radius: var(--radius-sm); font-size: 15px; font-weight: 600;
-      text-decoration: none; transition: background 0.15s, transform 0.1s;
-    }
-    .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
-    .btn-secondary {
-      background: var(--bg); color: var(--text-primary); padding: 12px 28px;
-      border-radius: var(--radius-sm); font-size: 15px; font-weight: 600;
-      text-decoration: none; border: 1px solid var(--border-strong);
-      transition: background 0.15s, transform 0.1s;
-    }
-    .btn-secondary:hover { background: var(--bg-subtle); transform: translateY(-1px); }
-    .hero-inline-link {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--primary);
-      text-decoration: none;
-      margin-bottom: 22px;
-    }
-    .hero-inline-link:hover { color: var(--primary-hover); }
-    .hero-trust-list {
+
+    .nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 52px;
+      justify-content: space-between;
+      height: 64px;
+      gap: 24px;
     }
-    .hero-trust-item {
-      font-size: 13px;
-      color: #334155;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 7px 12px;
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink-950);
+      font-weight: 750;
+      text-decoration: none;
       white-space: nowrap;
     }
-    .hero-trust-item strong {
-      color: #0f172a;
-      font-weight: 700;
-    }
-    .hero-platforms { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
-    .hero-platforms-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
-    .platform-tag {
-      display: inline-block; font-size: 13px; font-weight: 600; color: var(--text-secondary);
-      background: var(--bg-muted); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border);
+
+    .brand img {
+      width: 32px;
+      height: 32px;
     }
 
-    section { padding: 96px 0; }
-    .section-label {
-      display: inline-block; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(28px, 3.5vw, 40px); font-weight: 800;
-      letter-spacing: -0.5px; color: var(--text-primary); margin-bottom: 16px;
-    }
-    .section-sub { font-size: 17px; color: var(--text-secondary); max-width: 560px; line-height: 1.6; }
-    .section-header { margin-bottom: 56px; }
-    .section-header.centered { text-align: center; }
-    .section-header.centered .section-sub { margin: 0 auto; }
-
-    .stats-bar {
-      background: var(--bg-subtle);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0;
-    }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat-item { padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); }
-    .stat-item:last-child { border-right: none; }
-    .stat-number { font-size: 32px; font-weight: 800; color: var(--text-primary); letter-spacing: -1px; display: block; }
-    .stat-label { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
-
-    .decision-strip { background: var(--bg); }
-    .decision-wrap {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-    }
-    .decision-title {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-    .decision-sub {
-      font-size: 15px;
-      color: var(--text-secondary);
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 20px;
-    }
-    .decision-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    .decision-item {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .decision-item h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .decision-item p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-    .decision-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .decision-note {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .platforms { background: var(--bg); }
-    .mirikal-callout {
-      display: flex; align-items: flex-start; gap: 20px;
-      background: #eff6ff; border: 1px solid #bfdbfe;
-      border-radius: var(--radius-lg); padding: 28px 32px; margin-top: 24px;
-    }
-    .mirikal-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
-    .mirikal-title { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-    .mirikal-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-    .mirikal-desc strong { color: var(--primary); font-weight: 600; }
-    .platforms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .platform-card {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 28px 32px; display: flex; align-items: flex-start; gap: 20px;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .platform-card:hover { border-color: var(--primary); background: #fafbff; }
-    .platform-icon {
-      width: 48px; height: 48px; background: var(--bg-muted); border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px;
-    }
-    .platform-name { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
-    .platform-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
-
-    .features { background: var(--bg-subtle); }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); overflow: hidden;
-    }
-    .feature-item { background: var(--bg); padding: 32px 28px; transition: background 0.15s; }
-    .feature-item:hover { background: #fafbff; }
-    .feature-icon-wrap {
-      width: 40px; height: 40px; background: #eff6ff; border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-    }
-    .feature-icon-wrap svg { width: 20px; height: 20px; fill: var(--primary); }
-    .feature-name { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-    .feature-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-
-    .how-it-works { background: var(--bg); }
-    .steps-list {
-      display: flex; flex-direction: column; gap: 0;
-      border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
-    }
-    .step-row {
-      display: grid; grid-template-columns: 72px 1fr;
-      border-bottom: 1px solid var(--border); transition: background 0.15s;
-    }
-    .step-row:last-child { border-bottom: none; }
-    .step-row:hover { background: var(--bg-subtle); }
-    .step-num {
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 800; color: var(--border-strong);
-      border-right: 1px solid var(--border); padding: 28px 0;
-    }
-    .step-body { padding: 28px 32px; }
-    .step-title { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-    .step-detail { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-
-    .batch-ops { background: var(--bg-subtle); }
-    .ops-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .op-item {
-      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 20px 22px; transition: border-color 0.15s;
-    }
-    .op-item:hover { border-color: var(--primary); }
-    .op-name {
-      font-size: 15px; font-weight: 700; color: var(--text-primary);
-      margin-bottom: 6px; display: flex; align-items: center; gap: 8px;
-    }
-    .op-name::before {
-      content: ''; width: 6px; height: 6px; background: var(--primary);
-      border-radius: 50%; flex-shrink: 0;
-    }
-    .op-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-
-    .pricing { background: var(--bg); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .pricing-assurance {
-      margin: 18px auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      max-width: 960px;
-    }
-    .pricing-assurance span {
-      font-size: 13px;
-      color: #334155;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 7px 12px;
-    }
-    .pricing-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; position: relative; }
-    .pricing-card.featured { border-color: var(--primary); border-width: 2px; }
-    .pricing-badge {
-      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-      background: var(--primary); color: white; font-size: 12px; font-weight: 700;
-      padding: 3px 14px; border-radius: 0 0 8px 8px;
-    }
-    .pricing-plan {
-      font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-      text-transform: uppercase; color: var(--text-secondary); margin-bottom: 12px;
-    }
-    .pricing-price {
-      font-size: 44px; font-weight: 800; letter-spacing: -1px;
-      color: var(--text-primary); line-height: 1; margin-bottom: 4px;
-    }
-    .pricing-price span { font-size: 16px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0; }
-    .pricing-period { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
-    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
-    .pricing-features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-    .pricing-features-list li {
-      display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary);
-    }
-    .pricing-features-list li::before {
-      content: ''; width: 16px; height: 16px; background: #eff6ff; border-radius: 50%;
-      flex-shrink: 0; margin-top: 1px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230052cc'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
-      background-size: 12px; background-repeat: no-repeat; background-position: center;
-    }
-    .pricing-diff-tip {
-      font-size: 12px; font-weight: 600; color: var(--primary);
-      background: #eff6ff; border-radius: 4px; padding: 4px 10px;
-      margin-bottom: 14px; display: inline-block;
-    }
-    .pricing-features-list li strong { color: var(--text-primary); font-weight: 600; }
-    .pricing-btn {
-      display: block; text-align: center; padding: 12px; border-radius: var(--radius-sm);
-      font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.15s, transform 0.1s;
-    }
-    .pricing-btn.primary { background: var(--primary); color: white; }
-    .pricing-btn.primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
-    .pricing-btn.outline { background: transparent; color: var(--text-primary); border: 1px solid var(--border-strong); }
-    .pricing-btn.outline:hover { background: var(--bg-subtle); transform: translateY(-1px); }
-
-    .faq { background: var(--bg-subtle); }
-    .faq-list {
-      display: flex; flex-direction: column; gap: 0;
-      border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
-      max-width: 800px; margin: 0 auto;
-    }
-    .faq-item { border-bottom: 1px solid var(--border); background: var(--bg); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 24px; cursor: pointer; font-size: 15px; font-weight: 600;
-      color: var(--text-primary); transition: background 0.15s; gap: 16px;
-      list-style: none; user-select: none;
-    }
-    .faq-q:hover { background: var(--bg-subtle); }
-    .faq-q::marker, .faq-q::-webkit-details-marker { display: none; }
-    .faq-chevron { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
-    details[open] .faq-chevron { transform: rotate(180deg); }
-    .faq-a { padding: 0 24px 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-
-    .testimonials { background: var(--bg); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .testimonial-card {
-      border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px;
-      transition: border-color 0.15s;
-    }
-    .testimonial-card:hover { border-color: var(--border-strong); }
-    .testimonial-stars { color: #f59e0b; font-size: 14px; margin-bottom: 12px; }
-    .testimonial-text { font-size: 15px; color: var(--text-primary); line-height: 1.7; margin-bottom: 20px; }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar-placeholder {
-      width: 40px; height: 40px; border-radius: 50%; background: var(--bg-muted);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; font-weight: 700; color: var(--primary);
-    }
-    .author-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
-    .author-role { font-size: 13px; color: var(--text-muted); }
-
-    .contact-section { background: var(--bg); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
-    }
-    .contact-left h2 {
-      font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.5px;
-      color: var(--text-primary); margin-bottom: 12px;
-    }
-    .contact-left p {
-      font-size: 16px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px;
-    }
-    .contact-methods { display: flex; flex-direction: column; gap: 14px; }
-    .contact-method {
-      display: flex; align-items: center; gap: 14px;
-      padding: 16px 20px; border: 1px solid var(--border); border-radius: var(--radius);
-      text-decoration: none; transition: border-color 0.15s, background 0.15s;
-    }
-    .contact-method:hover { border-color: var(--primary); background: #fafbff; }
-    .contact-method-icon {
-      width: 40px; height: 40px; background: #eff6ff; border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px;
-    }
-    .contact-method-info { flex: 1; }
-    .contact-method-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
-    .contact-method-value { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-    .contact-right { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .wechat-card {
-      border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px;
-      text-align: center; background: var(--bg-subtle); width: 100%; max-width: 260px;
-    }
-    .wechat-card img {
-      width: 160px; height: 160px; object-fit: cover; border-radius: var(--radius);
-      display: block; margin: 0 auto 12px;
-    }
-    .wechat-card-label { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
-    .wechat-card-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-    @media (max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-      .contact-right { align-items: flex-start; }
-    }
-
-    .cta-section { background: var(--text-primary); padding: 80px 0; text-align: center; }
-    .cta-section h2 {
-      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
-      letter-spacing: -1px; color: white; margin-bottom: 16px;
-    }
-    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 36px; }
-    .btn-white {
-      display: inline-block; background: white; color: var(--text-primary);
-      padding: 14px 36px; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700;
-      text-decoration: none; transition: opacity 0.15s, transform 0.1s;
-    }
-    .btn-white:hover { opacity: 0.9; transform: translateY(-1px); }
-
-    footer { background: var(--bg-subtle); border-top: 1px solid var(--border); padding: 56px 0 0; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-    .footer-brand h3 { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
-    .footer-brand p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
-    .footer-contact-item { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
-    .footer-contact-item a { color: var(--text-secondary); text-decoration: none; }
-    .footer-contact-item a:hover { color: var(--primary); }
-    .footer-col h4 {
-      font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
-      text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px;
-    }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-links a { font-size: 14px; color: var(--text-secondary); text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: var(--text-primary); }
-    .footer-bottom {
-      border-top: 1px solid var(--border); padding: 20px 0;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    }
-    .footer-bottom p { font-size: 13px; color: var(--text-muted); }
-    .icp-link {
-      display: inline-flex; align-items: center; gap: 6px; font-size: 13px;
-      color: var(--text-muted); text-decoration: none; transition: color 0.15s;
-    }
-    .icp-link:hover { color: var(--text-secondary); }
-    .mobile-sticky-cta {
-      display: none;
-      position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: 10px;
-      z-index: 120;
-      background: rgba(17, 24, 39, 0.94);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 14px;
-      padding: 8px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .mobile-sticky-cta a {
+    .brand small {
       display: block;
-      width: 100%;
-      text-align: center;
-      background: #ffffff;
-      color: #0f172a;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      border-radius: 10px;
-      padding: 10px 12px;
+      color: var(--ink-500);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.1;
     }
 
-    @media (max-width: 960px) {
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
-      .platforms-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .ops-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .decision-grid { grid-template-columns: 1fr; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
-    @media (max-width: 640px) {
-      .hero { padding: 100px 0 64px; }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 6px;
+      color: var(--ink-650);
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink-950);
+      background: var(--paper-strong);
+    }
+
+    .nav-links .nav-primary {
+      margin-left: 6px;
+      color: #fff;
+      background: var(--brand);
+    }
+
+    .nav-links .nav-primary:hover {
+      color: #fff;
+      background: var(--brand-strong);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--ink-800);
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.96) 42%, rgba(247, 249, 252, 0.68) 65%, rgba(247, 249, 252, 0.2) 100%),
+        url("./doc-images/superData.png") right center / auto 78% no-repeat,
+        var(--paper-soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 110px;
+      background: linear-gradient(180deg, rgba(247, 249, 252, 0), var(--paper));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(680px, 100%);
+      padding: 112px 0 96px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      color: var(--ink-950);
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      margin: 0 0 28px;
+      color: var(--ink-650);
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 20px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--brand);
+      box-shadow: 0 12px 24px rgba(15, 76, 129, 0.22);
+    }
+
+    .btn-primary:hover { background: var(--brand-strong); }
+
+    .btn-secondary {
+      color: var(--ink-950);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line-strong);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 610px;
+    }
+
+    .metric {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink-950);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink-500);
+      font-size: 13px;
+    }
+
+    .platform-strip {
+      position: relative;
+      z-index: 2;
+      margin-top: -34px;
+      padding-bottom: 56px;
+    }
+
+    .platform-panel {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .platform-panel-title {
+      margin: 0 0 14px;
+      color: var(--ink-650);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .platform-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .platform-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-soft);
+      color: var(--ink-650);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .platform-chip.primary {
+      border-color: #b8d7ed;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--ink-950);
+      font-size: 34px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      margin: 14px 0 0;
+      color: var(--ink-650);
+      font-size: 16px;
+    }
+
+    .pain-grid,
+    .feature-grid,
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .pain-card {
+      padding: 24px;
+    }
+
+    .pain-card h3,
+    .feature-card h3,
+    .pricing-card h3 {
+      margin: 0 0 10px;
+      color: var(--ink-950);
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .pain-card p,
+    .feature-card p {
+      margin: 0;
+      color: var(--ink-650);
+      font-size: 14px;
+    }
+
+    .product-section {
+      background: var(--paper-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .product-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .point {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .point-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: #087869;
+      font-weight: 800;
+    }
+
+    .point h3 {
+      margin: 0 0 3px;
+      font-size: 16px;
+    }
+
+    .point p {
+      margin: 0;
+      color: var(--ink-650);
+      font-size: 14px;
+    }
+
+    .product-shot {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #dfe7f0;
+      box-shadow: var(--shadow);
+    }
+
+    .product-shot img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: left top;
+    }
+
+    .feature-card {
+      padding: 22px;
+    }
+
+    .feature-label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--paper-strong);
+      color: var(--ink-650);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 178px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      counter-increment: step;
+    }
+
+    .workflow-step::before {
+      content: counter(step, decimal-leading-zero);
+      display: inline-flex;
+      margin-bottom: 22px;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .workflow-step h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .workflow-step p {
+      margin: 0;
+      color: var(--ink-650);
+      font-size: 14px;
+    }
+
+    .pricing-section {
+      background: #102236;
+      color: #fff;
+    }
+
+    .pricing-section .section-kicker,
+    .pricing-section h2 {
+      color: #fff;
+    }
+
+    .pricing-section .section-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .pricing-card {
+      position: relative;
+      padding: 28px;
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(31, 157, 138, 0.92);
+      background: rgba(31, 157, 138, 0.16);
+    }
+
+    .pricing-card h3,
+    .pricing-card p,
+    .pricing-card li {
+      color: #fff;
+    }
+
+    .price {
+      margin: 10px 0 6px;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .price span {
+      font-size: 15px;
+      font-weight: 650;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .pricing-card p {
+      margin: 0 0 22px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .pricing-card ul {
+      display: grid;
+      gap: 9px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pricing-card li {
+      font-size: 14px;
+    }
+
+    .pricing-card li::before {
+      content: "✓";
+      margin-right: 8px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .pricing-card .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.34);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-box {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-soft);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .contact-list a {
+      color: var(--brand);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .wechat {
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .wechat img {
+      width: 164px;
+      height: 164px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .wechat strong {
+      display: block;
+      margin-top: 14px;
+    }
+
+    .site-footer {
+      padding: 42px 0 28px;
+      border-top: 1px solid var(--line);
+      background: var(--paper-soft);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .footer-grid h3,
+    .footer-grid h4 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+
+    .footer-grid p,
+    .footer-grid a {
+      color: var(--ink-650);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-500);
+      font-size: 13px;
+    }
+
+    .icp-link {
+      color: var(--ink-500);
+      text-decoration: none;
+    }
+
+    @media (max-width: 920px) {
+      .container { width: min(100% - 32px, 1160px); }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
       .nav-links {
-        display: none; position: fixed; top: 60px; left: 0; right: 0;
-        background: white; flex-direction: column; padding: 16px;
-        border-bottom: 1px solid var(--border); gap: 4px;
+        position: absolute;
+        top: 64px;
+        right: 16px;
+        left: 16px;
+        display: none;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+        box-shadow: var(--shadow);
       }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 10px 16px; display: block; }
-      .nav-mobile-toggle { display: block; }
-      .mirikal-callout { flex-direction: column; padding: 20px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .ops-grid { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
-      .hero-inline-link { margin-top: 2px; }
-      .hero-trust-list { margin-bottom: 38px; }
-      .pricing-assurance { justify-content: flex-start; }
-      .mobile-sticky-cta { display: block; }
-      body { padding-bottom: 74px; }
+      .nav-links.open { display: grid; }
+      .nav-links .nav-primary { margin-left: 0; }
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(247, 249, 252, 0.98), rgba(247, 249, 252, 0.92)),
+          url("./doc-images/superData.png") center bottom / 115% auto no-repeat,
+          var(--paper-soft);
+      }
+      .hero-content { padding: 92px 0 260px; }
+      h1 { font-size: 40px; }
+      .pain-grid,
+      .feature-grid,
+      .pricing-grid,
+      .workflow,
+      .product-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .brand small { display: none; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 28px; }
+      .hero-copy { font-size: 16px; }
+      .hero-content { padding-bottom: 220px; }
+      .actions { align-items: stretch; }
+      .btn { width: 100%; }
+      .footer-bottom { display: grid; }
     }
   </style>
 </head>
 
 <body>
-
-  <nav aria-label="主导航">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="调价先锋首页">
-        <div class="nav-logo-icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
-        </div>
-        <span class="nav-logo-text">调价先锋</span>
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="/" aria-label="调价先锋 Autopricy 首页">
+        <img src="logo.svg" alt="">
+        <span>调价先锋<small>Autopricy</small></span>
       </a>
-      <ul class="nav-links" id="nav-links" role="list">
+      <button class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#platforms">支持平台</a></li>
-        <li><a href="#features">核心功能</a></li>
-        <li><a href="#how-it-works">使用流程</a></li>
-        <li><a href="#pricing">价格方案</a></li>
-        <li><a href="#faq">常见问题</a></li>
-        <li><a href="https://app.autopricy.com/" class="nav-cta">免费试用</a></li>
+        <li><a href="#product">产品能力</a></li>
+        <li><a href="#workflow">上线流程</a></li>
+        <li><a href="#pricing">价格</a></li>
+        <li><a href="#contact">联系</a></li>
+        <li><a class="nav-primary" href="https://app.autopricy.com/">进入系统</a></li>
       </ul>
-      <button class="nav-mobile-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="container">
-      <div class="hero-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        已支持 Worten · Allegro · Fnac · Cdiscount · Fyndiq · OnBuy 等平台
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">跨境电商多平台调价 SaaS</div>
+          <h1>把店铺、Offer、价格和发票放进一套工作台</h1>
+          <p class="hero-copy">调价先锋 Autopricy 面向跨境电商运营团队，统一处理多平台店铺管理、Offer 监控、自动调价、批量操作和发票流程。新域名下的新系统已面向 Autopricy 品牌逐步启用。</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://app.autopricy.com/">进入 Autopricy</a>
+            <a class="btn btn-secondary" href="#contact">预约迁移咨询</a>
+          </div>
+          <div class="hero-metrics" aria-label="产品指标">
+            <div class="metric"><strong>13</strong><span>店铺平台能力覆盖</span></div>
+            <div class="metric"><strong>同源 API</strong><span>前端继续走当前域名 /api</span></div>
+            <div class="metric"><strong>24h</strong><span>调价任务持续运行</span></div>
+          </div>
+        </div>
       </div>
-      <h1 id="hero-heading">让每次调价都更接近成交<br><em>而不是增加运营负担</em></h1>
-      <p class="hero-sub">调价先锋将“盯盘、改价、复查”自动化。系统实时监控同一 EAN 的竞争价格，自动跟进市场变化并守住你设定的价格区间，让团队把精力放在选品和利润决策上。</p>
-      <div class="hero-actions">
-        <a href="https://app.autopricy.com/" class="btn-primary">免费试用 7 天</a>
-      </div>
-      <a href="#testimonials" class="hero-inline-link">先看卖家真实反馈</a>
-      <div class="hero-trust-list" aria-label="首屏信任证据">
-        <span class="hero-trust-item"><strong>4.9 / 5</strong> 综合评分（156 条评价）</span>
-        <span class="hero-trust-item"><strong>10+</strong> 主流跨境平台已接入</span>
-        <span class="hero-trust-item"><strong>30 分钟</strong> 完成首轮调价配置</span>
-      </div>
-      <div class="hero-platforms">
-        <span class="hero-platforms-label">已支持平台：</span>
-        <span class="platform-tag">Worten</span>
-        <span class="platform-tag">Allegro</span>
-        <span class="platform-tag">Fnac</span>
-        <span class="platform-tag">Cdiscount</span>
-        <span class="platform-tag">Fyndiq</span>
-        <span class="platform-tag">OnBuy</span>
-        <span class="platform-tag">+更多</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="stats-bar" aria-label="数据概览">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item"><span class="stat-number">¥100</span><div class="stat-label">每店铺每月起</div></div>
-        <div class="stat-item"><span class="stat-number">30 分钟</span><div class="stat-label">推荐调价间隔</div></div>
-        <div class="stat-item"><span class="stat-number">10+</span><div class="stat-label">支持主流平台</div></div>
-        <div class="stat-item"><span class="stat-number">24/7</span><div class="stat-label">全天候自动运行</div></div>
+    <div class="platform-strip" id="platforms">
+      <div class="container">
+        <div class="platform-panel">
+          <p class="platform-panel-title">当前店铺平台展示口径</p>
+          <div class="platform-list">
+            <span class="platform-chip primary">Mirakl 全系</span>
+            <span class="platform-chip">Worten</span>
+            <span class="platform-chip">Fnac</span>
+            <span class="platform-chip">Cdiscount</span>
+            <span class="platform-chip">OnBuy</span>
+            <span class="platform-chip">Fyndiq</span>
+            <span class="platform-chip">Carrefour</span>
+            <span class="platform-chip">MediaMarkt</span>
+            <span class="platform-chip">RDC</span>
+            <span class="platform-chip">Catch</span>
+            <span class="platform-chip">ePRICE</span>
+            <span class="platform-chip">PCCom</span>
+            <span class="platform-chip">Leroy Merlin</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <section class="decision-strip" aria-labelledby="decision-heading">
-    <div class="container">
-      <div class="decision-wrap">
-        <h2 class="decision-title" id="decision-heading">为什么建议你先试用 7 天</h2>
-        <p class="decision-sub">很多卖家会在“要不要现在开始”这一步犹豫。我们把最常见的 3 个顾虑放在这里，帮你更快判断是否适合。</p>
-        <div class="decision-grid">
-          <article class="decision-item">
-            <h3>担心上手复杂</h3>
-            <p>从 API 授权到首轮调价配置，按步骤通常 30 分钟内可完成，页面内有完整指引。</p>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">运营痛点</p>
+          <h2>多平台卖家真正耗时的，不只是改价格</h2>
+          <p class="section-copy">跨境团队每天要在多个后台之间切换，校验竞品价格、管理 Offer、同步订单、处理发票。Autopricy 将这些重复动作集中到同一个运营界面。</p>
+        </div>
+        <div class="pain-grid">
+          <article class="card pain-card">
+            <h3>调价动作分散</h3>
+            <p>不同平台规则不同，人工调价容易遗漏最低价、最高价和购物车目标。</p>
           </article>
-          <article class="decision-item">
-            <h3>担心看不到结果</h3>
-            <p>系统支持按 EAN 实时查看竞品出价排行，可直接核验调价是否执行到位。</p>
+          <article class="card pain-card">
+            <h3>批量操作成本高</h3>
+            <p>上新、跟卖、库存、价格、删除和导出都需要批量化，否则运营效率被 SKU 数拖垮。</p>
           </article>
-          <article class="decision-item">
-            <h3>担心投入不可控</h3>
-            <p>可先从单店铺 ¥100/月起步，跑通后再扩展到店群版，投入和节奏都可控。</p>
+          <article class="card pain-card">
+            <h3>财务流程滞后</h3>
+            <p>订单和发票处理如果依赖人工，很容易成为店群规模化后的瓶颈。</p>
           </article>
         </div>
-        <div class="decision-cta">
-          <a href="https://app.autopricy.com/" class="btn-primary">立即开始免费试用</a>
-          <span class="decision-note">支持 API Key 安全接入，无需提供账号密码</span>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="platforms" id="platforms" aria-labelledby="platforms-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">支持平台</span>
-        <h2 class="section-title" id="platforms-heading">覆盖主流跨境电商平台</h2>
-        <p class="section-sub">调价先锋已覆盖欧洲、澳洲、北欧等地区的 10+ 主流跨境电商平台，并通过 Mirakl 生态持续扩展更多平台。</p>
-      </div>
-      <div class="platforms-grid">
-        <article class="platform-card">
-          <div class="platform-icon">🛒</div>
-          <div>
-            <h3 class="platform-name">Worten（葡萄牙）</h3>
-            <p class="platform-desc">葡萄牙头部电子零售平台。支持自动调价、批量创建跟卖、订单同步与发票管理，深度集成 Worten Seller API。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🇵🇱</div>
-          <div>
-            <h3 class="platform-name">Allegro（波兰）</h3>
-            <p class="platform-desc">波兰及中东欧最大电商平台，月活用户超 1700 万。调价先锋支持 Allegro 平台智能调价，帮助卖家抢占东欧市场先机。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🇫🇷</div>
-          <div>
-            <h3 class="platform-name">Fnac（法国 / 葡萄牙）</h3>
-            <p class="platform-desc">法国及葡萄牙主流电子零售平台。支持 Fnac 自动调价与 SKU 批量管理，帮助卖家更高效应对法语市场竞争。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🇫🇷</div>
-          <div>
-            <h3 class="platform-name">Cdiscount（法国）</h3>
-            <p class="platform-desc">法国主流电商平台之一，覆盖数千万消费者。调价先锋支持 Cdiscount 价格管理，自动保持价格竞争力。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🇸🇪</div>
-          <div>
-            <h3 class="platform-name">Fyndiq（瑞典）</h3>
-            <p class="platform-desc">北欧领先的折扣电商平台，深受瑞典消费者喜爱。支持 Fyndiq 智能调价与批量操作，高效布局北欧市场。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🇬🇧</div>
-          <div>
-            <h3 class="platform-name">OnBuy（英国）</h3>
-            <p class="platform-desc">英国增长最快的电商平台之一，以低佣金著称。调价先锋支持 OnBuy 自动调价，帮助卖家在英国市场快速打开局面。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🌐</div>
-          <div>
-            <h3 class="platform-name">RDC</h3>
-            <p class="platform-desc">支持 RDC 平台的智能调价与 SKU 管理，自动同步店铺数据，实时监控竞争对手出价并保持最优排名。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🦅</div>
-          <div>
-            <h3 class="platform-name">Catch（澳大利亚）</h3>
-            <p class="platform-desc">澳大利亚主流电商平台。调价先锋支持 Catch 自动调价与批量操作，帮助卖家在澳洲市场保持竞争优势。</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <div class="platform-icon">🇮🇹</div>
-          <div>
-            <h3 class="platform-name">ePrice（意大利）</h3>
-            <p class="platform-desc">意大利主要电商平台。支持 ePrice 自动调价与 SKU 管理，快速响应市场变化，提升意大利市场销量。</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="mirikal-callout">
-        <div class="mirikal-icon" aria-hidden="true">⚡</div>
-        <div class="mirikal-body">
-          <h3 class="mirikal-title">Mirakl 生态：一次对接，覆盖更多平台</h3>
-          <p class="mirikal-desc">Mirakl 是欧洲电商领域广泛使用的第三方集成中间件，Fnac、Cdiscount 等众多平台均通过 Mirakl 进行 API 对接。调价先锋已完整对接 Mirakl，因此<strong>所有接入 Mirakl 的电商平台都可无缝接入</strong>，无需额外开发。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features" id="features" aria-labelledby="features-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">核心功能</span>
-        <h2 class="section-title" id="features-heading">核心能力，一站覆盖</h2>
-        <p class="section-sub">从自动调价到批量操作，从发票管理到产品采集，覆盖跨境电商的关键运营流程。</p>
-      </div>
-      <div class="features-grid">
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></div>
-          <h3 class="feature-name">智能自动调价</h3>
-          <p class="feature-desc">自动监控同一 EAN 下的竞争出价，默认将你的 SKU 调整为比当前最低价低 0.01 欧，优先争取购物车；同时严格控制在你设定的价格区间内。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg></div>
-          <h3 class="feature-name">一键数据同步</h3>
-          <p class="feature-desc">一键同步店铺全部 SKU 数据，实时显示同步进度，支持 10 万+ SKU 的大规模同步。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg></div>
-          <h3 class="feature-name">批量创建跟卖</h3>
-          <p class="feature-desc">通过 Excel 模板批量导入跟卖信息，无需逐个进入平台后台，支持一次创建数百条跟卖 SKU，显著提升效率。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></div>
-          <h3 class="feature-name">批量操作中心</h3>
-          <p class="feature-desc">支持批量删除 SKU、批量更新库存与发货时间、批量设置调价状态、一键去重重复 EAN，满足企业级规模化管理需求。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div>
-          <h3 class="feature-name">发票自动化管理</h3>
-          <p class="feature-desc">批量同步近一年订单，一键生成并批量上传发票，告别逐单手工处理，显著提升财务效率。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
-          <h3 class="feature-name">Chrome 产品采集插件</h3>
-          <p class="feature-desc">安装浏览器插件后，可在 Worten 页面一键采集商品。支持单个与批量采集，快速发现并沉淀跟卖机会。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></div>
-          <h3 class="feature-name">进阶数据导出</h3>
-          <p class="feature-desc">可导出每个 SKU 的详细竞争数据（含各地区当前最低价），为制定最高价与最低价策略提供依据。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 19h-6v-4h-2.68c-1.14 2.42-3.6 4-6.32 4-3.86 0-7-3.14-7-7s3.14-7 7-7c2.72 0 5.17 1.58 6.32 4H24v6h-2v4zm-4-2h2v-4h2v-2H11.94l-.23-.67C11.01 8.34 9.11 7 7 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c2.11 0 4.01-1.34 4.71-3.33l.23-.67H18v4zM7 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg></div>
-          <h3 class="feature-name">API 安全接入</h3>
-          <p class="feature-desc">通过 API Key 安全接入各平台，无需提供账号密码。管理员可统一分配权限，多店铺独立管理，安全可控。</p>
-        </article>
-        <article class="feature-item">
-          <div class="feature-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg></div>
-          <h3 class="feature-name">调价验证与监控</h3>
-          <p class="feature-desc">通过 EAN 搜索 SKU 详情，实时查看同类商品的竞品出价排行，快速验证调价策略是否按预期执行。</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">使用流程</span>
-        <h2 class="section-title" id="how-heading">3 步开启自动调价</h2>
-        <p class="section-sub">从授权到自动运行，最快 10 分钟完成基础配置。</p>
-      </div>
-      <ol class="steps-list" aria-label="使用步骤">
-        <li class="step-row">
-          <div class="step-num">01</div>
-          <div class="step-body">
-            <h3 class="step-title">获取 API Key 并登录系统</h3>
-            <p class="step-detail">在平台后台生成 API Key 并提交给管理员。管理员创建账号后，访问 <strong>app.autopricy.com</strong> 登录系统，即可查看店铺与 SKU 数据。</p>
-          </div>
-        </li>
-        <li class="step-row">
-          <div class="step-num">02</div>
-          <div class="step-body">
-            <h3 class="step-title">一键同步数据并配置调价区间</h3>
-            <p class="step-detail">点击同步按钮，系统自动拉取全部 SKU 数据。导出 Excel，填写每个 SKU 的最低价（必填）和最高价（可选），再通过“表格应用调价”批量导入并生效。</p>
-          </div>
-        </li>
-        <li class="step-row">
-          <div class="step-num">03</div>
-          <div class="step-body">
-            <h3 class="step-title">设置调价频率，启动自动调价</h3>
-            <p class="step-detail">在调价设置中配置自动调价间隔（推荐 30 分钟）后，系统将 24/7 自动监控竞品价格并实时调整。你可随时通过 EAN 搜索验证结果。</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="batch-ops" aria-labelledby="batch-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">批量操作</span>
-        <h2 class="section-title" id="batch-heading">规模化管理，解放双手</h2>
-        <p class="section-sub">面向大规模 SKU 管理场景设计，常见高频操作都可批量处理。</p>
-      </div>
-      <div class="ops-grid">
-        <div class="op-item"><div class="op-name">批量删除 SKU</div><p class="op-desc">在调价先锋中删除 SKU 后，可自动同步到平台后台，无需逐个处理。</p></div>
-        <div class="op-item"><div class="op-name">批量设置调价状态</div><p class="op-desc">选中数十至数百个 SKU，一键开启或关闭调价功能，无需逐个设置。</p></div>
-        <div class="op-item"><div class="op-name">批量导入 SKU</div><p class="op-desc">当 SKU 数量超过 10 万时，可通过批量导入方式高效完成同步。</p></div>
-        <div class="op-item"><div class="op-name">一键去重</div><p class="op-desc">同一 EAN 仅保留价格最低的 SKU，自动清理高价重复项，优化出价结构。</p></div>
-        <div class="op-item"><div class="op-name">批量更新库存</div><p class="op-desc">同时更新多个 SKU 的库存数量，快速响应库存变化，避免缺货影响排名。</p></div>
-        <div class="op-item"><div class="op-name">批量更新发货时间</div><p class="op-desc">批量修改多个 SKU 的承诺发货时间，统一管理物流信息，提升买家信任度。</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
-    <div class="container">
-      <div class="section-header centered">
-        <span class="section-label">用户评价</span>
-        <h2 class="section-title" id="testimonials-heading">卖家的真实反馈</h2>
-      </div>
-      <div class="testimonials-grid">
-        <article class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"使用调价先锋后，我们在 Worten 的销售额增长了 30%，人工调价时间减少了 90%。自动调价和购物车策略非常稳定，竞争对手涨价时也能及时跟进，利润明显改善。"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar-placeholder">张</div>
-            <div><div class="author-name">张先生</div><div class="author-role">Worten 跨境电商卖家</div></div>
-          </div>
-        </article>
-        <article class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"批量创建跟卖功能让我们发现新机会的效率提升了 5 倍以上。以前要一个个去平台后台操作，现在直接在调价先锋里用 Excel 批量导入，一次就能跟几百个 SKU。"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar-placeholder">赵</div>
-            <div><div class="author-name">赵女士</div><div class="author-role">跨境电商运营总监</div></div>
-          </div>
-        </article>
-        <article class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"发票批量管理解决了我们长期痛点。以前每天要花 2-3 小时处理发票，现在一键批量生成并上传，10 分钟左右就能完成。"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar-placeholder">王</div>
-            <div><div class="author-name">王先生</div><div class="author-role">跨境贸易财务主管</div></div>
-          </div>
-        </article>
-        <article class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Chrome 采集插件非常实用，在 Worten 页面即可一键采集，快速发现跟卖机会。进阶数据导出也很有价值，各地区最低价一目了然，便于更精准地设置价格。"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar-placeholder">李</div>
-            <div><div class="author-name">李女士</div><div class="author-role">跨境电商店主</div></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
-    <div class="container">
-      <div class="section-header centered">
-        <span class="section-label">价格方案</span>
-        <h2 class="section-title" id="pricing-heading">价格透明，按规模选择</h2>
-        <p class="section-sub">单店铺 ¥100/月；店群版 ¥200/月/店铺，覆盖更完整的自动化能力。</p>
-        <div class="pricing-assurance" aria-label="价格区信任提示">
-          <span>先用单店铺验证效果，再扩展到店群</span>
-          <span>无客户端安装，网页登录即可开始</span>
-          <span>企业定制支持专属顾问协助落地</span>
-        </div>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-plan">单店铺</div>
-          <div class="pricing-price">¥100<span>/月</span></div>
-          <div class="pricing-period">仅限 1 个店铺，轻量起步</div>
-          <hr class="pricing-divider">
-          <ul class="pricing-features-list">
-            <li>支持 1 个店铺</li>
-            <li>智能自动调价</li>
-            <li>数据同步与导出</li>
-            <li>批量操作功能</li>
-            <li>进阶数据导出</li>
-            <li>邮件技术支持</li>
-          </ul>
-          <a href="https://app.autopricy.com/" class="pricing-btn outline">立即开始</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="pricing-badge">功能最全</div>
-          <div class="pricing-plan">店群版</div>
-          <div class="pricing-price">¥200<span>/月·每店铺</span></div>
-          <div class="pricing-period">支持多店铺，能力更完整</div>
-          <hr class="pricing-divider">
-          <div class="pricing-diff-tip">相比单店铺，额外包含：</div>
-          <ul class="pricing-features-list">
-            <li>无限店铺数量</li>
-            <li>智能自动调价</li>
-            <li>批量创建跟卖</li>
-            <li>全部批量操作</li>
-            <li><strong>发票自动化管理</strong></li>
-            <li><strong>Chrome 产品采集插件</strong></li>
-            <li>进阶数据导出</li>
-            <li>优先技术支持</li>
-          </ul>
-          <a href="https://app.autopricy.com/" class="pricing-btn primary">立即开始</a>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-plan">企业定制</div>
-          <div class="pricing-price" style="font-size:28px;letter-spacing:-0.5px">联系我们</div>
-          <div class="pricing-period">大规模店铺，专属方案</div>
-          <hr class="pricing-divider">
-          <ul class="pricing-features-list">
-            <li>大规模店铺管理</li>
-            <li>自定义调价策略</li>
-            <li>高级数据分析报表</li>
-            <li>API 接口集成</li>
-            <li>专属定制功能开发</li>
-            <li>一对一技术支持</li>
-            <li>专属客户经理</li>
-            <li>7×24 小时响应</li>
-          </ul>
-          <a href="#contact" class="pricing-btn outline">联系我们</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq" id="faq" aria-labelledby="faq-heading">
-    <div class="container">
-      <div class="section-header centered">
-        <span class="section-label">常见问题</span>
-        <h2 class="section-title" id="faq-heading">你可能关心的问题</h2>
-      </div>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary class="faq-q">调价先锋的调价策略是什么？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价先锋会在同一 EAN 下实时监控所有卖家报价，并将你的出价自动调整为比当前最低价低 0.01 欧，以更高概率持续争取购物车。当竞争对手涨价时，系统也会自动跟涨以提升利润。价格始终约束在你设定的最高价和最低价之间，不会跌破底线。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">调价先锋支持哪些电商平台？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">目前调价先锋已支持 Worten（葡萄牙）、Allegro（波兰）、Fnac（法国 / 葡萄牙）、Cdiscount（法国）、Fyndiq（瑞典）、OnBuy（英国）、RDC、Catch（澳大利亚）、ePrice（意大利）等 10+ 主流跨境电商平台。此外，调价先锋已完整对接 Mirakl 系统——凡使用 Mirakl 作为集成中间件的电商平台，均可无缝接入，持续扩展中。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">调价频率是多少？可以自定义吗？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价频率可自定义，推荐设置为每 30 分钟一次。系统会按你设定的间隔自动运行，全天候 24/7 工作，无需人工干预。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">如何安全地连接我的平台账号？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价先锋通过 API Key 与平台对接，无需提供账号密码。在卖家后台生成 API Key 并提交给管理员后即可完成授权，安全由平台 API 权限机制保障。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">Chrome 产品采集插件如何使用？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">在 Chrome 应用商店安装“调价先锋产品采集插件”后，使用调价先锋账号登录。打开 worten.pt 搜索商品，点击商品下方采集按钮即可一键采集。支持单个与批量采集，采集结果会自动进入采集库。需注意：带品牌的 SKU 暂不支持采集。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">如何验证调价是否正确执行？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">在调价先锋中通过 EAN 搜索对应 SKU，进入详情后即可查看该 EAN 下所有卖家的出价排行。最低价会排在最前面，可据此直观判断调价是否按策略执行。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">发票管理功能支持哪些操作？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">发票功能支持同步最近一年的订单、批量一键生成发票、批量上传发票。原本需要数小时的处理工作，现在通常几分钟即可完成。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">什么是 Mirakl？通过 Mirakl 可以接入哪些平台？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">Mirakl 是欧洲电商领域广泛使用的第三方 API 集成中间件。许多电商平台（包括 Fnac、Cdiscount 等）通过 Mirakl 向第三方卖家工具开放 API。调价先锋已完整对接 Mirakl，意味着所有使用 Mirakl 进行 API 集成的平台都可无缝接入，无需逐个平台单独开发。</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-q">调价先锋的价格是多少？<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <div class="faq-a">调价先锋采用差异化定价：<strong>单店铺版 ¥100/月</strong>，适合单店运营；<strong>店群版 ¥200/月/店铺</strong>，支持多店铺并额外包含发票自动化、Chrome 采集插件等能力。企业客户可联系我们获取定制方案。</div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-left">
-          <span class="section-label">联系我们</span>
-          <h2 id="contact-heading">有问题？随时联系我们</h2>
-          <p>无论是功能咨询、企业定制，还是新平台对接，欢迎直接联系。添加微信响应更快，通常 30 分钟内回复。</p>
-          <div class="contact-methods">
-            <a href="tel:+8617720284880" class="contact-method">
-              <div class="contact-method-icon">📞</div>
-              <div class="contact-method-info">
-                <div class="contact-method-label">电话 / 微信同号</div>
-                <div class="contact-method-value">177-2028-4880</div>
-              </div>
-            </a>
-            <a href="mailto:yuanyongvia@gmail.com" class="contact-method">
-              <div class="contact-method-icon">✉️</div>
-              <div class="contact-method-info">
-                <div class="contact-method-label">邮件</div>
-                <div class="contact-method-value">yuanyongvia@gmail.com</div>
-              </div>
-            </a>
+    <section class="product-section" id="product">
+      <div class="container product-grid">
+        <div>
+          <p class="section-kicker">产品工作台</p>
+          <h2>从店铺状态到价格执行，一屏确认关键运营动作</h2>
+          <p class="section-copy">系统保留普通用户、运营用户和超级管理员在同一业务系统登录，根据角色显示不同功能，不额外拆分管理员前端。</p>
+          <div class="product-points">
+            <div class="point">
+              <span class="point-mark">1</span>
+              <div><h3>店铺管理</h3><p>统一查看店铺状态、有效期、平台类型和运营归属。</p></div>
+            </div>
+            <div class="point">
+              <span class="point-mark">2</span>
+              <div><h3>Offer 管理</h3><p>围绕 EAN、SKU、价格区间和竞争报价做批量操作。</p></div>
+            </div>
+            <div class="point">
+              <span class="point-mark">3</span>
+              <div><h3>自动调价</h3><p>基于最低价、最高价和平台规则执行调价任务。</p></div>
+            </div>
           </div>
         </div>
-        <div class="contact-right">
-          <div class="wechat-card">
-            <img src="./doc-images/qrcode.jpeg" alt="调价先锋客服微信二维码" width="160" height="160">
-            <div class="wechat-card-label">扫码添加客服微信</div>
-            <div class="wechat-card-sub">企业合作 · 功能咨询 · 技术支持</div>
+        <figure class="product-shot">
+          <img src="./doc-images/shoplist.png" alt="Autopricy 店铺管理工作台截图" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">核心能力</p>
+          <h2>围绕跨境店群的日常运营设计</h2>
+          <p class="section-copy">页面和功能以高频运营任务为中心，减少解释型内容，优先提供可直接执行的管理入口。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="card feature-card">
+            <span class="feature-label">Pricing</span>
+            <h3>价格规则和任务运行</h3>
+            <p>支持调价开关、价格边界、任务状态和执行结果追踪，避免人工频繁巡检。</p>
+          </article>
+          <article class="card feature-card">
+            <span class="feature-label">Offers</span>
+            <h3>Offer 列表和批量处理</h3>
+            <p>围绕平台、店铺、EAN、SKU 和价格字段构建筛选与批量操作。</p>
+          </article>
+          <article class="card feature-card">
+            <span class="feature-label">Invoices</span>
+            <h3>订单与发票自动化</h3>
+            <p>支持订单同步、发票生成、上传和状态追踪，减少财务重复操作。</p>
+          </article>
+          <article class="card feature-card">
+            <span class="feature-label">Plugin</span>
+            <h3>产品采集插件</h3>
+            <p>浏览器插件用于产品采集和机会发现，采集能力与店铺平台展示保持区分。</p>
+          </article>
+          <article class="card feature-card">
+            <span class="feature-label">Roles</span>
+            <h3>同一系统内的角色视图</h3>
+            <p>普通用户、运营用户和超级管理员使用同一个前端，根据权限显示对应功能。</p>
+          </article>
+          <article class="card feature-card">
+            <span class="feature-label">API</span>
+            <h3>公网回调与同源接口</h3>
+            <p>公网回调走稳定 API 域名，业务前端继续使用当前访问域名下的 /api。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section">
+      <div class="container product-grid">
+        <figure class="product-shot">
+          <img src="./doc-images/batchOperate.png" alt="Autopricy 批量操作界面截图" loading="lazy">
+        </figure>
+        <div>
+          <p class="section-kicker">批量运营</p>
+          <h2>把重复动作做成可审计的批量流程</h2>
+          <p class="section-copy">适合多店铺、多 SKU 的运营方式。批量同步、批量修改、批量导出和任务历史沉淀在系统内，便于团队复盘。</p>
+          <div class="product-points">
+            <div class="point"><span class="point-mark">A</span><div><h3>减少手工切后台</h3><p>在同一系统内完成平台相关的高频操作。</p></div></div>
+            <div class="point"><span class="point-mark">B</span><div><h3>明确执行结果</h3><p>异步任务有状态和结果反馈，失败项可以继续处理。</p></div></div>
+            <div class="point"><span class="point-mark">C</span><div><h3>适配店群规模</h3><p>店铺越多，批量流程带来的时间收益越明显。</p></div></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cta-section" aria-labelledby="cta-heading">
-    <div class="container">
-      <h2 id="cta-heading">准备好提升销量和利润了吗？</h2>
-      <p>7×24 小时自动调价，竞对降价自动跟进，竞对涨价同步优化利润空间</p>
-      <a href="https://app.autopricy.com/" class="btn-white">立即免费试用</a>
-    </div>
-  </section>
+    <section id="workflow">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">上线流程</p>
+          <h2>从新域名进入系统，不改变旧用户的使用节奏</h2>
+          <p class="section-copy">新域名逐步启用，旧域名保持兼容。新用户默认进入 app.autopricy.com，旧入口继续运行。</p>
+        </div>
+        <div class="workflow">
+          <article class="workflow-step"><h3>绑定店铺</h3><p>选择平台并填写对应授权信息，不要求提交平台登录密码。</p></article>
+          <article class="workflow-step"><h3>导入 Offer</h3><p>同步或导入商品数据，确认 SKU、EAN 和价格字段。</p></article>
+          <article class="workflow-step"><h3>配置规则</h3><p>设置最低价、最高价、调价开关和执行节奏。</p></article>
+          <article class="workflow-step"><h3>持续运营</h3><p>系统自动运行任务，运营团队查看异常和结果。</p></article>
+        </div>
+      </div>
+    </section>
 
-  <footer aria-label="页脚">
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">价格方案</p>
+          <h2>从单店铺验证，再扩展到店群规模</h2>
+          <p class="section-copy">价格保持简单透明，适合先验证效果，再逐步迁移更多店铺。</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card card">
+            <h3>单店铺</h3>
+            <div class="price">¥100<span>/月</span></div>
+            <p>适合先验证一个店铺的调价效果。</p>
+            <ul>
+              <li>1 个店铺</li>
+              <li>自动调价</li>
+              <li>Offer 管理</li>
+              <li>数据同步和导出</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://app.autopricy.com/">进入系统</a>
+          </article>
+          <article class="pricing-card card featured">
+            <h3>店群版</h3>
+            <div class="price">¥200<span>/月·每店铺</span></div>
+            <p>适合多店铺团队，覆盖更完整的运营自动化。</p>
+            <ul>
+              <li>多店铺管理</li>
+              <li>批量操作</li>
+              <li>发票自动化</li>
+              <li>产品采集插件</li>
+            </ul>
+            <a class="btn btn-primary" href="https://app.autopricy.com/">开始使用</a>
+          </article>
+          <article class="pricing-card card">
+            <h3>企业定制</h3>
+            <div class="price">联系咨询</div>
+            <p>适合更大规模店群和平台对接需求。</p>
+            <ul>
+              <li>专属上线支持</li>
+              <li>自定义运营报表</li>
+              <li>API 和回调规划</li>
+              <li>新平台接入评估</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">联系咨询</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-box">
+          <p class="section-kicker">联系团队</p>
+          <h2>需要迁移、试用或平台接入评估？</h2>
+          <p class="section-copy">可以直接进入系统，也可以先联系团队确认店铺平台、API 授权、回调域名和旧域名兼容策略。</p>
+          <div class="contact-list">
+            <div>电话 / 微信同号：<a href="tel:+8617720284880">177-2028-4880</a></div>
+            <div>邮箱：<a href="mailto:yuanyongvia@gmail.com">yuanyongvia@gmail.com</a></div>
+            <div>业务系统：<a href="https://app.autopricy.com/">https://app.autopricy.com</a></div>
+          </div>
+        </div>
+        <div class="wechat">
+          <img src="./doc-images/qrcode.jpeg" alt="调价先锋客服微信二维码" loading="lazy">
+          <strong>扫码添加客服微信</strong>
+          <span>迁移咨询 · 功能试用 · 店铺接入</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>调价先锋</h3>
-          <p>专为跨境电商卖家打造的智能调价工具，支持 Allegro、Cdiscount、Fnac、Worten、OnBuy、Fyndiq 等 10+ 主流平台，自动抢占购物车，持续赢单。</p>
-          <div class="footer-contact-item"><a href="mailto:yuanyongvia@gmail.com">yuanyongvia@gmail.com</a></div>
-          <div class="footer-contact-item"><a href="tel:+8617720284880">177-2028-4880</a></div>
+        <div>
+          <h3>调价先锋 Autopricy</h3>
+          <p>面向跨境电商团队的多平台店铺管理、Offer 管理和自动调价 SaaS。</p>
         </div>
-        <div class="footer-col">
+        <div>
           <h4>产品</h4>
           <ul class="footer-links">
-            <li><a href="#features">核心功能</a></li>
+            <li><a href="#product">产品能力</a></li>
             <li><a href="#platforms">支持平台</a></li>
             <li><a href="#pricing">价格方案</a></li>
-            <li><a href="https://app.autopricy.com/help.html">使用说明</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>快速链接</h4>
+        <div>
+          <h4>入口</h4>
           <ul class="footer-links">
-            <li><a href="https://app.autopricy.com/">登录后台</a></li>
-            <li><a href="https://chromewebstore.google.com/detail/%E8%B0%83%E4%BB%B7%E5%85%88%E9%94%8B%E4%BA%A7%E5%93%81%E9%87%87%E9%9B%86%E6%8F%92%E4%BB%B6/pngledhnbhabccffpipmjmocglimgbcp" target="_blank" rel="noopener">Chrome 插件</a></li>
-            <li><a href="#faq">常见问题</a></li>
-            <li><a href="#contact">联系我们</a></li>
+            <li><a href="https://app.autopricy.com/">业务系统</a></li>
+            <li><a href="https://vip.wortenprice.com/">旧域名入口</a></li>
+            <li><a href="https://app.autopricy.com/help.html">帮助中心</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div>
           <h4>法律</h4>
           <ul class="footer-links">
-            <li><a href="#">服务条款</a></li>
-            <li><a href="#">隐私政策</a></li>
+            <li><a href="https://app.autopricy.com/terms.html">用户协议</a></li>
+            <li><a href="https://app.autopricy.com/privacy.html">隐私政策</a></li>
+            <li><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">ICP备案查询</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 调价先锋. 保留所有权利.</p>
-        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="icp-link">北京轻石科技有限公司 京ICP备2026039016号</a>
+        <span>© 2026 调价先锋 Autopricy. 保留所有权利.</span>
+        <a id="icp-link" class="icp-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">北京轻石科技有限公司 京ICP备2026039016号</a>
       </div>
     </div>
   </footer>
 
-  <div class="mobile-sticky-cta" aria-label="移动端快捷试用入口">
-    <a href="https://app.autopricy.com/">立即免费试用</a>
-  </div>
-
   <script>
     const toggle = document.getElementById('nav-toggle');
     const links = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
       });
-    });
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 10 ? '0 1px 12px rgba(0,0,0,0.08)' : 'none';
-    }, { passive: true });
+      links.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const hostname = window.location.hostname.toLowerCase();
+    const icpLink = document.getElementById('icp-link');
+    const isAutopricy = hostname === 'autopricy.com' || hostname === 'www.autopricy.com' || hostname.endsWith('.autopricy.com');
+    const isWortenprice = hostname === 'wortenprice.com' || hostname === 'www.wortenprice.com' || hostname.endsWith('.wortenprice.com');
+    if (icpLink) {
+      if (isAutopricy) {
+        icpLink.textContent = '北京轻石科技有限公司 京ICP备2026039016号';
+      } else if (isWortenprice) {
+        icpLink.textContent = '鄂ICP备2024040727号';
+      } else {
+        icpLink.textContent = '';
+        icpLink.removeAttribute('href');
+      }
+    }
+
+    if (isAutopricy || isWortenprice) {
+      const umami = document.createElement('script');
+      umami.defer = true;
+      umami.src = 'https://app.autopricy.com/umami.js';
+      umami.setAttribute('data-website-id', '20f3ddd5-3c5b-4b32-91ca-6db0ff7ade94');
+      document.head.appendChild(umami);
+    }
 
     const schemas = [
       {
-        "@context": "https://schema.org", "@type": "WebSite",
-        "name": "调价先锋",
-        "url": "https://autopricy.com",
-        "inLanguage": "zh-CN"
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: '调价先锋 Autopricy',
+        url: 'https://autopricy.com/',
+        inLanguage: 'zh-CN'
       },
       {
-        "@context": "https://schema.org", "@type": "WebPage",
-        "name": "调价先锋 - 跨境电商自动调价工具",
-        "url": "https://autopricy.com",
-        "description": "支持 10+ 跨境平台及 Mirakl 生态的自动调价工具，帮助卖家抢占购物车并提升调价效率。",
-        "isPartOf": { "@type": "WebSite", "name": "调价先锋", "url": "https://autopricy.com" },
-        "inLanguage": "zh-CN"
-      },
-      {
-        "@context": "https://schema.org", "@type": "SoftwareApplication",
-        "name": "调价先锋", "alternateName": ["Worten调价工具","Allegro调价工具","Fnac调价工具","Cdiscount调价工具","Fyndiq调价工具","OnBuy调价工具","电商自动调价软件","Mirakl调价工具"],
-        "applicationCategory": "BusinessApplication", "operatingSystem": "Web, Chrome Extension",
-        "url": "https://autopricy.com",
-        "description": "调价先锋是专为跨境电商卖家打造的智能调价工具，支持Allegro、Cdiscount、Fnac、Worten、OnBuy、Fyndiq、RDC、Catch、ePrice等10+主流平台及Mirakl生态，实时监控同EAN下所有竞争报价，自动抢占购物车，竞对涨价时同步拉升利润。",
-        "offers": [{ "@type": "Offer", "name": "单店铺版", "price": "100", "priceCurrency": "CNY", "priceValidUntil": "2026-12-31" }, { "@type": "Offer", "name": "店群版", "price": "200", "priceCurrency": "CNY", "priceValidUntil": "2026-12-31" }],
-        "featureList": ["智能自动调价","批量创建跟卖","发票自动化管理","Chrome产品采集插件","进阶数据导出","支持Worten平台","支持Allegro平台","支持Fnac平台","支持Cdiscount平台","支持Fyndiq平台","支持OnBuy平台","支持RDC平台","支持Catch平台","支持ePrice平台","Mirakl系统对接"],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "156" }
-      },
-      {
-        "@context": "https://schema.org", "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "调价先锋的调价策略是什么？", "acceptedAnswer": { "@type": "Answer", "text": "调价先锋会在同一EAN下实时监控所有卖家报价，并自动将你的出价调整为比当前最低报价低0.01欧，以更高概率持续抢占购物车；价格始终约束在你设定的最高价和最低价之间。" } },
-          { "@type": "Question", "name": "调价先锋支持哪些平台？", "acceptedAnswer": { "@type": "Answer", "text": "目前支持Worten、Allegro、Fnac、Cdiscount、Fyndiq、OnBuy、RDC、Catch、ePrice等10+主流跨境电商平台，以及所有接入Mirakl系统的平台。" } },
-          { "@type": "Question", "name": "调价先锋的价格是多少？", "acceptedAnswer": { "@type": "Answer", "text": "单店铺版 ¥100/月，仅支持 1 个店铺；店群版每个店铺 ¥200/月，支持无限店铺数量且功能更全面（含发票管理、Chrome采集插件等）。企业大客户可联系我们获取定制方案。" } }
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: '调价先锋 Autopricy',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        url: 'https://autopricy.com/',
+        description: '面向跨境电商团队的多平台店铺管理、Offer 管理和自动调价 SaaS。',
+        offers: [
+          { '@type': 'Offer', name: '单店铺', price: '100', priceCurrency: 'CNY' },
+          { '@type': 'Offer', name: '店群版', price: '200', priceCurrency: 'CNY' }
         ]
-      },
-      {
-        "@context": "https://schema.org", "@type": "Organization",
-        "name": "调价先锋", "url": "https://autopricy.com",
-        "contactPoint": { "@type": "ContactPoint", "telephone": "+86-177-2028-4880", "email": "yuanyongvia@gmail.com", "contactType": "customer service", "availableLanguage": "Chinese" }
       }
     ];
-    schemas.forEach(schema => {
-      const s = document.createElement('script');
-      s.type = 'application/ld+json';
-      s.text = JSON.stringify(schema);
-      document.head.appendChild(s);
+    schemas.forEach((schema) => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
     });
   </script>
 </body>
+
 </html>
