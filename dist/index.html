@@ -932,6 +932,30 @@
 
     .icp-link { color: #d9e5f1; }
 
+    .filing-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+    }
+
+    .police-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #d9e5f1;
+    }
+
+    .police-link[hidden] { display: none; }
+
+    .police-link img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
     @media (max-width: 1040px) {
       .nav-links { display: none; }
       .menu-button { display: inline-flex; align-items: center; justify-content: center; }
@@ -1309,7 +1333,7 @@
             </div>
           </div>
           <div class="wechat">
-            <img src="./doc-images/qrcode.jpeg" alt="调价先锋客服微信二维码" loading="lazy">
+            <img src="./doc-images/qrcode.jpeg" alt="调价先锋客服微信二维码">
             <strong>扫码添加微信咨询</strong>
             <span>发送平台和店铺情况，确认试用方案</span>
           </div>
@@ -1352,7 +1376,13 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 调价先锋 Autopricy</span>
-        <a id="icp-link" class="icp-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">北京轻石科技有限公司 京ICP备2026039016号</a>
+        <div class="filing-links">
+          <a id="icp-link" class="icp-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">北京轻石科技有限公司 京ICP备2026039016号</a>
+          <a id="police-link" class="police-link" href="https://beian.mps.gov.cn/#/query/webSearch?code=11010102000001" target="_blank" rel="noopener" aria-label="京公网安备11010102000001号">
+            <img src="./doc-images/gongan-beian.jpg" alt="">
+            <span>京公网安备11010102000001号</span>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1376,6 +1406,7 @@
     }
 
     const icpLink = document.getElementById('icp-link');
+    const policeLink = document.getElementById('police-link');
     const hostname = window.location.hostname;
     const isAutopricy =
       hostname === 'autopricy.com' ||
@@ -1385,10 +1416,13 @@
     if (icpLink) {
       if (isAutopricy) {
         icpLink.textContent = '北京轻石科技有限公司 京ICP备2026039016号';
+        if (policeLink) policeLink.hidden = false;
       } else if (hostname === 'wortenprice.com' || hostname === 'www.wortenprice.com' || hostname === 'vip.wortenprice.com') {
         icpLink.textContent = '鄂ICP备2024040727号';
+        if (policeLink) policeLink.hidden = true;
       } else {
         icpLink.textContent = 'ICP备案查询';
+        if (policeLink) policeLink.hidden = true;
       }
     }
 
