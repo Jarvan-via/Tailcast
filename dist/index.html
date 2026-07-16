@@ -1,1397 +1,359 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="M5wnb-Kj1IrUN9Y_m0AGoqXx7Tg8Tl32qgbvh4xsur4">
-  <link rel="icon" href="https://autopricy.com/logo.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://autopricy.com/">
-  <title>Autopricy 调价先锋｜AI Agent 时代的跨境电商自动调价 SaaS</title>
-  <meta name="description" content="Autopricy 是 AI Agent 时代的可控 Pricing Agent：通过可解释规则完成跨境电商自动调价、价格边界保护、Offer 管理和执行追踪，支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq 及 Mirakl 平台场景。">
+  <title>Autopricy 调价先锋｜跨境电商自动调价 SaaS</title>
+  <meta name="description" content="Autopricy 调价先锋为欧洲电商平台卖家提供自动调价、购物车竞争、最低价保护、多店铺 Offer 管理和调价记录追踪，支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq 等平台。">
   <meta name="author" content="北京轻石科技有限公司">
   <meta name="application-name" content="调价先锋 Autopricy">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="https://autopricy.com/logo.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://autopricy.com/">
   <link rel="preconnect" href="https://app.autopricy.com">
   <link rel="dns-prefetch" href="//app.autopricy.com">
   <link rel="sitemap" type="application/xml" href="https://autopricy.com/sitemap.xml">
   <link rel="alternate" hreflang="zh-CN" href="https://autopricy.com/">
   <link rel="alternate" hreflang="x-default" href="https://autopricy.com/">
 
-  <meta property="og:title" content="Autopricy 调价先锋｜AI Agent 时代的跨境电商自动调价 SaaS">
+  <meta property="og:title" content="Autopricy 调价先锋｜跨境电商自动调价 SaaS">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="把竞争报价、价格边界、自动调价和执行记录放进一套跨境电商运营工作台。">
+  <meta property="og:description" content="持续跟踪竞争价格，在价格边界内自动跟价、调涨和守价。">
   <meta property="og:url" content="https://autopricy.com/">
-  <meta property="og:image" content="https://autopricy.com/doc-images/autopricy-app-login.png">
-  <meta property="og:image:width" content="1440">
-  <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="调价先锋 Autopricy 自动调价工具界面">
+  <meta property="og:image" content="https://autopricy.com/doc-images/autopricy-og-cover.png">
+  <meta property="og:image:alt" content="Autopricy 欧洲电商平台自动调价 SaaS">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="调价先锋 Autopricy">
-  <meta property="og:updated_time" content="2026-07-15T00:00:00+08:00">
-
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Autopricy 调价先锋｜可控的跨境电商 Pricing Agent">
-  <meta name="twitter:description" content="支持自动盯价、价格边界保护、Offer 批量管理与调价记录追踪。">
-  <meta name="twitter:image" content="https://autopricy.com/doc-images/autopricy-app-login.png">
-  <meta name="twitter:image:alt" content="调价先锋 Autopricy 自动调价工具界面">
+  <meta name="twitter:title" content="Autopricy 调价先锋｜跨境电商自动调价 SaaS">
+  <meta name="twitter:description" content="自动跟价、购物车竞争、最低价保护和多店铺 Offer 管理。">
+  <meta name="twitter:image" content="https://autopricy.com/doc-images/autopricy-og-cover.png">
+  <meta name="twitter:image:alt" content="Autopricy 欧洲电商平台自动调价 SaaS">
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://autopricy.com/#organization",
-          "name": "北京轻石科技有限公司",
-          "url": "https://autopricy.com/",
-          "brand": {
-            "@type": "Brand",
-            "name": "调价先锋 Autopricy"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+86-177-2028-4880",
-            "email": "yuanyongvia@gmail.com",
-            "contactType": "customer support",
-            "availableLanguage": ["zh-CN"]
-          }
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://autopricy.com/#organization",
+        "name": "北京轻石科技有限公司",
+        "url": "https://autopricy.com/",
+        "brand": { "@type": "Brand", "name": "调价先锋 Autopricy" },
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://autopricy.com/logo.svg"
         },
-        {
-          "@type": "WebSite",
-          "@id": "https://autopricy.com/#website",
-          "name": "调价先锋 Autopricy",
-          "url": "https://autopricy.com/",
-          "publisher": {
-            "@id": "https://autopricy.com/#organization"
-          },
-          "inLanguage": "zh-CN"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://autopricy.com/#webpage",
-          "url": "https://autopricy.com/",
-          "name": "Autopricy 调价先锋｜跨境电商自动调价与 Offer 管理 SaaS",
-          "description": "面向跨境电商团队的自动调价与 Offer 管理 SaaS，支持价格边界保护、批量操作和执行记录追踪。",
-          "isPartOf": {
-            "@id": "https://autopricy.com/#website"
-          },
-          "about": {
-            "@id": "https://autopricy.com/#software"
-          },
-          "inLanguage": "zh-CN"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://autopricy.com/#software",
-          "name": "调价先锋 Autopricy",
-          "alternateName": ["调价先锋", "Autopricy", "Autopricy Pricing Agent"],
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "url": "https://autopricy.com/",
-          "description": "面向跨境电商团队的自动调价与 Offer 管理 SaaS，支持竞争报价监控、最低价与最高价保护、多店铺批量管理和执行记录追踪。",
-          "featureList": [
-            "跨境电商自动调价",
-            "可解释的 Pricing Agent 调价工作流",
-            "自动监控同 EAN 竞争报价",
-            "最低价和最高价保护",
-            "Buy Box 购物车竞争响应",
-            "Mirakl 自动调价",
-            "Worten 自动调价",
-            "Fnac 自动调价",
-            "Cdiscount 自动调价",
-            "OnBuy 自动调价",
-            "Fyndiq 自动调价",
-            "Offer 管理",
-            "多店铺批量管理",
-            "调价执行记录追踪"
-          ],
-          "offers": {
-            "@type": "Offer",
-            "name": "标准版",
-            "price": "200",
-            "priceCurrency": "CNY",
-            "availability": "https://schema.org/InStock",
-            "description": "200 元 / 店铺 / 月"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://autopricy.com/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "调价先锋支持哪些平台？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "目前覆盖 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、RDC、ePRICE 等平台场景，并支持 Mirakl 系平台接入；具体能力会因平台接口而不同。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "自动调价会不会低于我的最低价？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "不会。你可以为商品设置最低价和最高价，系统只会在你设置的价格区间内自动调价。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "是否需要提供平台登录密码？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "不需要。接入时只需要平台 API 授权信息，不要求你提供平台后台登录密码。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "多久调价一次？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "系统会定时同步平台 Offer 和竞争报价，并根据你设置的规则自动执行调价。具体频率会根据平台接口能力和店铺配置有所不同。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "自动调价能保证拿到购物车吗？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "不能保证。购物车结果会受到价格、库存、物流、店铺评分、平台规则等多种因素影响。调价先锋可以帮助你提高价格响应速度和价格竞争力，但不会承诺一定获得购物车。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "如何收费？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "当前标准价格为 200 元 / 店铺 / 月。多店铺或企业使用场景可以联系客服咨询。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "老客户价格怎么处理？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "历史店铺如享有老客户优惠价格，以系统内实际显示为准。后续如有价格政策调整，我们会提前通知。已经完成支付的服务周期不受后续价格调整影响。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "新店铺如何开始试用？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "可以添加客服微信，发送你的平台名称、店铺数量和大概 SKU 数，我们会协助判断是否适合接入，并完成首次配置。"
-              }
-            }
-          ]
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+86-177-2028-4880",
+          "contactType": "customer support",
+          "availableLanguage": ["zh-CN"]
         }
-      ]
-    }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://autopricy.com/#software",
+        "name": "调价先锋 Autopricy",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://autopricy.com/",
+        "publisher": { "@id": "https://autopricy.com/#organization" },
+        "description": "面向欧洲电商平台卖家的自动调价与 Offer 管理 SaaS，支持购物车竞争、价格边界保护、多店铺批量管理和执行记录追踪。",
+        "featureList": [
+          "自动跟踪竞争价格",
+          "购物车竞争策略",
+          "最低价与最高价保护",
+          "赢得购物车后尝试调涨",
+          "多店铺 Offer 管理",
+          "调价执行记录追踪"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "name": "自动调价标准版",
+          "price": "200",
+          "priceCurrency": "CNY",
+          "url": "https://app.autopricy.com/?source=homepage#/register",
+          "description": "200 元 / 店铺 / 月，注册后自动开通 7 天免费试用，商品数量不限"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://autopricy.com/#faq",
+        "mainEntity": [
+          {"@type":"Question","name":"Autopricy 支持哪些平台？","acceptedAnswer":{"@type":"Answer","text":"目前支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、Rue du Commerce、ePRICE 等欧洲电商平台，以及更多基于 Mirakl 的平台。不同平台开放的竞争数据和调价能力不同，具体以工作台店铺接入页面为准。"}},
+          {"@type":"Question","name":"自动调价会低于我的最低价吗？","acceptedAnswer":{"@type":"Answer","text":"不会。你可以为商品设置最低价和最高价，系统只会在允许的价格区间内执行调价。"}},
+          {"@type":"Question","name":"拿到购物车后还会继续降价吗？","acceptedAnswer":{"@type":"Answer","text":"系统会根据你设置的策略和平台能力判断下一步操作。支持调涨的平台可以在拿到购物车后逐步尝试提高售价，而不是长期停留在最低价格。"}},
+          {"@type":"Question","name":"需要提供平台账号和密码吗？","acceptedAnswer":{"@type":"Answer","text":"不需要提供平台后台登录密码。店铺通过平台 API 授权信息接入。"}},
+          {"@type":"Question","name":"多久执行一次调价？","acceptedAnswer":{"@type":"Answer","text":"系统会持续运行，并根据平台接口能力、店铺规模和当前配置定时完成价格检查与调价。"}},
+          {"@type":"Question","name":"Autopricy 如何提升购物车竞争力？","acceptedAnswer":{"@type":"Answer","text":"Autopricy 持续跟踪竞争价格，并按照你设置的价格边界和调价策略及时执行调整，帮助商品保持价格竞争力。购物车结果还会受到库存、物流、店铺表现和平台规则等因素影响。"}},
+          {"@type":"Question","name":"如何收费？","acceptedAnswer":{"@type":"Answer","text":"自动调价标准版为 200 元 / 店铺 / 月，商品数量不限。"}},
+          {"@type":"Question","name":"如何开始免费试用？","acceptedAnswer":{"@type":"Answer","text":"完成注册后，系统会自动开通 7 天免费试用，无需提交申请或等待审核。进入工作台后，即可绑定店铺并开始同步 Offer。"}}
+        ]
+      }
+    ]
+  }
   </script>
 
   <style>
     :root {
-      --ink-950: #111827;
-      --ink-800: #263244;
-      --ink-650: #4f5d70;
-      --ink-500: #758196;
-      --paper: #ffffff;
-      --paper-soft: #f7f8fa;
-      --paper-warm: #ffffff;
-      --paper-strong: #eef2f6;
-      --line: #e1e6ed;
-      --line-strong: #cbd3df;
       --brand: #1e6fff;
-      --brand-strong: #1559d6;
-      --brand-soft: #edf4ff;
-      --accent: #147d64;
-      --accent-soft: #eaf7f2;
-      --gold: #a86a10;
-      --gold-soft: #fff7e6;
-      --shadow: 0 24px 70px rgb(27 45 73 / 0.12);
-      --radius: 8px;
+      --brand-dark: #1455cc;
+      --brand-soft: #eef4ff;
+      --ink: #101828;
+      --text: #344054;
+      --muted: #667085;
+      --line: #e4e9f1;
+      --surface: #f7f9fc;
+      --white: #fff;
+      --success: #0b7a53;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 18px 60px rgb(22 45 88 / 0.12);
+      --font: "MiSans", "HarmonyOS Sans SC", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", sans-serif;
     }
 
     * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--ink-950);
-      background: var(--paper);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    img { max-width: 100%; display: block; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: var(--font); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    h1, h2, h3, h4, p { margin: 0; }
+    :focus-visible { outline: 3px solid rgb(30 111 255 / 0.25); outline-offset: 3px; }
+    .container { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
+    .section { padding: 104px 0; }
+    .section-soft { background: var(--surface); }
+    .section-head { max-width: 760px; margin-bottom: 42px; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-label { margin-bottom: 10px; color: var(--brand); font-size: 14px; font-weight: 800; }
+    h1 { max-width: 680px; font-size: clamp(44px, 4.2vw, 60px); line-height: 1.08; letter-spacing: -0.045em; }
+    h1 span { display: block; white-space: nowrap; }
+    h2 { font-size: clamp(32px, 3.6vw, 46px); line-height: 1.18; letter-spacing: -0.035em; }
+    h3 { font-size: 20px; line-height: 1.4; }
+    .section-copy { margin-top: 16px; color: var(--muted); font-size: 17px; }
+    .fine-print { margin-top: 24px; color: var(--muted); font-size: 13px; }
 
-    .container {
-      width: min(1160px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(217, 226, 236, 0.88);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 66px;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      color: var(--ink-950);
-      min-width: max-content;
-    }
-
-    .brand img {
-      width: 34px;
-      height: 34px;
-    }
-
-    .brand small {
-      display: block;
-      color: var(--ink-500);
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1.1;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--ink-650);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
+    .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgb(228 233 241 / 0.86); background: rgb(255 255 255 / 0.9); backdrop-filter: blur(16px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; min-width: max-content; font-weight: 850; }
+    .brand img { width: 34px; height: 34px; }
+    .brand small { display: block; color: var(--muted); font-size: 11px; line-height: 1.1; letter-spacing: .08em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--text); font-size: 14px; font-weight: 650; }
     .nav-links a:hover { color: var(--brand); }
-
-    .mobile-consult { display: none; }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: max-content;
-    }
-
-    .menu-button {
-      display: none;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      border-radius: var(--radius);
-      color: var(--brand);
-      font-size: 20px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: var(--radius);
-      border: 1px solid transparent;
-      font-weight: 800;
-      font-size: 15px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(15, 76, 129, 0.16);
-    }
-
-    .btn-primary {
-      background: var(--brand);
-      color: #fff;
-      border-color: var(--brand);
-    }
-
-    .btn-primary:hover { background: var(--brand-strong); }
-
-    .btn-secondary {
-      background: var(--paper);
-      color: var(--brand);
-      border-color: var(--line-strong);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(246, 248, 251, 0.98) 0%, rgba(246, 248, 251, 0.96) 44%, rgba(246, 248, 251, 0.74) 64%, rgba(246, 248, 251, 0.35) 100%),
-        var(--paper-soft);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(15, 76, 129, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15, 76, 129, 0.05) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(90deg, transparent, #000 46%, transparent);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
-      gap: 54px;
-      align-items: center;
-      min-height: 720px;
-      padding: 76px 0 64px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.84);
-      color: var(--brand);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    h1,
-    h2,
-    h3,
-    p { margin: 0; }
-
-    h1 {
-      margin-top: 22px;
-      max-width: 760px;
-      font-size: 50px;
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .hero-subtitle {
-      margin-top: 22px;
-      max-width: 700px;
-      color: var(--ink-650);
-      font-size: 18px;
-      line-height: 1.9;
-    }
-
-    .hero-note {
-      margin-top: 14px;
-      max-width: 660px;
-      color: var(--ink-800);
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin: 32px 0 0;
-      padding: 0;
-      list-style: none;
-      max-width: 760px;
-    }
-
-    .metric {
-      min-height: 92px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 18px;
-      line-height: 1.3;
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 6px;
-      color: var(--ink-500);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .hero-visual {
-      position: relative;
-    }
-
-    .section {
-      padding: 88px 0;
-    }
-
-    .section-muted {
-      background: var(--paper-soft);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-warm { background: var(--paper-warm); }
-
-    .section-head {
-      max-width: 780px;
-      margin-bottom: 34px;
-    }
-
-    .section-kicker {
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin-top: 8px;
-      color: var(--ink-950);
-      font-size: 36px;
-      line-height: 1.22;
-      letter-spacing: 0;
-    }
-
-    .section-copy {
-      margin-top: 14px;
-      color: var(--ink-650);
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    .pain-copy {
-      display: grid;
-      gap: 8px;
-      color: var(--ink-650);
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(16, 40, 68, 0.06);
-    }
-
-    .pain-card {
-      min-height: 218px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pain-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--gold);
-    }
-
-    .card h3 {
-      font-size: 20px;
-      line-height: 1.35;
-    }
-
-    .card p {
-      margin-top: 12px;
-      color: var(--ink-650);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .capability {
-      min-height: 230px;
-    }
-
-    .capability .label,
-    .trust-card .label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 18px;
-      border-radius: var(--radius);
-      background: var(--brand-soft);
-      color: var(--brand);
-      font-weight: 900;
-    }
-
-    .platform-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .platform-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      min-height: 76px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      transition: border-color 150ms ease, color 150ms ease;
-    }
-
-    a.platform-card:hover { color: var(--brand); border-color: var(--brand); }
-
-    .platform-card strong {
-      font-size: 18px;
-      line-height: 1.3;
-    }
-
-    .platform-card span {
-      color: var(--ink-500);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .platform-card .tag {
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .agent-positioning {
-      display: grid;
-      grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
-      gap: 48px;
-      padding: 40px;
-      border-left: 3px solid var(--brand);
-      background: var(--brand-soft);
-    }
-
-    .agent-positioning h2 { margin-top: 0; }
-    .agent-positioning p { color: var(--ink-650); font-size: 16px; line-height: 1.9; }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      counter-reset: step;
-    }
-
-    .step {
-      position: relative;
-      min-height: 210px;
-      padding-top: 58px;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      top: 22px;
-      left: 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: var(--brand);
-      color: #fff;
-      font-weight: 900;
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .price-card.featured {
-      border-color: rgba(15, 76, 129, 0.38);
-      background: linear-gradient(180deg, #fff, #f8fbff);
-    }
-
-    .price {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-top: 14px;
-      color: var(--brand);
-      font-size: 42px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .price span {
-      color: var(--ink-500);
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 10px;
-      margin: 22px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .feature-list li {
-      position: relative;
-      padding-left: 20px;
-      color: var(--ink-650);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .feature-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .price-note {
-      margin-top: 18px;
-      padding: 16px;
-      border: 1px solid #f0d99b;
-      border-radius: var(--radius);
-      background: var(--gold-soft);
-      color: #7a4f12;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .trust-card {
-      min-height: 220px;
-      padding: 20px;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 12px;
-      max-width: 920px;
-    }
-
-    details {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      padding: 0 20px;
-    }
-
-    summary {
-      padding: 18px 0;
-      cursor: pointer;
-      font-weight: 900;
-      color: var(--ink-950);
-    }
-
-    details p {
-      padding: 0 0 18px;
-      color: var(--ink-650);
-      font-size: 15px;
-      line-height: 1.85;
-    }
-
-    .contact-panel {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 280px;
-      gap: 32px;
-      align-items: center;
-      padding: 34px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, #ffffff 0%, #f4f8fb 100%);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin: 22px 0 0;
-      padding: 0;
-      list-style: none;
-      color: var(--ink-650);
-      font-size: 14px;
-    }
-
-    .contact-list li {
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-    }
-
-    .wechat {
-      justify-self: end;
-      width: 240px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      text-align: center;
-    }
-
-    .wechat img {
-      width: 168px;
-      height: 168px;
-      object-fit: cover;
-      margin: 0 auto;
-      border-radius: var(--radius);
-    }
-
-    .wechat strong {
-      display: block;
-      margin-top: 12px;
-      font-size: 16px;
-    }
-
-    .wechat span {
-      display: block;
-      margin-top: 4px;
-      color: var(--ink-500);
-      font-size: 13px;
-    }
-
-    .site-footer {
-      padding: 44px 0 30px;
-      background: #102236;
-      color: #d9e5f1;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 28px;
-    }
-
-    .footer-grid h3,
-    .footer-grid h4 {
-      margin: 0 0 12px;
-      color: #fff;
-    }
-
-    .footer-grid p,
-    .footer-grid a {
-      color: #bfd0e1;
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    .footer-grid a:hover { color: #fff; }
-
-    .footer-links {
-      display: grid;
-      gap: 7px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 34px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
-      color: #aebfd0;
-      font-size: 13px;
-    }
-
-    .icp-link { color: #d9e5f1; }
-
-    .filing-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-    }
-
-    .police-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #d9e5f1;
-    }
-
-    .police-link[hidden] { display: none; }
-
-    .police-link img {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-      flex: 0 0 auto;
-    }
-
-    @media (max-width: 1040px) {
-      .nav-links { display: none; }
-      .menu-button { display: inline-flex; align-items: center; justify-content: center; }
-      .nav-links.open {
-        position: absolute;
-        top: 66px;
-        left: 16px;
-        right: 16px;
-        display: grid;
-        gap: 14px;
-        padding: 18px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: var(--paper);
-        box-shadow: var(--shadow);
-      }
-      .nav-links.open .mobile-consult {
-        display: block;
-        padding-top: 14px;
-        border-top: 1px solid var(--line);
-        color: var(--brand);
-      }
-      .hero-grid {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding: 62px 0 54px;
-      }
-      .hero-visual { max-width: 720px; }
-      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .grid-4,
-      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nav-actions { display: flex; align-items: center; gap: 14px; min-width: max-content; }
+    .login-link { color: var(--text); font-size: 14px; font-weight: 700; }
+    .mobile-cta, .menu-button { display: none; }
+    .menu-button { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); cursor: pointer; }
+    .btn { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 0 20px; border: 1px solid transparent; border-radius: 9px; font-size: 15px; font-weight: 800; transition: background-color .16s ease, border-color .16s ease, color .16s ease, transform .16s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { color: var(--white); background: var(--brand); border-color: var(--brand); box-shadow: 0 8px 24px rgb(30 111 255 / .2); }
+    .btn-primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+    .btn-secondary { color: var(--ink); background: var(--white); border-color: #cfd7e6; }
+    .btn-secondary:hover { color: var(--brand); border-color: var(--brand); }
+
+    .hero { position: relative; overflow: hidden; padding: 76px 0 70px; background: radial-gradient(circle at 72% 25%, rgb(30 111 255 / .1), transparent 30%), linear-gradient(180deg, #fbfdff, #f5f8fe); border-bottom: 1px solid var(--line); }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .35; background-image: linear-gradient(rgb(30 111 255 / .08) 1px, transparent 1px), linear-gradient(90deg, rgb(30 111 255 / .08) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent 80%); pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(520px, 1.1fr); align-items: center; gap: 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px; padding: 7px 12px; border: 1px solid rgb(30 111 255 / .22); border-radius: 999px; color: var(--brand-dark); background: rgb(255 255 255 / .75); font-size: 13px; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px rgb(30 111 255 / .12); }
+    .hero-copy { max-width: 660px; margin-top: 24px; color: var(--text); font-size: 18px; line-height: 1.85; }
+    .hero-platforms { margin-top: 14px; color: var(--muted); font-size: 14px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .trial-note { margin-top: 14px; color: var(--text); font-size: 14px; font-weight: 700; }
+    .trial-note::before { content: "✓"; margin-right: 7px; color: var(--success); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0 0; padding: 0; list-style: none; }
+    .hero-tags li { padding: 7px 11px; border: 1px solid #d8e0ed; border-radius: 8px; color: var(--text); background: rgb(255 255 255 / .7); font-size: 13px; font-weight: 700; }
+    .hero-visual { position: relative; min-width: 0; }
+    .product-window { position: relative; border: 1px solid #ccd7e8; border-radius: 16px; background: var(--white); box-shadow: var(--shadow); overflow: hidden; transform: rotate(.35deg); }
+    .window-bar { display: flex; align-items: center; justify-content: space-between; height: 42px; padding: 0 14px; border-bottom: 1px solid var(--line); background: #f7f9fc; color: var(--muted); font-size: 12px; }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots i { width: 8px; height: 8px; border-radius: 50%; background: #c7cfdb; }
+    .hero-shot { height: 390px; overflow: hidden; background: #f5f7fb; }
+    .hero-shot img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .callout { position: absolute; display: flex; align-items: center; gap: 8px; padding: 10px 13px; border: 1px solid rgb(30 111 255 / .2); border-radius: 10px; color: var(--text); background: rgb(255 255 255 / .96); box-shadow: 0 10px 32px rgb(22 45 88 / .13); font-size: 12px; font-weight: 750; }
+    .callout::before { content: "✓"; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: var(--white); background: var(--brand); font-size: 11px; }
+    .callout.one { top: -20px; right: 34px; }
+    .callout.two { left: -28px; bottom: 76px; }
+    .callout.three { right: -20px; bottom: 22px; }
+
+    .platform-strip { padding: 72px 0 80px; border-bottom: 1px solid var(--line); }
+    .platform-strip .section-head { margin-bottom: 30px; }
+    .logo-row { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .platform-mark { display: flex; align-items: center; justify-content: center; min-height: 100px; padding: 12px; border-right: 1px solid var(--line); color: #7b8494; background: var(--white); font-size: 12px; font-weight: 750; transition: color .18s ease, background .18s ease, border-color .18s ease; }
+    .platform-mark img { width: auto; max-width: 108px; max-height: 32px; object-fit: contain; }
+    .platform-mark img.logo-wide { max-width: 116px; max-height: 28px; }
+    .platform-mark img.logo-photo { max-width: 104px; max-height: 38px; }
+    .platform-wordmark { font-size: 14px; font-weight: 850; }
+    .platform-mark:last-child { border-right: 0; }
+    .platform-mark:hover { color: var(--brand); background: var(--brand-soft); }
+
+    .grid-3, .grid-6 { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-6 { grid-template-columns: repeat(3, 1fr); }
+    .card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+    .card p { margin-top: 11px; color: var(--muted); font-size: 15px; }
+    .capability { min-height: 230px; }
+    .capability::before { content: ""; display: block; width: 28px; height: 4px; margin-bottom: 24px; border-radius: 999px; background: var(--brand); }
+
+    .showcase { overflow: hidden; }
+    .showcase-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 20px; }
+    .shot-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: 0 8px 30px rgb(22 45 88 / .06); }
+    .shot-frame { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #f3f6fb; }
+    .shot-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .shot-card.large { grid-row: span 2; }
+    .shot-card.large .shot-frame { aspect-ratio: 1.38 / 1; }
+    .shot-card.large .shot-frame img { object-position: 51% 68%; }
+    .shot-card.small .shot-frame { aspect-ratio: 16 / 8; }
+    .shot-frame img.rule-shot { object-position: center 52%; }
+    .shot-copy { padding: 22px 24px 24px; }
+    .shot-copy p { margin-top: 7px; color: var(--muted); font-size: 14px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+    .step { position: relative; min-height: 230px; padding: 34px; background: var(--white); border-right: 1px solid var(--line); }
+    .step:last-child { border-right: 0; }
+    .step-number { display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 26px; border-radius: 50%; color: var(--white); background: var(--brand); font-weight: 850; }
+    .step p { margin-top: 10px; color: var(--muted); font-size: 15px; }
+    .workflow-note { margin-top: 20px; padding: 18px 20px; border-left: 3px solid var(--brand); color: var(--text); background: var(--brand-soft); font-size: 14px; }
+
+    .tool-card { min-height: 210px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .tool-badge { display: inline-block; margin-top: 18px; padding: 4px 8px; border-radius: 6px; color: var(--muted); background: #eef1f5; font-size: 12px; font-weight: 700; }
+
+    .price-grid { display: grid; max-width: 780px; margin: 0 auto; }
+    .price-card { position: relative; padding: 38px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); }
+    .price-card.featured { border-color: rgb(30 111 255 / .42); box-shadow: 0 14px 44px rgb(30 111 255 / .1); }
+    .price { margin-top: 20px; font-size: 40px; font-weight: 900; letter-spacing: -.04em; }
+    .price span { margin-left: 6px; color: var(--muted); font-size: 14px; font-weight: 650; letter-spacing: 0; }
+    .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 26px 0 0; padding: 0; list-style: none; }
+    .feature-list li { position: relative; padding-left: 24px; color: var(--text); font-size: 14px; }
+    .feature-list li::before { content: "✓"; position: absolute; left: 0; color: var(--success); font-weight: 900; }
+
+    .faq-list { max-width: 900px; margin: 0 auto; border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { position: relative; padding: 23px 48px 23px 0; cursor: pointer; list-style: none; font-size: 17px; font-weight: 750; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 8px; color: var(--brand); font-size: 24px; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 780px; padding: 0 48px 23px 0; color: var(--muted); font-size: 15px; }
+
+    .contact-panel { max-width: 980px; margin: 0 auto; padding: 64px; border-radius: 24px; color: var(--white); background: linear-gradient(135deg, #0b2252, #123d8f 62%, #1e6fff); box-shadow: 0 24px 70px rgb(9 33 78 / .2); text-align: center; }
+    .contact-panel h2 { max-width: 720px; }
+    .contact-panel h2, .contact-panel .section-copy { margin-inline: auto; }
+    .contact-panel .hero-actions { justify-content: center; }
+    .contact-panel .section-copy { color: #d5e2ff; }
+    .contact-panel .section-label { color: #b9d2ff; }
+    .contact-panel .btn-primary { color: var(--brand-dark); background: var(--white); border-color: var(--white); box-shadow: none; }
+    .contact-panel .btn-secondary { color: var(--white); background: transparent; border-color: rgb(255 255 255 / .45); }
+
+    .site-footer { padding: 70px 0 24px; color: #c2cee2; background: #07142d; }
+    .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 54px; }
+    .footer-grid h3, .footer-grid h4 { color: var(--white); }
+    .footer-grid p { max-width: 430px; margin-top: 14px; font-size: 14px; }
+    .footer-links { margin: 16px 0 0; padding: 0; list-style: none; }
+    .footer-links li + li { margin-top: 10px; }
+    .footer-links a { font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 24px; margin-top: 52px; padding-top: 22px; border-top: 1px solid rgb(255 255 255 / .1); color: #8493ad; font-size: 12px; }
+
+    @media (max-width: 1020px) {
+      .nav-links { gap: 18px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 760px; }
+      .hero-visual { position: relative; max-width: 760px; }
+      .logo-row { grid-template-columns: repeat(4, 1fr); }
+      .platform-mark:nth-child(4) { border-right: 0; }
+      .platform-mark:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
+      .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-panel { padding: 44px; }
     }
 
     @media (max-width: 760px) {
-      .container { width: min(100% - 32px, 1160px); }
-      .nav { height: 64px; }
-      .brand small,
-      .nav-actions .btn-secondary { display: none; }
-      .nav-actions { gap: 8px; }
-      .btn { width: 100%; }
-      .nav-actions .btn { width: auto; min-height: 38px; padding: 0 12px; font-size: 13px; }
-      h1 { font-size: 38px; }
-      h2 { font-size: 28px; }
-      .hero-subtitle,
-      .section-copy,
-      .pain-copy { font-size: 16px; }
-      .hero-actions,
-      .hero-metrics,
-      .grid-3,
-      .grid-4,
-      .platform-grid,
-      .steps,
-      .price-grid,
-      .trust-grid,
-      .contact-panel,
-      .contact-list,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .section { padding: 62px 0; }
-      .hero-metrics { gap: 10px; }
-      .contact-panel { padding: 22px; }
-      .wechat { justify-self: stretch; width: 100%; }
+      html { scroll-padding-top: 66px; }
+      .container { width: min(100% - 32px, 1200px); }
+      .section { padding: 72px 0; }
+      .section-head { margin-bottom: 30px; }
+      .nav { min-height: 66px; }
+      .nav-actions .login-link, .nav-actions .btn { display: none; }
+      .menu-button { display: inline-grid; place-items: center; }
+      .nav-links { position: fixed; inset: 66px 0 auto; display: none; padding: 18px 16px 24px; border-bottom: 1px solid var(--line); background: var(--white); box-shadow: 0 18px 30px rgb(22 45 88 / .12); }
+      .nav-links.open { display: grid; }
+      .nav-links a { padding: 10px 8px; }
+      .mobile-cta { display: inline-flex !important; margin-top: 6px; justify-content: center; color: var(--white) !important; background: var(--brand); border-radius: 8px; }
+      .hero { padding: 54px 0 62px; }
+      .hero-grid { gap: 56px; }
+      h1 { font-size: clamp(40px, 12vw, 54px); }
+      h1 span { white-space: normal; }
+      h1 span:first-child { font-size: .82em; }
+      .hero-copy { font-size: 16px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .hero-actions .btn { padding-inline: 12px; }
+      .price-card .hero-actions { grid-template-columns: 1fr; }
+      .price-card .hero-actions .btn { width: 100%; }
+      .hero-shot { height: 300px; }
+      .hero-shot img { min-width: 0; object-position: center; }
+      .callout.one { top: -24px; right: 8px; }
+      .callout.two { left: -6px; bottom: 58px; }
+      .callout.three { right: -6px; bottom: 8px; }
+      .platform-strip { padding: 58px 0 64px; }
+      .grid-3, .grid-6, .steps, .price-grid { grid-template-columns: 1fr; }
+      .capability, .tool-card { min-height: auto; }
+      .showcase-grid { display: grid; grid-template-columns: 1fr; gap: 16px; overflow: visible; padding-bottom: 0; }
+      .shot-card, .shot-card.large { min-width: 0; grid-row: auto; }
+      .shot-card.large .shot-frame, .shot-card.small .shot-frame { aspect-ratio: 16 / 10; }
+      .shot-card .shot-frame img { min-width: 0; object-position: center top; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .step { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .step:last-child { border-bottom: 0; }
+      .feature-list { grid-template-columns: 1fr; }
+      .contact-panel { padding: 36px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 34px 24px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
       .footer-bottom { display: grid; }
     }
-    /* Operational SaaS refinement layer. */
 
-    body {
-      font-family: "MiSans", "HarmonyOS Sans SC", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", sans-serif;
-      color: var(--ink-950);
-      line-height: 1.65;
-    }
-
-    :focus-visible {
-      outline: 3px solid rgb(30 111 255 / 0.24);
-      outline-offset: 3px;
-    }
-
-    .container { width: min(1200px, calc(100% - 64px)); }
-
-    .site-header {
-      background: rgb(255 255 255 / 0.96);
-      border-bottom-color: var(--line);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav { height: 72px; }
-
-    .brand {
-      gap: 11px;
-      font-size: 15px;
-      letter-spacing: -0.01em;
-    }
-
-    .brand img { width: 32px; height: 32px; }
-
-    .brand small {
-      margin-top: 2px;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav-links { gap: 28px; font-size: 13px; font-weight: 600; }
-
-    .nav-actions { gap: 8px; }
-
-    .btn {
-      min-height: 42px;
-      padding: 0 17px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 650;
-      transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
-    }
-
-    .btn:hover { transform: none; box-shadow: none; }
-
-    .btn-primary { background: var(--brand); border-color: var(--brand); }
-    .btn-primary:hover { background: var(--brand-strong); border-color: var(--brand-strong); }
-
-    .btn-secondary {
-      color: var(--ink-800);
-      border-color: var(--line-strong);
-      background: #fff;
-    }
-
-    .btn-secondary:hover { color: var(--brand-strong); border-color: var(--brand); }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 42px;
-      gap: 8px;
-      color: var(--ink-800);
-      font-size: 14px;
-      font-weight: 650;
-      border-bottom: 1px solid var(--line-strong);
-    }
-
-    .text-link:hover { color: var(--brand); border-bottom-color: var(--brand); }
-
-    .hero {
-      background: #fff;
-      border-bottom-color: var(--line);
-    }
-
-    .hero::before { display: none; }
-
-    .hero-grid {
-      grid-template-columns: minmax(0, 0.92fr) minmax(520px, 1.08fr);
-      gap: 72px;
-      min-height: 748px;
-      padding: 88px 0 80px;
-    }
-
-    .hero-grid > * { min-width: 0; }
-
-    .eyebrow {
-      padding: 0 0 0 12px;
-      border: 0;
-      border-left: 2px solid var(--brand);
-      border-radius: 0;
-      background: transparent;
-      color: var(--ink-500);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-    }
-
-    .eyebrow::before { display: none; }
-
-    h1 {
-      max-width: 680px;
-      margin-top: 24px;
-      font-size: clamp(48px, 5.2vw, 68px);
-      line-height: 1.08;
-      letter-spacing: -0.055em;
-      font-weight: 760;
-    }
-
-    .hero-subtitle {
-      max-width: 650px;
-      margin-top: 26px;
-      color: var(--ink-650);
-      font-size: 17px;
-      line-height: 1.85;
-    }
-
-    .hero-note {
-      max-width: 650px;
-      margin-top: 14px;
-      color: var(--ink-800);
-      font-size: 14px;
-      line-height: 1.75;
-      font-weight: 600;
-    }
-
-    .hero-actions { align-items: center; gap: 20px; margin-top: 30px; }
-
-    .hero-metrics {
-      gap: 0;
-      max-width: 690px;
-      margin-top: 38px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .metric {
-      min-height: 96px;
-      padding: 17px 18px 17px 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-    }
-
-    .metric + .metric { padding-left: 18px; border-left: 1px solid var(--line); }
-    .metric strong { font-size: 15px; font-weight: 700; }
-    .metric span { margin-top: 7px; font-size: 12px; line-height: 1.55; }
-
-    .decision-board {
-      overflow: hidden;
-      border: 1px solid #d8dee8;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .decision-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 84px;
-      padding: 20px 22px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .decision-head strong { display: block; margin-top: 3px; font-size: 18px; }
-
-    .decision-kicker {
-      color: var(--ink-500);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    .live-state {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #126c57;
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .live-state i { width: 7px; height: 7px; border-radius: 50%; background: #22a179; box-shadow: 0 0 0 4px #e5f6f0; }
-
-    .decision-tabs {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      min-height: 52px;
-      padding: 0 22px;
-      border-bottom: 1px solid var(--line);
-      color: var(--ink-500);
-      font-size: 12px;
-    }
-
-    .decision-tabs span { line-height: 51px; border-bottom: 2px solid transparent; }
-    .decision-tabs .active { color: var(--ink-950); border-bottom-color: var(--brand); font-weight: 650; }
-    .decision-tabs em { margin-left: auto; font-style: normal; color: #99a2b1; }
-
-    .decision-row {
-      display: grid;
-      grid-template-columns: 1.18fr 1fr 1fr 1.2fr;
-      gap: 14px;
-      align-items: center;
-      min-height: 78px;
-      padding: 14px 22px;
-      border-bottom: 1px solid var(--line);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .decision-row > span { min-width: 0; }
-    .decision-row b { display: block; overflow: hidden; color: var(--ink-800); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
-    .decision-row small { display: block; overflow: hidden; margin-top: 5px; color: var(--ink-500); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
-
-    .decision-labels {
-      min-height: 38px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      background: #fafbfc;
-      color: var(--ink-500);
-      font-size: 10px;
-      font-weight: 650;
-    }
-
-    .decision-row mark {
-      display: inline-flex;
-      padding: 4px 7px;
-      border-radius: 4px;
-      background: transparent;
-      font-size: 10px;
-      font-weight: 650;
-    }
-
-    .status-pending { color: #8a5b0a; background: #fff6df !important; }
-    .status-success { color: #126c57; background: #eaf7f2 !important; }
-    .status-review { color: #a23b3b; background: #fff0f0 !important; }
-
-    .decision-foot {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 22px;
-      color: var(--ink-500);
-      background: #fafbfc;
-      font-size: 10px;
-    }
-
-    .section { padding: 104px 0; }
-    #pricing, #contact { padding-block: 120px; }
-    .section-muted { background: var(--paper-soft); }
-    .section-warm { background: #fff; }
-    .section-head { max-width: 820px; margin-bottom: 42px; }
-
-    .section-kicker {
-      color: var(--brand);
-      font-size: 11px;
-      font-weight: 750;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    h2 { margin-top: 12px; font-size: clamp(34px, 3.8vw, 48px); line-height: 1.2; letter-spacing: -0.035em; }
-    .section-copy, .pain-copy { color: var(--ink-650); font-size: 16px; line-height: 1.85; }
-
-    .grid-3, .grid-4, .trust-grid { gap: 0; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line); }
-    .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-    .card {
-      padding: 28px;
-      border: 0;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .pain-card, .capability { min-height: 210px; }
-    .pain-card::before { width: 3px; height: 100%; background: var(--brand); opacity: 0; transition: opacity 150ms ease; }
-    .pain-card:hover::before { opacity: 1; }
-    .card h3 { font-size: 18px; }
-    .card p { color: var(--ink-650); font-size: 14px; }
-
-    .capability .label, .trust-card .label {
-      width: auto;
-      height: auto;
-      margin-bottom: 24px;
-      border-radius: 0;
-      background: transparent;
-      color: var(--brand);
-      font-size: 11px;
-      justify-content: flex-start;
-    }
-
-    .platform-grid { gap: 0; border-top: 1px solid var(--line-strong); }
-
-    .platform-card {
-      min-height: 86px;
-      padding: 18px 20px;
-      border: 0;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      border-radius: 0;
-    }
-
-    .platform-card:nth-child(3n + 1) { border-left: 1px solid var(--line); }
-    .platform-card strong { font-size: 16px; }
-    .platform-card .tag { border-radius: 4px; background: var(--paper-strong); color: var(--ink-650); font-size: 10px; }
-
-    .steps { gap: 0; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line); }
-    .step { min-height: 236px; padding: 70px 24px 26px; }
-    .step::before { top: 24px; left: 24px; color: var(--brand); font-size: 12px; background: transparent; }
-
-    .price-grid { gap: 24px; }
-    .price-card { padding: 34px; border-radius: 8px; box-shadow: none; }
-    .price-card.featured { border: 2px solid var(--brand); }
-    .price-card.featured::before { content: "推荐起点"; border-radius: 0 0 0 6px; background: var(--brand); font-size: 10px; letter-spacing: 0.08em; }
-    .price { letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
-    .price span { letter-spacing: 0; }
-
-    .trust-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    .trust-card { min-height: 238px; padding: 24px; }
-
-    .faq-list { max-width: 880px; }
-    .faq-list details { border-color: var(--line-strong); }
-    .faq-list summary { padding: 21px 4px; font-size: 16px; }
-    .faq-list details p { padding: 0 4px 22px; }
-
-    .contact-panel {
-      grid-template-columns: 1fr 250px;
-      padding: 54px;
-      border: 0;
-      border-radius: 8px;
-      background: #10243d;
-      color: #fff;
-      box-shadow: none;
-    }
-
-    .contact-panel h2 { color: #fff; }
-    .contact-panel .section-kicker { color: #8db9ff; }
-    .contact-panel .section-copy { color: #c6d1df; }
-    .contact-panel .text-link { color: #fff; border-bottom-color: #6f8198; }
-    .contact-list li { border-color: #40536a; background: transparent; color: #d5dfeb; }
-    .wechat { border-color: #40536a; background: #fff; color: var(--ink-950); }
-
-    .site-footer { background: #0b1728; }
-
-    @media (max-width: 1040px) {
-      .hero-grid { grid-template-columns: 1fr; min-height: auto; gap: 48px; }
-      .hero-visual { max-width: 800px; }
-      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .trust-card:last-child { grid-column: 1 / -1; }
-    }
-
-    @media (max-width: 760px) {
-      .container { width: min(100% - 32px, 1200px); }
-      .nav { height: 64px; }
-      .nav-links.open { top: 64px; border-radius: 6px; box-shadow: 0 16px 40px rgb(27 45 73 / 0.12); }
-      .hero-grid { padding: 68px 0 58px; gap: 38px; }
-      h1 { font-size: 38px; letter-spacing: -0.045em; }
-      .hero-actions .btn { width: auto; }
-      .text-link { min-height: 40px; }
-      .hero-metrics { grid-template-columns: 1fr; }
-      .metric, .metric + .metric { min-height: auto; padding: 16px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-      .metric:last-child { border-bottom: 0; }
-      .decision-board { overflow: hidden; }
-      .decision-head, .decision-tabs, .decision-foot { min-width: 0; }
-      .decision-head { padding: 18px 16px; }
-      .decision-tabs { gap: 16px; padding: 0 16px; overflow-x: auto; white-space: nowrap; }
-      .decision-tabs em, .decision-labels { display: none; }
-      .decision-table { min-width: 0; }
-      .decision-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; min-height: 0; padding: 16px; }
-      .decision-row b, .decision-row small { white-space: normal; }
-      .decision-row mark { padding-inline: 5px; }
-      .decision-foot { flex-direction: column; padding: 14px 16px; }
-      .section { padding: 72px 0; }
-      #pricing, #contact { padding-block: 84px; }
-      .grid-3, .grid-4, .platform-grid, .steps, .trust-grid { grid-template-columns: 1fr; }
-      .platform-card, .platform-card:nth-child(3n + 1) { border-left: 1px solid var(--line); }
-      .trust-card:last-child { grid-column: auto; }
-      .contact-panel { grid-template-columns: 1fr; padding: 28px 22px; }
-      .agent-positioning { grid-template-columns: 1fr; gap: 20px; padding: 28px 22px; }
+    @media (max-width: 430px) {
+      .logo-row { grid-template-columns: repeat(2, 1fr); }
+      .platform-mark { border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line); }
+      .platform-mark:nth-child(even) { border-right: 0 !important; }
+      .platform-mark:nth-last-child(-n+2) { border-bottom: 0; }
+      .hero-actions { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > :first-child { grid-column: auto; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
     }
   </style>
 </head>
-
 <body>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="https://autopricy.com/" aria-label="调价先锋 Autopricy 首页">
         <img src="https://autopricy.com/logo.svg" alt="调价先锋 Autopricy 标志" width="34" height="34">
-        <span>调价先锋<small>Autopricy</small></span>
+        <span>调价先锋<small>AUTOPRICY</small></span>
       </a>
       <nav class="nav-links" id="nav-links" aria-label="主导航">
-        <a href="https://autopricy.com/#features">产品能力</a>
-        <a href="https://autopricy.com/#platforms">平台场景</a>
-        <a href="https://autopricy.com/#workflow">工作方式</a>
-        <a href="https://autopricy.com/#pricing">价格</a>
-        <a href="https://autopricy.com/#faq">常见问题</a>
-        <a class="mobile-consult" href="https://autopricy.com/#contact">咨询接入</a>
+        <a href="#features">产品能力</a>
+        <a href="#platforms">支持平台</a>
+        <a href="#workflow">使用方式</a>
+        <a href="#pricing">价格</a>
+        <a href="#faq">常见问题</a>
+        <a class="mobile-cta" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_header_mobile">免费注册</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-secondary" href="https://autopricy.com/#contact">咨询接入</a>
-        <a class="btn btn-primary" href="https://app.autopricy.com/">进入工作台</a>
-        <button class="menu-button" id="menu-button" type="button" aria-label="打开导航" aria-expanded="false">≡</button>
+        <a class="login-link" href="https://app.autopricy.com/">登录</a>
+        <a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_header_desktop">免费注册</a>
+        <button class="menu-button" id="menu-button" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
@@ -1400,302 +362,147 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">AUTOPRICY / REPRICING OPERATIONS</span>
-          <h1>跨境电商自动调价<br>有边界，也有记录</h1>
-          <p class="hero-subtitle">Autopricy 调价先锋面向跨境电商运营团队，把竞争报价、价格规则、自动执行和结果追踪放进一套工作台。支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq 及 Mirakl 平台场景。</p>
-          <p class="hero-note">它像一个持续工作的 Pricing Agent，但核心调价决策采用可解释规则：系统只在你设定的最低价与最高价之间响应市场变化，并把平台提交、等待确认与执行结果分开记录。</p>
+          <span class="eyebrow">欧洲电商平台自动调价 SaaS</span>
+          <h1><span>7×24 小时自动调价，</span><span>持续争取购物车</span></h1>
+          <p class="hero-copy">Autopricy 持续跟踪竞争价格，按照你设置的规则自动跟价、调涨和守价。在争取购物车的同时，通过最低价与最高价保护守住利润空间。</p>
+          <p class="hero-platforms">支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq 等欧洲电商平台，以及更多基于 Mirakl 的平台。</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://autopricy.com/#contact">申请试用</a>
-            <a class="text-link" href="https://autopricy.com/#workflow">了解工作方式 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_hero">立即免费试用</a>
+            <a class="btn btn-secondary" href="#features">查看产品能力</a>
           </div>
-          <ul class="hero-metrics" aria-label="调价先锋能力点">
-            <li class="metric"><strong>多平台</strong><span>统一管理店铺、Offer 与价格规则</span></li>
-            <li class="metric"><strong>持续执行</strong><span>定时同步并处理符合规则的报价</span></li>
-            <li class="metric"><strong>双边界</strong><span>最低价和最高价共同约束决策</span></li>
+          <p class="trial-note">注册后自动开通 7 天免费试用，无需提交申请或等待审核</p>
+          <ul class="hero-tags" aria-label="核心能力">
+            <li>自动跟价</li><li>购物车竞争</li><li>最低价保护</li><li>多店铺管理</li>
           </ul>
         </div>
-        <div class="hero-visual" role="group" aria-label="调价先锋调价决策界面示意">
-          <div class="decision-board">
-            <div class="decision-head">
-              <div>
-                <span class="decision-kicker">调价工作台</span>
-                <strong>今日执行概览</strong>
-              </div>
-              <span class="live-state"><i aria-hidden="true">&nbsp;</i> 任务运行中</span>
-            </div>
-            <div class="decision-tabs" role="group" aria-label="界面示意筛选项">
-              <span class="active">全部店铺</span><span>待关注</span><span>最低价保护</span>
-              <em>界面示意</em>
-            </div>
-            <div class="decision-table" role="img" aria-label="三条调价任务分别处于等待平台确认、平台已确认和需要处理状态">
-              <div class="decision-row decision-labels">
-                <span>店铺 / 商品</span><span>价格信号</span><span>规则</span><span>执行状态</span>
-              </div>
-              <div class="decision-row">
-                <span><b>Worten PT</b><small>EAN · 560•••184</small></span>
-                <span><b>€29.90</b><small>竞争价 €29.80</small></span>
-                <span><b>≥ €28.50</b><small>目标 -€0.01</small></span>
-                <span><mark class="status-pending">等待平台确认</mark><small>已提交 09:42</small></span>
-              </div>
-              <div class="decision-row">
-                <span><b>OnBuy UK</b><small>SKU · OB-•••72</small></span>
-                <span><b>£18.20</b><small>当前最优</small></span>
-                <span><b>≤ £20.00</b><small>谨慎上调 £0.05</small></span>
-                <span><mark class="status-success">平台已确认</mark><small>确认于 09:38</small></span>
-              </div>
-              <div class="decision-row">
-                <span><b>Cdiscount FR</b><small>SKU · CD-•••05</small></span>
-                <span><b>€42.00</b><small>可见竞争价 €41.80</small></span>
-                <span><b>≥ €40.50</b><small>目标 -€0.01</small></span>
-                <span><mark class="status-review">需要处理</mark><small>平台反馈过期</small></span>
-              </div>
-            </div>
-            <div class="decision-foot">
-              <span>提交、确认、保护与失败分别记录</span>
-              <span>最近同步 09:43</span>
+        <div class="hero-visual" aria-label="Autopricy 真实 Offer 调价工作台">
+          <div class="product-window">
+            <div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Offer 调价工作台</span><span>Autopricy</span></div>
+            <div class="hero-shot">
+              <img src="./doc-images/autopricy-workspace-desktop.webp" alt="Autopricy 真实调价工作台，展示购物车占比、价格边界、调价状态和 Offer 列表" width="1440" height="1008" fetchpriority="high" decoding="async">
             </div>
           </div>
+          <div class="callout one">自动发现价格变化</div>
+          <div class="callout two">在价格边界内执行</div>
+          <div class="callout three">每次调价都有记录</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="pain">
+    <section class="platform-strip" id="platforms">
+      <div class="container">
+        <div class="section-head center">
+          <h2>为欧洲本土电商平台而做</h2>
+          <p class="section-copy">一个工作台管理多个平台和店铺，让调价规则持续运行，不再反复切换后台。</p>
+        </div>
+        <div class="logo-row" aria-label="当前支持平台">
+          <div class="platform-mark"><img src="./platform-logos/worten.png" alt="Worten" width="268" height="96"></div>
+          <div class="platform-mark"><img src="./platform-logos/fnac.png" alt="Fnac" width="292" height="126"></div>
+          <div class="platform-mark"><img class="logo-wide" src="./platform-logos/cdiscount.png" alt="Cdiscount" width="600" height="94"></div>
+          <div class="platform-mark"><img src="./platform-logos/onbuy.png" alt="OnBuy" width="408" height="134"></div>
+          <div class="platform-mark"><img src="./platform-logos/fyndiq.png" alt="Fyndiq" width="304" height="110"></div>
+          <div class="platform-mark"><img class="logo-photo" src="./platform-logos/rue-du-commerce.jpg" alt="Rue du Commerce" width="800" height="480"></div>
+          <div class="platform-mark"><img class="logo-photo" src="./platform-logos/eprice.jpg" alt="ePRICE" width="978" height="639"></div>
+          <div class="platform-mark"><span class="platform-wordmark">更多 Mirakl 平台</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="features">
       <div class="container">
         <div class="section-head">
-          <p class="section-kicker">运营现实 / 01</p>
-          <h2>真正耗时的，是发现变化之后的连续判断</h2>
-          <div class="section-copy pain-copy">
-            <p>竞争对手降价了，人工发现总是滞后。</p>
-            <p>SKU 一多，手动改价和复查很容易漏。</p>
-            <p>想抢购物车，又怕价格压太低，把利润打没。</p>
-            <p>Autopricy 把盯价、决策、提交、确认和批量处理放进一个连续流程，让运营把时间放回利润、选品和店铺增长。</p>
-          </div>
+          <p class="section-label">核心能力</p>
+          <h2>不只是自动降价，而是一套完整的价格策略</h2>
+          <p class="section-copy">从发现竞争变化到执行调价、守住价格边界和追踪结果，Autopricy 持续完成整个过程。</p>
         </div>
-        <div class="grid-3">
-          <article class="card pain-card">
-            <h3>人工盯价太慢</h3>
-            <p>竞争对手价格变化后，人工发现和处理往往已经滞后，购物车机会容易被别人抢走。</p>
+        <div class="grid-6">
+          <article class="card capability"><h3>自动跟踪竞争价格</h3><p>系统持续同步店铺 Offer 和平台可用的竞争价格，发现变化后自动判断是否需要调整。</p></article>
+          <article class="card capability"><h3>持续争取购物车</h3><p>当商品失去价格竞争力时，系统按照配置的差价和规则自动调整，提高价格响应速度。</p></article>
+          <article class="card capability"><h3>赢得后尝试调涨</h3><p>拿到购物车后，根据平台能力和调价策略逐步尝试提高售价，寻找更好的成交价格。</p></article>
+          <article class="card capability"><h3>最低价与最高价保护</h3><p>系统只在允许的价格区间内运行，避免低于底价销售或出现价格异常。</p></article>
+          <article class="card capability"><h3>多店铺批量管理</h3><p>按平台、店铺、EAN、SKU、价格区间和状态筛选，批量导入、修改、同步和导出 Offer。</p></article>
+          <article class="card capability"><h3>每次执行都有记录</h3><p>每次调价的提交结果、确认状态、价格保护和失败原因都有记录，方便运营查看执行过程和排查异常。</p></article>
+        </div>
+        <p class="fine-print">不同平台开放的竞争数据和调价能力不同，具体以接入页面和当前配置为准。</p>
+      </div>
+    </section>
+
+    <section class="section showcase" id="product">
+      <div class="container">
+        <div class="section-head center">
+          <p class="section-label">真实产品界面</p>
+          <h2>所有价格和执行结果，一眼看清</h2>
+          <p class="section-copy">不需要反复打开多个平台后台。当前价格、竞争价格、价格边界、调价状态和历史记录都集中在一个工作台中。</p>
+        </div>
+        <div class="showcase-grid">
+          <article class="shot-card large">
+            <div class="shot-frame"><img src="./doc-images/autopricy-cdiscount-workspace.webp" alt="Autopricy Cdiscount 调价工作台，展示购物车占比、调价次数、价格边界和 Offer 状态" width="1440" height="1188" loading="lazy" decoding="async"></div>
+            <div class="shot-copy"><h3>调价工作台</h3><p>快速查看哪些商品正在运行、哪些商品触发了价格保护，以及最近一次执行结果。</p></div>
           </article>
-          <article class="card pain-card">
-            <h3>批量改价太累</h3>
-            <p>店铺多、SKU 多、平台多，一个个查价、改价、复查，很容易出错，也很难持续。</p>
+          <article class="shot-card small">
+            <div class="shot-frame"><img class="rule-shot" src="./doc-images/detail.png" alt="Autopricy Offer 调价规则，展示最低价、最高价、调价差值和自动调涨设置" width="1146" height="1528" loading="lazy" decoding="async"></div>
+            <div class="shot-copy"><h3>调价规则</h3><p>按商品配置最低价、最高价、跟价差值和自动调涨策略。</p></div>
           </article>
-          <article class="card pain-card">
-            <h3>降价容易伤利润</h3>
-            <p>想跟价抢购物车，但如果没有最低价保护，很容易把价格压到亏损线以下。</p>
+          <article class="shot-card small">
+            <div class="shot-frame"><img src="./doc-images/autopricy-workspace-mobile.webp" alt="Autopricy Offer 详情，展示不同站点的竞争卖家、商品价格和状态" width="900" height="801" loading="lazy" decoding="async"></div>
+            <div class="shot-copy"><h3>Offer 竞争详情</h3><p>集中查看不同站点的竞争卖家、商品价格和 Offer 状态。</p></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted" id="features">
+    <section class="section" id="workflow">
       <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">产品能力 / 02</p>
-          <h2>自动调价引擎：从价格信号到平台确认，形成可复盘的执行链</h2>
-          <p class="section-copy">设置最低价、最高价和平台规则后，系统持续监控竞争报价，在安全价格区间内执行调价，并把等待、成功、保护与异常分开呈现。</p>
-        </div>
-        <div class="grid-4">
-          <article class="card capability">
-            <span class="label">1</span>
-            <h3>自动监控竞争报价</h3>
-            <p>系统会定时同步平台 Offer 和竞争报价，根据同 EAN 商品的市场价格变化自动判断是否需要调价。</p>
-          </article>
-          <article class="card capability">
-            <span class="label">2</span>
-            <h3>最低价与最高价双向保护</h3>
-            <p>每个商品都可以设置价格边界；低于最低价时优先纠正，高于最高价时回到允许区间，避免策略越界。</p>
-          </article>
-          <article class="card capability">
-            <span class="label">3</span>
-            <h3>区分提交与平台确认</h3>
-            <p>价格请求已提交，不等于平台已经生效。系统分别记录等待、确认与失败，减少运营误判。</p>
-          </article>
-          <article class="card capability">
-            <span class="label">4</span>
-            <h3>几千个 Offer，也可以批量管理</h3>
-            <p>支持按平台、店铺、EAN、SKU、价格区间和状态筛选 Offer，并进行批量导入、修改、同步和导出。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="pricing-agent">
-      <div class="container">
-        <div class="agent-positioning">
-          <h2>AI 调价 Agent，首先应该可控</h2>
-          <p>市场常把能够持续感知、判断、执行和复核的自动化称为 AI Agent。Autopricy 当前核心调价决策采用明确的竞争价格与边界规则，而不是让生成式 AI 自主决定售价。它保留 Agent 式连续工作流，同时让最低价、最高价、平台限制和每次执行结果都可以解释、检查和调整。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="platforms">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">平台场景 / 03</p>
-          <h2>跨境电商自动调价：覆盖主流平台，也尊重平台差异</h2>
-          <p class="section-copy">Autopricy 覆盖 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、RDC、ePRICE 等平台场景，并支持 Mirakl 系平台接入。竞争数据、执行频率和可用操作会因平台接口而不同。</p>
-        </div>
-        <div class="platform-grid">
-          <a class="platform-card" href="./worten-repricer/"><div><strong>Worten</strong><span>Worten 自动调价</span></div><span class="tag">查看方案</span></a>
-          <a class="platform-card" href="./fnac-repricer/"><div><strong>Fnac</strong><span>Fnac 自动调价</span></div><span class="tag">查看方案</span></a>
-          <article class="platform-card"><div><strong>Cdiscount</strong><span>Cdiscount 自动调价</span></div><span class="tag">支持</span></article>
-          <article class="platform-card"><div><strong>OnBuy</strong><span>OnBuy 自动调价</span></div><span class="tag">支持</span></article>
-          <article class="platform-card"><div><strong>Fyndiq</strong><span>Fyndiq 自动调价</span></div><span class="tag">支持</span></article>
-          <article class="platform-card"><div><strong>RDC</strong><span>Offer 管理</span></div><span class="tag">支持</span></article>
-          <article class="platform-card"><div><strong>MediaMarkt</strong><span>Mirakl 店铺场景</span></div><span class="tag">可接入</span></article>
-          <article class="platform-card"><div><strong>ePRICE</strong><span>Offer 管理</span></div><span class="tag">支持</span></article>
-          <a class="platform-card" href="./mirakl-repricer/"><div><strong>Mirakl 系平台</strong><span>Mirakl repricer · 按平台评估</span></div><span class="tag">English</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="workflow">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">工作方式 / 04</p>
-          <h2>先用一间店铺验证，再扩展到更多运营场景</h2>
-          <p class="section-copy">从平台能力确认到规则配置，团队协助完成首次接入。先核对数据与价格边界，再启动自动执行。</p>
+        <div class="section-head center">
+          <p class="section-label">使用方式</p>
+          <h2>接入店铺，设置规则，然后交给系统持续执行</h2>
         </div>
         <div class="steps">
-          <article class="card step">
-            <h3>确认平台能力</h3>
-            <p>确认平台、店铺数量、SKU 规模和所需操作，避免用不适用的能力口径承诺效果。</p>
-          </article>
-          <article class="card step">
-            <h3>填写授权信息</h3>
-            <p>根据平台要求填写 API 授权信息。调价先锋不要求你提供平台后台登录密码。</p>
-          </article>
-          <article class="card step">
-            <h3>核对 Offer</h3>
-            <p>同步店铺商品、价格和可用的竞争报价，先检查数据完整性再启用规则。</p>
-          </article>
-          <article class="card step">
-            <h3>设置边界并观察</h3>
-            <p>配置最低价、最高价和调价策略，启动后通过执行状态与记录持续核对结果。</p>
-          </article>
+          <article class="step"><span class="step-number">1</span><h3>连接店铺</h3><p>使用平台提供的 API 授权信息连接店铺，不需要提供平台后台登录密码。</p></article>
+          <article class="step"><span class="step-number">2</span><h3>设置价格策略</h3><p>配置最低价、最高价、跟价差值和对应平台的调价策略。</p></article>
+          <article class="step"><span class="step-number">3</span><h3>启动自动调价</h3><p>系统持续同步价格并自动执行，运营只需要查看结果、处理异常和调整策略。</p></article>
+        </div>
+        <p class="workflow-note">首次接入过程中，客服可以协助确认授权信息、同步商品并完成基础规则配置。</p>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="tools">
+      <div class="container">
+        <div class="section-head"><p class="section-label">更多运营工具</p><h2>自动调价之外，常用运营操作也能集中完成</h2><p class="section-copy">围绕店铺日常运营，Autopricy 还提供 Offer、库存、发票和商品采集等辅助能力。</p></div>
+        <div class="tools-grid">
+          <article class="card tool-card"><h3>Offer 管理</h3><p>集中查询和维护多个店铺的商品、价格、库存和状态。</p></article>
+          <article class="card tool-card"><h3>批量导入导出</h3><p>通过表格批量设置价格边界、修改库存或导出商品数据。</p></article>
+          <article class="card tool-card"><h3>发票处理</h3><p>集中处理需要开具和上传的订单发票，减少重复操作。</p><span class="tool-badge">部分平台支持</span></article>
+          <article class="card tool-card"><h3>商品采集工具</h3><p>通过浏览器插件采集商品信息，为跟卖和商品维护提供数据支持。</p><span class="tool-badge">部分平台支持</span></article>
         </div>
       </div>
     </section>
 
-    <section class="section section-warm" id="pricing">
+    <section class="section" id="pricing">
       <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">价格方案 / 05</p>
-          <h2>价格简单清晰，按店铺收费</h2>
-          <p class="section-copy">新客户公开标准价格为 200 元 / 店铺 / 月，多店铺和企业场景可以按使用规模沟通。</p>
-        </div>
+        <div class="section-head center"><p class="section-label">价格方案</p><h2>简单透明，按店铺付费</h2><p class="section-copy">无需购买复杂套餐。正式开通后按店铺数量付费，商品数量不限。</p></div>
         <div class="price-grid">
           <article class="price-card featured">
-            <h3>标准版</h3>
-            <div class="price">¥200<span>/ 店铺 / 月</span></div>
-            <p class="section-copy">适合需要自动调价、Offer 管理和基础数据同步的跨境卖家。</p>
-            <ul class="feature-list">
-              <li>自动调价</li>
-              <li>Offer 管理</li>
-              <li>最低价 / 最高价保护</li>
-              <li>批量导入导出</li>
-              <li>店铺有效期管理</li>
-              <li>基础客服支持</li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://autopricy.com/#contact">申请试用</a>
-              <a class="text-link" href="https://autopricy.com/#faq">查看常见问题 <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="price-card">
-            <h3>店群版</h3>
-            <div class="price">按场景报价<span>/ 多店铺团队</span></div>
-            <p class="section-copy">适合多平台、多店铺、多 SKU 的运营团队。</p>
-            <ul class="feature-list">
-              <li>多店铺统一管理</li>
-              <li>批量 Offer 处理</li>
-              <li>发票自动化</li>
-              <li>产品采集插件</li>
-              <li>上线协助</li>
-              <li>专属使用支持</li>
-            </ul>
-            <div class="price-note">历史店铺如享有老客户优惠价格，以系统内实际显示为准。后续如有价格政策调整，我们会提前通知。已经完成支付的服务周期不受后续价格调整影响。</div>
+            <h3>自动调价标准版</h3><div class="price">¥200<span>/ 店铺 / 月</span></div><p class="section-copy">注册即可免费试用 7 天，正式开通后按店铺数量付费。</p>
+            <ul class="feature-list"><li>商品数量不限</li><li>自动调价</li><li>购物车竞争策略</li><li>最低价与最高价保护</li><li>调价执行记录</li><li>Offer 管理</li><li>批量导入导出</li><li>基础接入支持</li></ul>
+            <div class="hero-actions"><a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_pricing">免费注册</a></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="trust">
+    <section class="section section-soft" id="faq">
       <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">可控与透明 / 06</p>
-          <h2>自动化不应该成为一个看不见的黑箱</h2>
-        </div>
-        <div class="trust-grid">
-          <article class="card trust-card">
-            <span class="label">A</span>
-            <h3>不需要平台登录密码</h3>
-            <p>接入时只需要平台 API 授权信息，不要求你提交平台后台登录密码。</p>
-          </article>
-          <article class="card trust-card">
-            <span class="label">B</span>
-            <h3>最低价保护</h3>
-            <p>系统只会在你设置的最低价和最高价之间调价，避免低于底价销售。</p>
-          </article>
-          <article class="card trust-card">
-            <span class="label">C</span>
-            <h3>执行状态可追踪</h3>
-            <p>提交、平台确认、价格保护和失败原因分别呈现，方便运营复盘和排查问题。</p>
-          </article>
-          <article class="card trust-card">
-            <span class="label">D</span>
-            <h3>人工协助上线</h3>
-            <p>新店铺接入、API 授权、规则配置过程中，可以联系客服协助完成首次配置。</p>
-          </article>
-          <article class="card trust-card">
-            <span class="label">E</span>
-            <h3>公司主体完整</h3>
-            <p>由北京轻石科技有限公司提供服务，网站已完成备案。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">常见问题 / 07</p>
-          <h2>接入前，先把关键边界讲清楚</h2>
-        </div>
+        <div class="section-head center"><h2>常见问题</h2></div>
         <div class="faq-list">
-          <details open>
-            <summary>调价先锋支持哪些平台？</summary>
-            <p>目前覆盖 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、RDC、ePRICE 等平台场景，并支持 Mirakl 系平台接入。具体竞争数据、调价频率和批量能力会因平台接口而不同，接入前会先确认。</p>
-          </details>
-          <details>
-            <summary>自动调价会不会低于我的最低价？</summary>
-            <p>不会。你可以为商品设置最低价和最高价，系统只会在你设置的价格区间内自动调价。</p>
-          </details>
-          <details>
-            <summary>是否需要提供平台登录密码？</summary>
-            <p>不需要。接入时只需要平台 API 授权信息，不要求你提供平台后台登录密码。</p>
-          </details>
-          <details>
-            <summary>多久调价一次？</summary>
-            <p>系统会定时同步平台 Offer 和竞争报价，并根据你设置的规则自动执行调价。具体频率会根据平台接口能力和店铺配置有所不同。</p>
-          </details>
-          <details>
-            <summary>自动调价能保证拿到购物车吗？</summary>
-            <p>不能保证。购物车结果会受到价格、库存、物流、店铺评分、平台规则等多种因素影响。调价先锋可以帮助你提高价格响应速度和价格竞争力，但不会承诺一定获得购物车。</p>
-          </details>
-          <details>
-            <summary>如何收费？</summary>
-            <p>当前标准价格为 200 元 / 店铺 / 月。多店铺或企业使用场景可以联系客服咨询。</p>
-          </details>
-          <details>
-            <summary>老客户价格怎么处理？</summary>
-            <p>历史店铺如享有老客户优惠价格，以系统内实际显示为准。后续如有价格政策调整，我们会提前通知。已经完成支付的服务周期不受后续价格调整影响。</p>
-          </details>
-          <details>
-            <summary>新店铺如何开始试用？</summary>
-            <p>可以添加客服微信，发送你的平台名称、店铺数量和大概 SKU 数，我们会协助判断是否适合接入，并完成首次配置。</p>
-          </details>
+          <details open><summary>Autopricy 支持哪些平台？</summary><p>目前支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、Rue du Commerce、ePRICE 等欧洲电商平台，以及更多基于 Mirakl 的平台。不同平台开放的竞争数据和调价能力不同，具体以工作台店铺接入页面为准。</p></details>
+          <details><summary>自动调价会低于我的最低价吗？</summary><p>不会。你可以为商品设置最低价和最高价，系统只会在允许的价格区间内执行调价。</p></details>
+          <details><summary>拿到购物车后还会继续降价吗？</summary><p>系统会根据你设置的策略和平台能力判断下一步操作。支持调涨的平台可以在拿到购物车后逐步尝试提高售价，而不是长期停留在最低价格。</p></details>
+          <details><summary>需要提供平台账号和密码吗？</summary><p>不需要提供平台后台登录密码。店铺通过平台 API 授权信息接入。</p></details>
+          <details><summary>多久执行一次调价？</summary><p>系统会持续运行，并根据平台接口能力、店铺规模和当前配置定时完成价格检查与调价。</p></details>
+          <details><summary>Autopricy 如何提升购物车竞争力？</summary><p>Autopricy 持续跟踪竞争价格，并按照你设置的价格边界和调价策略及时执行调整，帮助商品保持价格竞争力。购物车结果还会受到库存、物流、店铺表现和平台规则等因素影响。</p></details>
+          <details><summary>如何收费？</summary><p>自动调价标准版为 200 元 / 店铺 / 月，商品数量不限。</p></details>
+          <details><summary>如何开始免费试用？</summary><p>完成注册后，系统会自动开通 7 天免费试用，无需提交申请或等待审核。进入工作台后，即可绑定店铺并开始同步 Offer。</p></details>
         </div>
       </div>
     </section>
@@ -1704,29 +511,10 @@
       <div class="container">
         <div class="contact-panel">
           <div>
-            <p class="section-kicker">接入评估 / 08</p>
-            <h2>先确认平台、规模和目标，再决定怎么接入</h2>
-            <p class="section-copy">发送平台名称、店铺数量、SKU 规模和当前调价方式，我们会先判断平台能力与业务目标是否匹配，再协助完成试用配置。</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://app.autopricy.com/">进入工作台</a>
-              <a class="text-link" href="mailto:yuanyongvia@gmail.com">邮件：yuanyongvia@gmail.com <span aria-hidden="true">→</span></a>
-            </div>
-            <ul class="contact-list" aria-label="咨询时建议提供的信息">
-              <li>平台名称</li>
-              <li>店铺数量</li>
-              <li>SKU 数量</li>
-              <li>联系方式</li>
-              <li>是否已有授权信息</li>
-              <li>当前调价方式</li>
-            </ul>
-          </div>
-          <div class="wechat">
-            <picture>
-              <source srcset="./doc-images/qrcode.webp" type="image/webp">
-              <img src="./doc-images/qrcode.jpeg" alt="调价先锋客服微信二维码" width="168" height="168" loading="lazy" decoding="async">
-            </picture>
-            <strong>添加客服，确认接入条件</strong>
-            <span>平台 · 店铺数量 · SKU 规模 · 当前调价方式</span>
+            <p class="section-label">注册即享免费试用</p>
+            <h2>从今天开始，让价格策略自动运行</h2>
+            <p class="section-copy">连接店铺、同步 Offer 并设置价格边界后，Autopricy 会持续跟踪竞争变化并自动执行调价。</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_footer">免费注册并开始试用</a><a class="btn btn-secondary" href="https://app.autopricy.com/">已有账号，直接登录</a></div>
           </div>
         </div>
       </div>
@@ -1736,90 +524,34 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <h3>调价先锋 Autopricy</h3>
-          <p>面向跨境电商运营团队的自动调价与 Offer 管理 SaaS，让价格边界、平台执行和结果追踪保持清晰。</p>
-        </div>
-        <div>
-          <h4>产品</h4>
-          <ul class="footer-links">
-            <li><a href="https://autopricy.com/#features">自动调价</a></li>
-            <li><a href="https://autopricy.com/#platforms">支持平台</a></li>
-            <li><a href="https://autopricy.com/#pricing">价格方案</a></li>
-            <li><a href="https://autopricy.com/worten-repricer/">Worten Repricer</a></li>
-            <li><a href="https://autopricy.com/mirakl-repricer/">Mirakl Repricer</a></li>
-            <li><a href="https://autopricy.com/fnac-repricer/">Fnac Repricer</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>资源</h4>
-          <ul class="footer-links">
-            <li><a href="https://app.autopricy.com/">业务系统</a></li>
-            <li><a href="https://app.autopricy.com/help.html">帮助中心</a></li>
-            <li><a href="https://app.autopricy.com/terms.html">用户服务协议</a></li>
-            <li><a href="https://app.autopricy.com/privacy.html">隐私政策</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>联系</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:yuanyongvia@gmail.com">yuanyongvia@gmail.com</a></li>
-            <li><a href="tel:+8617720284880">177&nbsp;2028&nbsp;4880</a></li>
-            <li><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">ICP备案查询</a></li>
-          </ul>
-        </div>
+        <div><h3>调价先锋 Autopricy</h3><p>面向欧洲电商平台卖家的自动调价与 Offer 管理 SaaS，帮助运营团队提升价格响应速度、守住价格边界并减少重复操作。</p></div>
+        <div><h4>产品</h4><ul class="footer-links"><li><a href="#features">自动调价</a></li><li><a href="#platforms">支持平台</a></li><li><a href="#pricing">价格方案</a></li></ul></div>
+        <div><h4>资源</h4><ul class="footer-links"><li><a href="https://app.autopricy.com/help.html">帮助中心</a></li><li><a href="https://app.autopricy.com/terms.html">用户服务协议</a></li><li><a href="https://app.autopricy.com/privacy.html">隐私政策</a></li></ul></div>
+        <div><h4>账户与联系</h4><ul class="footer-links"><li><a href="https://app.autopricy.com/">进入工作台</a></li><li><a href="tel:+8617720284880">177&nbsp;2028&nbsp;4880</a></li></ul></div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 调价先锋 Autopricy</span>
-        <div class="filing-links">
-          <a id="icp-link" class="icp-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">北京轻石科技有限公司 京ICP备2026039016号</a>
-          <a id="police-link" class="police-link" href="https://beian.mps.gov.cn/#/query/webSearch?code=11010102000001" target="_blank" rel="noopener" aria-label="京公网安备11010102000001号">
-            <img src="./doc-images/gongan-beian.jpg" alt="" width="18" height="18" aria-hidden="true">
-            <span>京公网安备11010102000001号</span>
-          </a>
-        </div>
-      </div>
+      <div class="footer-bottom"><span>© 2026 调价先锋 Autopricy</span><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">北京轻石科技有限公司 · 京ICP备2026039016号</a></div>
     </div>
   </footer>
 
   <script>
     const menuButton = document.getElementById('menu-button');
     const navLinks = document.getElementById('nav-links');
-
     if (menuButton && navLinks) {
       menuButton.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        menuButton.setAttribute('aria-expanded', String(isOpen));
-        menuButton.setAttribute('aria-label', isOpen ? '关闭导航' : '打开导航');
+        const open = navLinks.classList.toggle('open');
+        document.body.classList.toggle('menu-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+        menuButton.textContent = open ? '×' : '☰';
       });
-
-      navLinks.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          menuButton.setAttribute('aria-expanded', 'false');
-          menuButton.setAttribute('aria-label', '打开导航');
-        });
-      });
+      navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', '打开导航');
+        menuButton.textContent = '☰';
+      }));
     }
-
-    const icpLink = document.getElementById('icp-link');
-    const policeLink = document.getElementById('police-link');
-    const hostname = window.location.hostname;
-    const isAutopricy =
-      hostname === 'autopricy.com' ||
-      hostname === 'www.autopricy.com' ||
-      hostname.endsWith('.autopricy.com');
-
-    if (icpLink) {
-      if (isAutopricy) {
-        icpLink.textContent = '北京轻石科技有限公司 京ICP备2026039016号';
-        if (policeLink) policeLink.hidden = false;
-      } else {
-        icpLink.textContent = 'ICP备案查询';
-        if (policeLink) policeLink.hidden = true;
-      }
-    }
-
     if (window.location.hostname.includes('autopricy.com')) {
       const umami = document.createElement('script');
       umami.defer = true;
@@ -1829,5 +561,4 @@
     }
   </script>
 </body>
-
 </html>
