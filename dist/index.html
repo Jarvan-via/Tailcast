@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="M5wnb-Kj1IrUN9Y_m0AGoqXx7Tg8Tl32qgbvh4xsur4">
   <link rel="icon" href="https://autopricy.com/logo.svg" type="image/svg+xml">
   <link rel="canonical" href="https://autopricy.com/">
   <title>Autopricy 调价先锋｜AI Agent 时代的跨境电商自动调价 SaaS</title>
@@ -189,15 +190,6 @@
         }
       ]
     }
-  </script>
-
-  <script>
-    (() => {
-      const legacyHosts = new Set(['wortenprice.com', 'www.wortenprice.com']);
-      if (legacyHosts.has(window.location.hostname)) {
-        window.location.replace(`https://autopricy.com${window.location.pathname}${window.location.search}${window.location.hash}`);
-      }
-    })();
   </script>
 
   <style>
@@ -1822,9 +1814,6 @@
       if (isAutopricy) {
         icpLink.textContent = '北京轻石科技有限公司 京ICP备2026039016号';
         if (policeLink) policeLink.hidden = false;
-      } else if (hostname === 'wortenprice.com' || hostname === 'www.wortenprice.com' || hostname === 'vip.wortenprice.com') {
-        icpLink.textContent = '鄂ICP备2024040727号';
-        if (policeLink) policeLink.hidden = true;
       } else {
         icpLink.textContent = 'ICP备案查询';
         if (policeLink) policeLink.hidden = true;
