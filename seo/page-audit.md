@@ -59,4 +59,3 @@ Audit date: 2026-08-24
 - Revised patterns: generic benefit claims, repeated “AI” framing, uniform platform copy, absolute availability, and instant-success language.
 - Preserved: capability limits, exact product objects, platform terms, source URLs, CTA destinations, metadata, and examples marked as illustrative.
 - Remaining risk: native platform fields and policies can change; recheck official sources before material page revisions.
-
