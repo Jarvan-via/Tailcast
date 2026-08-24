@@ -8,7 +8,7 @@ Last updated: 2026-08-24
 |---|---|---|
 | Phase 1 — skills, product, keyword, competitor, audit | Complete with explicit measurement blockers | Research files in this directory; no product code changed |
 | Phase 2 — architecture + first 10 pages + sitemap/schema/internal links | Live | Released to `ali` on 2026-08-24; ten pages, 11-URL sitemap, home resource hub, schema, repeatable checks and browser evidence verified publicly |
-| Phase 3 — five guides | Implemented; production verification pending | Five evidence-bound guides, Article/FAQ schema, citations and two-way internal links; release after build and browser checks |
+| Phase 3 — five guides | Live | Five evidence-bound guides, Article/FAQ schema, citations and two-way internal links; deployed and publicly verified on `ali` |
 | Phase 4 — 10–20 quality backlink candidates and submissions | Gated | Pages live, crawlable and in sitemap; wait for refreshed sitemap/index coverage and guide review |
 
 ## Completed on 2026-08-24
@@ -50,11 +50,21 @@ Last updated: 2026-08-24
 - Kept the previous production tree at `/home/homepage/autopricy/dist.backup-20260824-ksdhq9` for rollback.
 - Public verification: all 11 canonical sitemap URLs return 200, an unknown path returns 404, public homepage/sitemap hashes match local artifacts, and the complete domain-migration script passes.
 
+## Phase 3 production release — 2026-08-24
+
+- Published five marketplace-specific guides for Mirakl, Worten, OnBuy, FNAC/Darty and Cdiscount; each contains roughly 750–830 rendered words and cited primary sources.
+- Added Article, BreadcrumbList and visible/matching FAQPage structured data, stable canonicals, English hreflang, guide-to-platform links and platform-to-guide links.
+- Extended the sitemap from 11 to 16 canonical URLs and expanded deterministic checks for Article schema, source sections and guide heading depth.
+- Browser-checked desktop and 390 px mobile layouts; inspected all five guides with zero console errors or warnings.
+- Pushed `2bb48d1 feat(seo): publish marketplace repricing guides` to `origin/main` and deployed the static tree to `ali:/home/homepage/autopricy/dist`.
+- Preserved the previous live tree at `/home/homepage/autopricy/dist.backup-20260824-phase3-2bb48d1` for rollback.
+- Public verification: all 16 sitemap URLs return 200, an unknown URL returns 404, the public sitemap SHA-256 matches the built artifact, and the complete domain-migration check passes.
+
 ## Next low-risk execution batch
 
 1. Recheck the refreshed sitemap and the Darty, OnBuy and Cdiscount indexing states in 3–7 days.
 2. Inspect the remaining five canonical URLs and export Page Indexing/CWV data when available.
-3. Publish and request discovery for Phase 3’s five guides after production verification.
+3. Resubmit the 16-URL sitemap and request discovery for Phase 3’s five guides in Search Console.
 4. Re-run mobile/desktop performance traces before the next release.
 
 No backlink candidate should move to `submitted` before these steps pass.
