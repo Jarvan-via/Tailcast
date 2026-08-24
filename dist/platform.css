@@ -452,6 +452,30 @@ h2 { margin-top: 11px; font-size: clamp(32px, 4vw, 46px); line-height: 1.18; let
 
 .contact-email:hover { text-decoration: underline; }
 
+.guide-hero {
+  padding: 0 0 72px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(145deg, #fff 0 64%, var(--platform-soft) 100%);
+}
+
+.guide-narrow { max-width: 900px; }
+.guide-hero h1 { max-width: 850px; margin: 24px 0 22px; }
+.guide-hero .hero-copy { max-width: 780px; margin-bottom: 20px; }
+.guide-meta { margin: 0 0 28px; color: var(--ink-500); font-size: 13px; line-height: 1.6; }
+.guide-shell { display: grid; grid-template-columns: 280px minmax(0, 720px); justify-content: center; gap: 72px; padding-block: 84px; }
+.guide-summary { align-self: start; position: sticky; top: 96px; padding: 24px; border: 1px solid var(--line-strong); background: var(--platform-soft); }
+.guide-summary strong { display: block; margin-bottom: 14px; color: var(--ink-900); font-size: 15px; }
+.guide-summary ul { display: grid; gap: 12px; margin: 0; padding-left: 18px; color: var(--ink-650); font-size: 13px; line-height: 1.65; }
+.guide-article section + section { margin-top: 58px; padding-top: 50px; border-top: 1px solid var(--line); }
+.guide-article h2 { margin-bottom: 20px; font-size: clamp(27px, 3vw, 36px); }
+.guide-article p { margin: 0; color: var(--ink-650); font-size: 17px; line-height: 1.9; }
+.guide-article p + p { margin-top: 18px; }
+.guide-context { padding: 18px 20px; border-left: 3px solid var(--platform-accent); background: var(--platform-soft); font-size: 15px !important; }
+.guide-context a { color: var(--platform-accent-strong); font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
+.guide-context + section { margin-top: 50px; }
+.guide-sources { display: grid; gap: 12px; padding-left: 20px; }
+.guide-sources a { color: var(--platform-accent-strong); font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+
 .site-footer { padding: 34px 0; color: #bfd0e1; background: #0b1728; }
 .footer-row { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; }
@@ -464,6 +488,8 @@ h2 { margin-top: 11px; font-size: clamp(32px, 4vw, 46px); line-height: 1.18; let
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .agent-note { grid-template-columns: 1fr; gap: 20px; }
   .example-box { grid-template-columns: 1fr; gap: 20px; }
+  .guide-shell { grid-template-columns: 1fr; gap: 42px; }
+  .guide-summary { position: static; }
 }
 
 @media (max-width: 620px) {
@@ -487,6 +513,9 @@ h2 { margin-top: 11px; font-size: clamp(32px, 4vw, 46px); line-height: 1.18; let
   .mechanics th { min-width: 150px; }
   .cta { grid-template-columns: 1fr; gap: 24px; }
   .footer-row { display: grid; }
+  .guide-hero { padding-bottom: 54px; }
+  .guide-shell { padding-block: 62px; }
+  .guide-article p { font-size: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

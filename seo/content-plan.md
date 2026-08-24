@@ -21,6 +21,8 @@ Each commercial page should include one H1, a direct summary, seller problem, pl
 
 ## First five guides
 
+Status: implemented on 2026-08-24. Each guide includes cited primary sources, Article/Breadcrumb/FAQ schema, a direct platform-page link, related feature links, and a registration CTA.
+
 1. `/guides/mirakl-repricing/` — What Mirakl repricing actually means for a seller, including why operator capabilities differ.
 2. `/guides/worten-automatic-repricing/` — How automatic repricing works on Worten from competitor Offer to platform confirmation.
 3. `/guides/onbuy-winning-offer/` — How OnBuy winning checks, price boundaries, delayed updates, and non-price factors interact.

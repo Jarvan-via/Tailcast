@@ -8,7 +8,7 @@ Last updated: 2026-08-24
 |---|---|---|
 | Phase 1 — skills, product, keyword, competitor, audit | Complete with explicit measurement blockers | Research files in this directory; no product code changed |
 | Phase 2 — architecture + first 10 pages + sitemap/schema/internal links | Live | Released to `ali` on 2026-08-24; ten pages, 11-URL sitemap, home resource hub, schema, repeatable checks and browser evidence verified publicly |
-| Phase 3 — five guides | Not started | Start only after landing-page product claims pass review |
+| Phase 3 — five guides | Implemented; production verification pending | Five evidence-bound guides, Article/FAQ schema, citations and two-way internal links; release after build and browser checks |
 | Phase 4 — 10–20 quality backlink candidates and submissions | Gated | Pages live, crawlable and in sitemap; wait for refreshed sitemap/index coverage and guide review |
 
 ## Completed on 2026-08-24
@@ -54,7 +54,7 @@ Last updated: 2026-08-24
 
 1. Recheck the refreshed sitemap and the Darty, OnBuy and Cdiscount indexing states in 3–7 days.
 2. Inspect the remaining five canonical URLs and export Page Indexing/CWV data when available.
-3. Complete Phase 3’s five guides and link them to the relevant platform and feature pages.
+3. Publish and request discovery for Phase 3’s five guides after production verification.
 4. Re-run mobile/desktop performance traces before the next release.
 
 No backlink candidate should move to `submitted` before these steps pass.

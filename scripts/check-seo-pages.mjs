@@ -31,6 +31,7 @@ for (const url of urls) {
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1] ?? '';
   const h1Count = (html.match(/<h1(?:\s|>)/gi) ?? []).length;
   const visibleFaqCount = (html.match(/<details(?:\s|>)/gi) ?? []).length;
+  const h2Count = (html.match(/<h2(?:\s|>)/gi) ?? []).length;
   const body = textContent(html);
 
   if (!title) errors.push(`${url}: missing title`);
@@ -49,12 +50,19 @@ for (const url of urls) {
       const parsed = JSON.parse(json);
       const graph = parsed['@graph'] ?? [];
       const faq = graph.find((item) => item['@type'] === 'FAQPage');
+      const article = graph.find((item) => item['@type'] === 'Article');
       if (url !== 'https://autopricy.com/' && (!faq || faq.mainEntity.length !== visibleFaqCount)) {
         errors.push(`${url}: visible/schema FAQ mismatch (${visibleFaqCount}/${faq?.mainEntity?.length ?? 0})`);
       }
+      if (url.includes('/guides/') && !article) errors.push(`${url}: missing Article schema`);
     } catch (error) {
       errors.push(`${url}: invalid JSON-LD (${error.message})`);
     }
+  }
+
+  if (url.includes('/guides/')) {
+    if (h2Count < 6) errors.push(`${url}: guide H2 count ${h2Count}, expected at least 6`);
+    if (!/Primary sources/.test(body)) errors.push(`${url}: missing primary source section`);
   }
 
   for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
@@ -67,7 +75,7 @@ for (const url of urls) {
 }
 
 if (new Set(urls).size !== urls.length) errors.push('sitemap contains duplicate URLs');
-if (urls.length !== 11) errors.push(`sitemap URL count ${urls.length}, expected 11`);
+if (urls.length !== 16) errors.push(`sitemap URL count ${urls.length}, expected 16`);
 
 console.log(`Checked ${urls.length} sitemap pages.`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);

@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildGuides, guides } from './build-guide-pages.mjs';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distRoot = resolve(projectRoot, 'dist');
@@ -45,7 +46,7 @@ const pages = [
       ['Can Autopricy price below the configured minimum?', 'Eligible calculations are constrained by the configured minimum and maximum price. Invalid or missing boundaries should stop automation.'],
       ['Does the lowest price guarantee the winning Offer?', 'No. Price may matter, but availability, delivery, seller performance and operator rules can also influence placement.']
     ],
-    related: [['Worten marketplace', '/worten-repricer/'], ['Cdiscount repricing', '/cdiscount-repricer/'], ['Automatic repricing', '/features/automatic-repricing/']]
+    related: [['Mirakl repricing guide', '/guides/mirakl-repricing/'], ['Worten marketplace', '/worten-repricer/'], ['Automatic repricing', '/features/automatic-repricing/']]
   },
   {
     slug: 'worten-repricer', theme: 'theme-worten', code: 'W.', codeNote: 'OFFER<br>REPRICING',
@@ -72,7 +73,7 @@ const pages = [
     exampleTitle: 'A protected Worten rule', exampleLabel: 'Illustrative rule, not a guarantee',
     example: '<strong>Example:</strong> a Worten Offer has a €38.00 minimum and €46.00 maximum. When a comparable available Offer changes, Autopricy can calculate a target using the configured difference. A €37.90 target would be blocked by the floor; a submitted €41.49 update remains pending until the platform result is observable.',
     faq: [['Can a Worten repricer go below my minimum price?', 'Autopricy constrains eligible calculations to the configured minimum and maximum. Missing or invalid boundaries should stop automation.'], ['Does Autopricy need my marketplace password?', 'Store connection uses the platform authorization information required by the integration, not a request for your seller-backoffice password.'], ['Does repricing guarantee the winning Offer?', 'No. Pricing can improve competitiveness, but marketplace placement can also depend on availability, delivery, seller performance and platform rules.'], ['How quickly do price changes appear?', 'Timing depends on platform processing, API limits and store configuration. Autopricy keeps submission and confirmation separate instead of promising unrestricted real-time updates.']],
-    related: [['Minimum and maximum rules', '/features/min-max-price-rules/'], ['Multi-store operations', '/features/multi-store-management/'], ['Mirakl repricing', '/mirakl-repricer/']]
+    related: [['Worten automatic repricing guide', '/guides/worten-automatic-repricing/'], ['Minimum and maximum rules', '/features/min-max-price-rules/'], ['Multi-store operations', '/features/multi-store-management/']]
   },
   {
     slug: 'fnac-repricer', theme: 'theme-fnac', code: 'F.', codeNote: 'XML 2.6<br>OFFERS',
@@ -95,7 +96,7 @@ const pages = [
     example: '<strong>Example:</strong> a target price is calculated inside a €21.00–€27.00 range and added to an XML update batch. Autopricy records the batch as submitted first. The Offer is not labelled confirmed until the batch-status response supports that conclusion.',
     sources: [['FNAC marketplace ranking criteria', 'https://www.fnac.com/referencement-criteres-classement-marketplace']],
     faq: [['Is FNAC repricing the same as Darty repricing?', 'They share parts of the XML integration, but account identity and competitor logic remain marketplace-specific.'], ['Can Autopricy compare delivery costs?', 'The workflow can use the delivery data available in the FNAC Offer response. It does not invent missing shipping values.'], ['Does a successful XML submission mean the price is live?', 'No. The batch must still be processed. Autopricy keeps submission and later batch status separate.'], ['Can FNAC repricing guarantee placement?', 'No. Price is only one factor in marketplace ranking and seller eligibility.']],
-    related: [['Darty repricing', '/darty-repricer/'], ['Minimum and maximum rules', '/features/min-max-price-rules/'], ['Multi-store operations', '/features/multi-store-management/']]
+    related: [['FNAC and Darty guide', '/guides/fnac-darty-repricing/'], ['Darty repricing', '/darty-repricer/'], ['Minimum and maximum rules', '/features/min-max-price-rules/']]
   },
   {
     slug: 'darty-repricer', theme: 'theme-darty', code: 'D.', codeNote: 'DARTY<br>OFFERS',
@@ -116,7 +117,7 @@ const pages = [
     exampleTitle: 'A Darty update should remain pending', exampleLabel: 'Illustrative workflow',
     example: '<strong>Example:</strong> Autopricy calculates €54.90 inside a €50.00–€62.00 range and submits the Offer in an XML batch. The operation remains “submitted” or “processing” until the Darty batch status provides a final result.',
     faq: [['Does Autopricy treat Darty exactly like FNAC?', 'No. The XML boundary is shared, but the marketplace type, store identity and competitor handling remain explicit.'], ['Will Darty repricing always choose the lowest price?', 'No. The configured rule and boundaries determine eligible targets; continuous price cutting is not the objective.'], ['Can a submitted Darty price still fail?', 'Yes. A marketplace batch can remain pending or return an error after submission, so confirmation is tracked separately.'], ['Is Darty repricing available for every account configuration?', 'The account and current API capability are reviewed before activation.']],
-    related: [['FNAC repricing', '/fnac-repricer/'], ['Automatic repricing', '/features/automatic-repricing/'], ['Multi-store operations', '/features/multi-store-management/']]
+    related: [['FNAC and Darty guide', '/guides/fnac-darty-repricing/'], ['FNAC repricing', '/fnac-repricer/'], ['Automatic repricing', '/features/automatic-repricing/']]
   },
   {
     slug: 'onbuy-repricer', theme: 'theme-onbuy', code: 'O.', codeNote: 'PRODUCTS<br>LISTINGS',
@@ -138,7 +139,7 @@ const pages = [
     example: '<strong>Example:</strong> a Listing is winning at £31.20 with a £28.00 floor and £34.00 ceiling. A configured strategy may test £31.40. If the Listing stops winning, the next eligible decision can move back inside the safe range; it cannot exceed the ceiling or assume an immediate storefront update.',
     sources: [['OnBuy API documentation', 'https://docs.api.onbuy.com/'], ['OnBuy seller terms', 'https://cdn.onbuy.com/static/pdf/seller-terms/Seller%20Terms%20v3.0.0.pdf']],
     faq: [['Can Autopricy raise an OnBuy price after winning?', 'A configured strategy can explore a bounded increase when the available winning state supports it. The maximum price remains a hard limit.'], ['Does OnBuy repricing update instantly?', 'Not necessarily. Marketplace queues and display processing can introduce delay, so Autopricy separates submission from later confirmation.'], ['Does the lowest price guarantee the winning Offer?', 'No. Price is important, but availability, delivery, seller performance and OnBuy rules can also matter.'], ['How does Autopricy avoid conflicting OnBuy actions?', 'The workflow uses locks, quota-aware scheduling and stored status history to prevent overlapping work where possible.']],
-    related: [['Minimum and maximum rules', '/features/min-max-price-rules/'], ['Automatic repricing', '/features/automatic-repricing/'], ['Multi-store operations', '/features/multi-store-management/']]
+    related: [['OnBuy Winning Offer guide', '/guides/onbuy-winning-offer/'], ['Minimum and maximum rules', '/features/min-max-price-rules/'], ['Multi-store operations', '/features/multi-store-management/']]
   },
   {
     slug: 'cdiscount-repricer', theme: 'theme-cdiscount', code: 'C.', codeNote: 'OCTOPIA<br>OFFERS',
@@ -160,7 +161,7 @@ const pages = [
     example: '<strong>Example:</strong> a €19.80 target is inside a €18.50–€24.00 range and enters an Offer package. Autopricy records package and item feedback first, then checks the later marketplace value. A processed package alone is not described as a guaranteed winning Offer.',
     sources: [['Cdiscount seller guidance on native floor pricing', 'https://marketplace.cdiscount.com/en/bien-preparer-les-temps-forts-commerciaux/']],
     faq: [['How is Autopricy different from Cdiscount native repricing?', 'Autopricy focuses on explicit multi-store rules, bulk operations, package feedback and shared execution history. The appropriate owner depends on the seller’s current setup.'], ['Can native and external repricing run together?', 'Overlapping tools can issue conflicting actions. Review the current store automation and choose a clear owner before activation.'], ['Does package success prove the storefront price?', 'Not by itself. Package feedback and a later marketplace read-back are separate pieces of evidence.'], ['Does Autopricy guarantee the featured Offer?', 'No. Price can affect competition, but marketplace placement can also depend on stock, delivery, seller performance and platform rules.']],
-    related: [['Multi-store operations', '/features/multi-store-management/'], ['Automatic repricing', '/features/automatic-repricing/'], ['Mirakl repricing', '/mirakl-repricer/']]
+    related: [['Cdiscount repricing guide', '/guides/cdiscount-repricing/'], ['Multi-store operations', '/features/multi-store-management/'], ['Automatic repricing', '/features/automatic-repricing/']]
   },
   {
     slug: 'multi-marketplace-repricing', theme: 'theme-multi', code: '∞', codeNote: 'STORES<br>CHANNELS',
@@ -359,9 +360,12 @@ for (const page of pages) {
   writeFileSync(output, renderPage(page));
 }
 
+buildGuides(distRoot);
+
 const sitemapUrls = [
   { loc: `${site}/`, priority: '1.0', changefreq: 'weekly' },
-  ...pages.map((page) => ({ loc: `${site}/${page.slug}/`, priority: page.slug.startsWith('features/') ? '0.8' : '0.9', changefreq: 'monthly' }))
+  ...pages.map((page) => ({ loc: `${site}/${page.slug}/`, priority: page.slug.startsWith('features/') ? '0.8' : '0.9', changefreq: 'monthly' })),
+  ...guides.map((guide) => ({ loc: `${site}/guides/${guide.slug}/`, priority: '0.8', changefreq: 'monthly' }))
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -376,4 +380,4 @@ ${sitemapUrls.map(({ loc, priority, changefreq }) => `  <url>
 `;
 
 writeFileSync(resolve(distRoot, 'sitemap.xml'), sitemap);
-console.log(`Generated ${pages.length} SEO pages and ${sitemapUrls.length} sitemap URLs.`);
+console.log(`Generated ${pages.length} landing pages, ${guides.length} guides and ${sitemapUrls.length} sitemap URLs.`);
