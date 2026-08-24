@@ -31,12 +31,14 @@ The public site is static HTML and crawlable without client JavaScript. Phase 2 
 | Compression | Pass for HTML | Homepage served with gzip when requested with compression |
 | Static caching | Needs improvement | Sample HTML/images expose ETag/Last-Modified but no explicit Cache-Control/Expires headers |
 | Mobile basics | Pass in code, visual run incomplete | Viewport meta, responsive breakpoints at 1020/760/430, responsive image rules and reduced-motion handling exist |
-| Google verification | Present, not fully confirmed | Home includes `google-site-verification`; domain property, sitemap submission and index status require GSC access |
+| Google verification | Pass for public site | Verified URL-prefix property `https://autopricy.com/` is accessible; Domain property is not accessible to the current account |
+| GSC sitemap | Refreshed | `sitemap.xml` resubmitted successfully on 2026-08-24; previous read showed four discovered pages and must refresh to the new 11-URL version |
+| Priority URL indexing | Partial | Worten, FNAC and Mirakl indexed; Darty and OnBuy discovered/not indexed; Cdiscount unknown to Google; requests submitted for all six |
 | Analytics | Present | Umami loads deferred from app domain and registration CTAs carry event names |
 
 ## Indexing and discovery risks
 
-1. **Index coverage remains unconfirmed.** No visible index result was found for `site:autopricy.com` in the research interface. This is a warning, not proof of zero Google indexing. Confirm with GSC URL Inspection and Pages reports.
+1. **New-page index coverage is partial.** GSC confirms Worten, FNAC and Mirakl are indexed. Darty and OnBuy are discovered but not indexed; Cdiscount was unknown to Google on 2026-08-24. All three received indexing requests, which do not prove future inclusion.
 2. **The homepage remains Chinese while commercial SEO pages are English.** This is intentional for the current customer journey, but future localisation needs distinct, stable language URLs before adding hreflang alternates.
 3. **Old-domain snippets can persist.** The redirect map passes, but research still surfaced `wortenprice.com`. Continue the 301s and request validation in GSC rather than creating duplicate pages.
 
@@ -87,9 +89,9 @@ The sampled responses did not show explicit cache policy in the header excerpt. 
 
 ## Search Console manual checklist
 
-- [ ] Confirm a Domain property for `autopricy.com`, not only URL-prefix verification.
-- [ ] Confirm `https://autopricy.com/sitemap.xml` is submitted and last read successfully.
-- [ ] Inspect the 11 current canonical URLs.
+- [x] Confirm the accessible URL-prefix property for `https://autopricy.com/`; Domain-property access remains optional for subdomain-wide reporting.
+- [x] Submit/refresh `https://autopricy.com/sitemap.xml`; recheck the next successful read and discovered-page count.
+- [ ] Inspect the 11 current canonical URLs; six priority platform URLs are complete.
 - [ ] Export Pages/Indexing reasons and Core Web Vitals.
 - [ ] Export 16 months of queries/pages/countries/devices when available.
 - [ ] Annotate the `wortenprice.com` → `autopricy.com` migration date.
