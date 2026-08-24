@@ -1,5 +1,7 @@
 # build output
 .output/
+output/
+.playwright-cli/
 
 # dependencies
 node_modules/

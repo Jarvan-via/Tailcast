@@ -28,6 +28,7 @@ Phase 1 research was completed on 2026-08-24. No landing-page implementation or 
 - [opportunities.md](./opportunities.md): prioritized SEO Opportunity Map and recommended stable URL model.
 - [technical-audit.md](./technical-audit.md): current website crawlability, metadata, schema, indexing, performance, and mobile findings.
 - [content-plan.md](./content-plan.md): proposed first 10 landing pages, 5 guides, and internal-link model.
+- [page-audit.md](./page-audit.md): Phase 2 intent, claim ledger, deterministic checks, and humanization record.
 - [backlinks/backlinks.csv](./backlinks/backlinks.csv): idempotent backlink campaign record. It is intentionally empty until the backlink gate passes.
 - [progress.md](./progress.md): phase gates, completed work, blockers, and next actions.
 

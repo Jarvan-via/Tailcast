@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="M5wnb-Kj1IrUN9Y_m0AGoqXx7Tg8Tl32qgbvh4xsur4">
   <title>Autopricy 调价先锋｜跨境电商自动调价 SaaS</title>
-  <meta name="description" content="Autopricy 调价先锋为欧洲电商平台卖家提供自动调价、购物车竞争、最低价保护、多店铺 Offer 管理和调价记录追踪，支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq 等平台。">
+  <meta name="description" content="Autopricy 调价先锋为跨境卖家提供自动调价、竞争报价监控、最低价保护、多店铺 Offer 管理和结果追踪，覆盖 Worten、FNAC、Darty、OnBuy、Cdiscount 及部分 Mirakl 平台。">
   <meta name="author" content="北京轻石科技有限公司">
   <meta name="application-name" content="调价先锋 Autopricy">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -87,7 +87,7 @@
         "@type": "FAQPage",
         "@id": "https://autopricy.com/#faq",
         "mainEntity": [
-          {"@type":"Question","name":"Autopricy 支持哪些平台？","acceptedAnswer":{"@type":"Answer","text":"目前支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、Rue du Commerce、ePRICE 等欧洲电商平台，以及更多基于 Mirakl 的平台。不同平台开放的竞争数据和调价能力不同，具体以工作台店铺接入页面为准。"}},
+          {"@type":"Question","name":"Autopricy 支持哪些平台？","acceptedAnswer":{"@type":"Answer","text":"当前公开的调价范围包括 Worten、FNAC、Darty、Cdiscount、OnBuy，以及经评估的部分 Mirakl 平台。Fyndiq 当前定位为 Article 和 Listing 的价格、库存等运营能力，不作为竞争型 repricer 宣传。"}},
           {"@type":"Question","name":"自动调价会低于我的最低价吗？","acceptedAnswer":{"@type":"Answer","text":"不会。你可以为商品设置最低价和最高价，系统只会在允许的价格区间内执行调价。"}},
           {"@type":"Question","name":"拿到购物车后还会继续降价吗？","acceptedAnswer":{"@type":"Answer","text":"系统会根据你设置的策略和平台能力判断下一步操作。支持调涨的平台可以在拿到购物车后逐步尝试提高售价，而不是长期停留在最低价格。"}},
           {"@type":"Question","name":"需要提供平台账号和密码吗？","acceptedAnswer":{"@type":"Answer","text":"不需要提供平台后台登录密码。店铺通过平台 API 授权信息接入。"}},
@@ -195,6 +195,13 @@
     .platform-mark:last-child { border-right: 0; }
     .platform-mark:hover { color: var(--brand); background: var(--brand-soft); }
 
+    .resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .resource-link { min-height: 168px; padding: 25px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); transition: color .18s ease, background .18s ease; }
+    .resource-link span { display: block; margin-bottom: 22px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .resource-link strong { display: block; font-size: 19px; line-height: 1.35; }
+    .resource-link p { margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .resource-link:hover { color: var(--brand); background: var(--brand-soft); }
+
     .grid-3, .grid-6 { display: grid; gap: 18px; }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-6 { grid-template-columns: repeat(3, 1fr); }
@@ -272,6 +279,7 @@
       .platform-mark:nth-child(4) { border-right: 0; }
       .platform-mark:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
       .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .contact-panel { padding: 44px; }
     }
 
@@ -310,6 +318,7 @@
       .shot-card.large .shot-frame, .shot-card.small .shot-frame { aspect-ratio: 16 / 10; }
       .shot-card .shot-frame img { min-width: 0; object-position: center top; }
       .tools-grid { grid-template-columns: 1fr; }
+      .resource-grid { grid-template-columns: 1fr; }
       .step { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
       .step:last-child { border-bottom: 0; }
       .feature-list { grid-template-columns: 1fr; }
@@ -363,9 +372,9 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">欧洲电商平台自动调价 SaaS</span>
-          <h1><span>7×24 小时自动调价，</span><span>持续争取购物车</span></h1>
-          <p class="hero-copy">Autopricy 持续跟踪竞争价格，按照你设置的规则自动跟价、调涨和守价。在争取购物车的同时，通过最低价与最高价保护守住利润空间。</p>
-          <p class="hero-platforms">支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq 等欧洲电商平台，以及更多基于 Mirakl 的平台。</p>
+          <h1><span>自动调价持续运行，</span><span>价格边界始终清楚</span></h1>
+          <p class="hero-copy">Autopricy 读取平台可用的竞争信号，按照你设置的规则自动跟价、调涨和守价。计算、提交、平台确认和失败分别记录，不把“已请求”误当成“已生效”。</p>
+          <p class="hero-platforms">当前公开的调价范围包括 Worten、Fnac、Darty、Cdiscount、OnBuy，以及经评估的部分 Mirakl 平台；具体能力以平台页面为准。</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_hero">立即免费试用</a>
             <a class="btn btn-secondary" href="#features">查看产品能力</a>
@@ -396,14 +405,35 @@
           <p class="section-copy">一个工作台管理多个平台和店铺，让调价规则持续运行，不再反复切换后台。</p>
         </div>
         <div class="logo-row" aria-label="当前支持平台">
-          <div class="platform-mark"><img src="./platform-logos/worten.png" alt="Worten" width="268" height="96"></div>
-          <div class="platform-mark"><img src="./platform-logos/fnac.png" alt="Fnac" width="292" height="126"></div>
-          <div class="platform-mark"><img class="logo-wide" src="./platform-logos/cdiscount.png" alt="Cdiscount" width="600" height="94"></div>
-          <div class="platform-mark"><img src="./platform-logos/onbuy.png" alt="OnBuy" width="408" height="134"></div>
-          <div class="platform-mark"><img src="./platform-logos/fyndiq.png" alt="Fyndiq" width="304" height="110"></div>
-          <div class="platform-mark"><img class="logo-photo" src="./platform-logos/rue-du-commerce.jpg" alt="Rue du Commerce" width="800" height="480"></div>
-          <div class="platform-mark"><img class="logo-photo" src="./platform-logos/eprice.jpg" alt="ePRICE" width="978" height="639"></div>
-          <div class="platform-mark"><span class="platform-wordmark">更多 Mirakl 平台</span></div>
+          <a class="platform-mark" href="/worten-repricer/"><img src="./platform-logos/worten.png" alt="Worten repricer" width="268" height="96"></a>
+          <a class="platform-mark" href="/fnac-repricer/"><img src="./platform-logos/fnac.png" alt="FNAC repricer" width="292" height="126"></a>
+          <a class="platform-mark" href="/cdiscount-repricer/"><img class="logo-wide" src="./platform-logos/cdiscount.png" alt="Cdiscount repricer" width="600" height="94"></a>
+          <a class="platform-mark" href="/onbuy-repricer/"><img src="./platform-logos/onbuy.png" alt="OnBuy repricer" width="408" height="134"></a>
+          <a class="platform-mark" href="/darty-repricer/"><span class="platform-wordmark">Darty</span></a>
+          <div class="platform-mark" title="Article 和 Listing 价格/库存管理；不作为竞争型 repricer 宣传"><img src="./platform-logos/fyndiq.png" alt="Fyndiq listing tools" width="304" height="110"></div>
+          <div class="platform-mark" title="上线前按具体店铺验证"><img class="logo-photo" src="./platform-logos/eprice.jpg" alt="ePRICE" width="978" height="639"></div>
+          <a class="platform-mark" href="/mirakl-repricer/"><span class="platform-wordmark">Selected Mirakl</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="marketplace-resources">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Marketplace repricing resources</p>
+          <h2>先看平台机制，再决定怎样自动调价</h2>
+          <p class="section-copy">每个页面都说明该平台的数据对象、价格边界、提交方式、确认状态和能力限制，而不是用同一套模板替换平台名称。</p>
+        </div>
+        <div class="resource-grid">
+          <a class="resource-link" href="/multi-marketplace-repricing/"><span>Overview</span><strong>Multi-marketplace repricing</strong><p>一个工作台，按平台分别执行。</p></a>
+          <a class="resource-link" href="/worten-repricer/"><span>Marketplace</span><strong>Worten Repricer</strong><p>Offer、价格边界与平台确认。</p></a>
+          <a class="resource-link" href="/fnac-repricer/"><span>Marketplace</span><strong>FNAC Repricer</strong><p>XML Offer 更新与批次状态。</p></a>
+          <a class="resource-link" href="/darty-repricer/"><span>Marketplace</span><strong>Darty Repricer</strong><p>Darty 专属竞争报价处理。</p></a>
+          <a class="resource-link" href="/onbuy-repricer/"><span>Marketplace</span><strong>OnBuy Repricer</strong><p>Winning checks 与受控调涨。</p></a>
+          <a class="resource-link" href="/cdiscount-repricer/"><span>Marketplace</span><strong>Cdiscount Repricer</strong><p>规则、Package feedback 与读回。</p></a>
+          <a class="resource-link" href="/mirakl-repricer/"><span>Marketplace family</span><strong>Mirakl Repricer</strong><p>按 operator 评估，不承诺全平台通用。</p></a>
+          <a class="resource-link" href="/features/automatic-repricing/"><span>Feature</span><strong>Automatic repricing</strong><p>从资格、决策到平台结果的完整链路。</p></a>
+          <a class="resource-link" href="/features/min-max-price-rules/"><span>Feature</span><strong>Minimum &amp; maximum prices</strong><p>让最低价和最高价成为硬边界。</p></a>
         </div>
       </div>
     </section>
@@ -495,7 +525,7 @@
       <div class="container">
         <div class="section-head center"><h2>常见问题</h2></div>
         <div class="faq-list">
-          <details open><summary>Autopricy 支持哪些平台？</summary><p>目前支持 Worten、Fnac、Cdiscount、OnBuy、Fyndiq、Rue du Commerce、ePRICE 等欧洲电商平台，以及更多基于 Mirakl 的平台。不同平台开放的竞争数据和调价能力不同，具体以工作台店铺接入页面为准。</p></details>
+          <details open><summary>Autopricy 支持哪些平台？</summary><p>当前公开的调价范围包括 Worten、Fnac、Darty、Cdiscount、OnBuy，以及经评估的部分 Mirakl 平台。Fyndiq 当前定位为 Article 和 Listing 的价格、库存等运营能力，不宣传为竞争型 repricer。不同平台的具体能力以对应页面和当前店铺配置为准。</p></details>
           <details><summary>自动调价会低于我的最低价吗？</summary><p>不会。你可以为商品设置最低价和最高价，系统只会在允许的价格区间内执行调价。</p></details>
           <details><summary>拿到购物车后还会继续降价吗？</summary><p>系统会根据你设置的策略和平台能力判断下一步操作。支持调涨的平台可以在拿到购物车后逐步尝试提高售价，而不是长期停留在最低价格。</p></details>
           <details><summary>需要提供平台账号和密码吗？</summary><p>不需要提供平台后台登录密码。店铺通过平台 API 授权信息接入。</p></details>
@@ -525,8 +555,8 @@
     <div class="container">
       <div class="footer-grid">
         <div><h3>调价先锋 Autopricy</h3><p>面向欧洲电商平台卖家的自动调价与 Offer 管理 SaaS，帮助运营团队提升价格响应速度、守住价格边界并减少重复操作。</p></div>
-        <div><h4>产品</h4><ul class="footer-links"><li><a href="#features">自动调价</a></li><li><a href="#platforms">支持平台</a></li><li><a href="#pricing">价格方案</a></li></ul></div>
-        <div><h4>资源</h4><ul class="footer-links"><li><a href="https://app.autopricy.com/help.html">帮助中心</a></li><li><a href="https://app.autopricy.com/terms.html">用户服务协议</a></li><li><a href="https://app.autopricy.com/privacy.html">隐私政策</a></li></ul></div>
+        <div><h4>产品</h4><ul class="footer-links"><li><a href="/features/automatic-repricing/">自动调价</a></li><li><a href="/features/min-max-price-rules/">价格边界</a></li><li><a href="/features/multi-store-management/">多店铺管理</a></li><li><a href="#pricing">价格方案</a></li></ul></div>
+        <div><h4>平台与资源</h4><ul class="footer-links"><li><a href="/multi-marketplace-repricing/">多平台调价</a></li><li><a href="/worten-repricer/">Worten</a></li><li><a href="/fnac-repricer/">FNAC</a></li><li><a href="/onbuy-repricer/">OnBuy</a></li><li><a href="https://app.autopricy.com/help.html">帮助中心</a></li></ul></div>
         <div><h4>账户与联系</h4><ul class="footer-links"><li><a href="https://app.autopricy.com/">进入工作台</a></li><li><a href="tel:+8617720284880">177&nbsp;2028&nbsp;4880</a></li></ul></div>
       </div>
       <div class="footer-bottom"><span>© 2026 调价先锋 Autopricy</span><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">北京轻石科技有限公司 · 京ICP备2026039016号</a></div>

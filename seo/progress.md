@@ -7,7 +7,7 @@ Last updated: 2026-08-24
 | Phase | Status | Evidence / next gate |
 |---|---|---|
 | Phase 1 — skills, product, keyword, competitor, audit | Complete with explicit measurement blockers | Research files in this directory; no product code changed |
-| Phase 2 — architecture + first 10 pages + sitemap/schema/internal links | Not started | Use the stable URL decision in `opportunities.md` |
+| Phase 2 — architecture + first 10 pages + sitemap/schema/internal links | Release candidate complete | Ten pages, 11-URL sitemap, home resource hub, schema, repeatable checks and browser evidence are ready for production release |
 | Phase 3 — five guides | Not started | Start only after landing-page product claims pass review |
 | Phase 4 — 10–20 quality backlink candidates and submissions | Gated | Pages live, crawlable, reviewed, in sitemap, GSC confirmed |
 
@@ -32,6 +32,17 @@ Last updated: 2026-08-24
 4. **Mercado Libre production proof:** recheck feature flags, OAuth, seller model, site eligibility, pricing automation conflict, a real write/read-back, and Catalog eligibility before public availability claims.
 5. **RDC naming:** verify that the current public operator is Rue du Commerce; do not map it to Rakuten France.
 6. **Darty/ePRICE/other operator live proof:** review current active deployment/account evidence before publishing individual pages.
+
+## Phase 2 release candidate — 2026-08-24
+
+- Kept the existing flat canonical URL pattern and converted the three existing marketplace pages to English commercial-intent pages.
+- Added Darty, OnBuy, Cdiscount, multi-marketplace, automatic repricing, min/max rules and multi-store pages.
+- Added direct home-page links and a nine-card resource hub; no published page is orphaned.
+- Expanded the sitemap from 4 to 11 canonical URLs with release-date `lastmod` values.
+- Added visible FAQ plus matching FAQPage JSON-LD, WebPage and BreadcrumbList data to every SEO page.
+- Added `scripts/build-seo-pages.mjs` and `scripts/check-seo-pages.mjs` so the page set and deterministic audit are reproducible.
+- Browser-checked the homepage and all ten pages at 390 px; checked OnBuy at 1440 px and 390 px with full-page screenshots and zero console errors.
+- Prepared an app-domain `robots.txt` that disallows crawling; production placement and HTTP verification remain part of the release step.
 
 ## Next low-risk execution batch
 
