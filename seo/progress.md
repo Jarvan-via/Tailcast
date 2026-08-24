@@ -1,6 +1,6 @@
 # SEO Project Progress
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 ## Phase status
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-24
 | Phase 1 — skills, product, keyword, competitor, audit | Complete with explicit measurement blockers | Research files in this directory; no product code changed |
 | Phase 2 — architecture + first 10 pages + sitemap/schema/internal links | Live | Released to `ali` on 2026-08-24; ten pages, 11-URL sitemap, home resource hub, schema, repeatable checks and browser evidence verified publicly |
 | Phase 3 — five guides | Live | Five evidence-bound guides, Article/FAQ schema, citations and two-way internal links; deployed and publicly verified on `ali` |
-| Phase 4 — 10–20 quality backlink candidates and submissions | Gated | Pages live, crawlable and in sitemap; wait for refreshed sitemap/index coverage and guide review |
+| Phase 4 — 10–20 quality directory candidates and submissions | Pass A started | First 10 sites inspected: 7 passed, Product Hunt routed to a separate launch workflow, and 2 AI-directory mismatches skipped; no forms or submissions |
 
 ## Completed on 2026-08-24
 
@@ -68,3 +68,13 @@ Last updated: 2026-08-24
 4. Re-run mobile/desktop performance traces before the next release.
 
 No backlink candidate should move to `submitted` before these steps pass.
+
+## Phase 4 Pass A — 2026-08-25
+
+- Applied the SPD V2 Quality gate to a pilot batch of ten sites; did not traverse a bulk source list.
+- Prioritized ecommerce and governed B2B software discovery surfaces over generic startup or AI directories.
+- Passed eCommerce Tech, Capterra, G2, SourceForge, Software Advice, GetApp and SaaSHub for later per-site form review.
+- Routed Product Hunt out of the directory workflow because it is a coordinated public launch and community publication.
+- Skipped SellerTrove and EcomAI because Autopricy is not positioned as an AI product and their current audience/platform framing is a weak fit.
+- Saved per-site evidence, quality dimensions, duplicate-search notes and idempotency keys under `seo/backlinks/`.
+- Search Console sitemap resubmission remains pending because the authenticated page repeatedly timed out under browser control; no blind submission was attempted.
