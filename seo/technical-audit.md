@@ -6,7 +6,7 @@ Scope: `https://autopricy.com/`, current `Tailcast/dist`, legacy-domain redirect
 
 ## Executive result
 
-The public site is static HTML and crawlable without client JavaScript. Canonicals, metadata, structured data, robots, sitemap, TLS, and true 404s are mostly healthy. The largest growth blockers are not rendering—they are a four-URL sitemap, missing internal links from the home page to the three existing landing pages, language/search-intent mismatch, and unconfirmed Search Console index coverage.
+The public site is static HTML and crawlable without client JavaScript. Phase 2 expanded the sitemap to 11 canonical URLs, added direct home-page links to the commercial page set, moved the three original commercial pages to English, and repaired the app robots response. The main remaining measurement blockers are Search Console index coverage and field/lab Core Web Vitals.
 
 ## Verified checks
 
@@ -16,18 +16,18 @@ The public site is static HTML and crawlable without client JavaScript. Canonica
 | Existing landing status | Pass | Worten, FNAC, Mirakl pages return 200 |
 | Unknown public URL | Pass | Returns 404, not a soft-404 SPA fallback |
 | `robots.txt` | Pass | 200, allows crawl, points to canonical sitemap |
-| `sitemap.xml` | Pass but too small | 200; only home + 3 landing pages |
-| Canonical | Pass | Self-referencing canonical on all four public pages |
-| Meta title/description | Pass with language issue | Unique values exist; wording needs alignment with English target queries |
+| `sitemap.xml` | Pass | 200; home + 10 Phase 2 pages, all with release-date `lastmod` |
+| Canonical | Pass | Self-referencing canonical on all 11 sitemap pages |
+| Meta title/description | Pass | Unique values exist; commercial pages align with English target queries |
 | OpenGraph | Partial | Home has full OG image metadata; landing pages omit some image/locale details |
 | Structured data | Pass syntactically | Valid JSON-LD: Organization, SoftwareApplication, FAQPage on home; WebPage and BreadcrumbList on platform pages |
 | H1 | Pass | Exactly one H1 per current page |
 | SSR/SSG/crawlability | Pass | Content is present in server-delivered static HTML; JS is not required for main copy |
 | Legacy redirects | Mostly pass | Domain migration script passed redirects/canonicals/noindex guards except app robots |
 | App indexability | Intentional noindex | App and legal/help pages return `noindex`; app sitemap is 410 |
-| App `robots.txt` | Fail | `https://app.autopricy.com/robots.txt` returned 404 although the migration check expects 200 |
-| Internal links | Critical fail | Home page contains no links to `/worten-repricer/`, `/fnac-repricer/`, or `/mirakl-repricer/` |
-| Broken planned pages | Expected gap | `/onbuy-repricer/` currently returns 404; Cdiscount/Darty pages do not exist |
+| App `robots.txt` | Pass | 200 with `Disallow: /`; app pages retain HTTP `noindex` |
+| Internal links | Pass | Home links to platform pages, solution page and feature pages through the platform strip, resource hub and footer |
+| Phase 2 pages | Pass | Ten commercial/resource pages return 200; unknown public paths still return 404 |
 | Compression | Pass for HTML | Homepage served with gzip when requested with compression |
 | Static caching | Needs improvement | Sample HTML/images expose ETag/Last-Modified but no explicit Cache-Control/Expires headers |
 | Mobile basics | Pass in code, visual run incomplete | Viewport meta, responsive breakpoints at 1020/760/430, responsive image rules and reduced-motion handling exist |
@@ -36,26 +36,24 @@ The public site is static HTML and crawlable without client JavaScript. Canonica
 
 ## Indexing and discovery risks
 
-1. **Existing platform pages are orphan-like.** Their footers cross-link to each other, but the authoritative home page does not link to them. Add a crawlable platform-resource section and footer links.
-2. **The sitemap is only four URLs.** That reflects the current site, but it cannot create meaningful topical coverage.
-3. **Language is mismatched.** Worten and FNAC pages target English keyword phrases in titles but use Chinese H1/body and `zh-CN`. Either make the canonical commercial page English and add localized alternates, or create a rigorously managed language URL strategy. Do not label Chinese content `x-default` for an English buyer journey.
-4. **No visible index result was found for `site:autopricy.com` in the live search interface.** This is a warning, not proof of zero Google indexing. Confirm with GSC URL Inspection and Pages reports.
-5. **Old-domain snippets can persist.** The redirect map is mostly correct, but search results still surfaced `wortenprice.com`. Continue the 301s and request validation in GSC rather than creating duplicate pages.
+1. **Index coverage remains unconfirmed.** No visible index result was found for `site:autopricy.com` in the research interface. This is a warning, not proof of zero Google indexing. Confirm with GSC URL Inspection and Pages reports.
+2. **The homepage remains Chinese while commercial SEO pages are English.** This is intentional for the current customer journey, but future localisation needs distinct, stable language URLs before adding hreflang alternates.
+3. **Old-domain snippets can persist.** The redirect map passes, but research still surfaced `wortenprice.com`. Continue the 301s and request validation in GSC rather than creating duplicate pages.
 
 ## Metadata and schema recommendations
 
-P0:
+Completed in Phase 2:
 
-- Link all platform pages from home and a shared site footer.
-- Add new pages to sitemap with accurate `lastmod` generated from the release, not manually guessed future dates.
-- Add `FAQPage` only when FAQs are visible and non-promotional; never duplicate generic FAQs across all pages.
-- Add `SoftwareApplication`/`Product` relationships conservatively and do not add fake ratings, reviews, price offers, customers, or supported operating systems.
-- Use platform-specific OG images or a consistent 1200×630 branded fallback.
-- Define an intentional language model before adding translations.
+- Linked platform pages from the home resource hub, platform strip and shared footers.
+- Added every released canonical page to the sitemap with the actual release date.
+- Added `FAQPage` only where matching FAQs are visible and non-promotional.
+- Kept `SoftwareApplication` relationships conservative and added no fake ratings, reviews, customers or outcomes.
+- Used the existing 1200×630 branded OG fallback on the commercial page set.
+- Made commercial pages English while retaining the current Chinese homepage; no unsupported hreflang translations were added.
 
 P1:
 
-- Add breadcrumb schema to guides and feature pages.
+- Add breadcrumb schema to Phase 3 guides; Phase 2 feature pages already include it.
 - Add an HTML sitemap/resource hub once the site exceeds roughly 15 useful pages.
 - Add author/reviewer and reviewed-date signals to technical guides where real review ownership exists.
 
@@ -76,7 +74,7 @@ What remains unverified:
 - field Core Web Vitals/CrUX: no API result or Search Console Core Web Vitals access was available;
 - mobile visual overflow/interaction: code inspection passed, but a reliable rendered mobile capture was not completed.
 
-Do not invent a Lighthouse score. Re-run mobile and desktop Lighthouse or Chrome DevTools traces before Phase 2 release, then record exact values here.
+Do not invent a Lighthouse score. Re-run mobile and desktop Lighthouse or Chrome DevTools traces before the next production release, then record exact values here.
 
 ## Security/HTTP hygiene relevant to SEO
 
@@ -91,7 +89,7 @@ The sampled responses did not show explicit cache policy in the header excerpt. 
 
 - [ ] Confirm a Domain property for `autopricy.com`, not only URL-prefix verification.
 - [ ] Confirm `https://autopricy.com/sitemap.xml` is submitted and last read successfully.
-- [ ] Inspect the four current canonical URLs.
+- [ ] Inspect the 11 current canonical URLs.
 - [ ] Export Pages/Indexing reasons and Core Web Vitals.
 - [ ] Export 16 months of queries/pages/countries/devices when available.
 - [ ] Annotate the `wortenprice.com` → `autopricy.com` migration date.

@@ -21,7 +21,7 @@ Every public capability claim must be supported by current code plus, where the 
 
 ## Current phase
 
-Phase 1 research was completed on 2026-08-24. No landing-page implementation or directory submission was performed in this phase.
+Phase 1 research and the Phase 2 landing-page release were completed on 2026-08-24. Ten SEO pages are live; no directory submission has been performed.
 
 - [keyword-research.md](./keyword-research.md): live SERP observations, intent, competition, and Business Value Scores.
 - [competitors.md](./competitors.md): direct competitors, adjacent suites, page patterns, and weak-content gaps.
