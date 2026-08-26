@@ -1,6 +1,6 @@
 # Autopricy Directory Product Master Data
 
-Last verified: 2026-08-25
+Last verified: 2026-08-26
 
 Use this file only as the non-secret, repository-backed source for future directory drafts. A field marked `UNKNOWN` must remain blank or block the form; do not infer it.
 
@@ -43,7 +43,7 @@ Autopricy is multi-marketplace repricing software for cross-border ecommerce sel
 ## Commercial facts
 
 - Public plan: 自动调价标准版 / Automatic Repricing Standard
-- Public price: CNY 200 per store per month
+- Public price: CNY 168 per store per month
 - Product quantity: unlimited under the currently published plan
 - Trial: 7 days
 - Trial activation: automatically after registration
