@@ -31,6 +31,7 @@ Phase 1 research and the Phase 2 landing-page release were completed on 2026-08-
 - [page-audit.md](./page-audit.md): Phase 2 intent, claim ledger, deterministic checks, and humanization record.
 - [backlinks/backlinks.csv](./backlinks/backlinks.csv): idempotent backlink campaign record. It is intentionally empty until the backlink gate passes.
 - [progress.md](./progress.md): phase gates, completed work, blockers, and next actions.
+- [codex-handoff.md](./codex-handoff.md): ordered post-Phase-5 task list for automation tools (deploy, nginx, Search Console, Bing, Baidu, help-center migration, channels), with human-only steps marked.
 
 ## Phase gates
 
