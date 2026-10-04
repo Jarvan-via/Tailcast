@@ -1,7 +1,8 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildGuides, guides } from './build-guide-pages.mjs';
+import { buildGuides, guideUrls } from './build-guide-pages.mjs';
+import { ogImage } from './og.mjs';
 import { zhPages } from './zh-pages.mjs';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -258,7 +259,7 @@ const locales = {
     lang: 'en', ogLocale: 'en_US', siteName: 'Autopricy', switchLabel: 'English',
     brandHome: 'Autopricy home', logoAlt: 'Autopricy logo', brand: 'Autopricy', brandSmall: 'Marketplace repricing',
     navAria: 'Primary navigation',
-    nav: [['Marketplaces', '/multi-marketplace-repricing/'], ['Automatic repricing', '/features/automatic-repricing/'], ['Price safety', '/features/min-max-price-rules/']],
+    nav: [['Marketplaces', '/multi-marketplace-repricing/'], ['Automatic repricing', '/features/automatic-repricing/'], ['Price safety', '/features/min-max-price-rules/'], ['Guides', '/guides/']],
     home: 'Home', breadcrumbHome: 'Autopricy',
     trial: 'Start free trial', trialHero: 'Start 7-day free trial', seeWorkflow: 'See the workflow',
     mechanicsKicker: 'Marketplace mechanics', workflowKicker: 'Workflow',
@@ -267,13 +268,13 @@ const locales = {
     reference: 'Reference', supportMore: 'View platform details',
     pricing: () => '',
     cta: (page, source) => `<div><h2>Test the workflow on a real store</h2><p>Start with one supported store, a controlled product scope, explicit boundaries and visible platform results.</p><a class="contact-email" href="mailto:yuanyongvia@gmail.com">yuanyongvia@gmail.com</a></div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">Start free trial</a><a class="btn btn-secondary" href="mailto:yuanyongvia@gmail.com?subject=${encodeURIComponent(page.h1)}">Ask about fit</a></div>`,
-    footer: `<span>© 2026 Autopricy · Beijing Qingshi Technology Co., Ltd.</span><nav class="footer-links" aria-label="Footer navigation"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/worten-repricer/">Worten</a><a href="/fnac-repricer/">FNAC</a><a href="/darty-repricer/">Darty</a><a href="/onbuy-repricer/">OnBuy</a><a href="/cdiscount-repricer/">Cdiscount</a><a href="${app}/privacy.html">Privacy</a></nav>`
+    footer: `<span>© 2026 Autopricy · Beijing Qingshi Technology Co., Ltd.</span><nav class="footer-links" aria-label="Footer navigation"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/worten-repricer/">Worten</a><a href="/fnac-repricer/">FNAC</a><a href="/darty-repricer/">Darty</a><a href="/onbuy-repricer/">OnBuy</a><a href="/cdiscount-repricer/">Cdiscount</a><a href="/guides/">Guides</a><a href="${app}/privacy.html">Privacy</a></nav>`
   },
   zh: {
     lang: 'zh-CN', ogLocale: 'zh_CN', siteName: '调价先锋 Autopricy', switchLabel: '中文',
     brandHome: '调价先锋 Autopricy 首页', logoAlt: '调价先锋 Autopricy 标志', brand: '调价先锋', brandSmall: 'Autopricy',
     navAria: '主导航',
-    nav: [['支持平台', '/zh/multi-marketplace-repricing/'], ['自动调价', '/zh/features/automatic-repricing/'], ['最低价保护', '/zh/features/min-max-price-rules/']],
+    nav: [['支持平台', '/zh/multi-marketplace-repricing/'], ['自动调价', '/zh/features/automatic-repricing/'], ['最低价保护', '/zh/features/min-max-price-rules/'], ['调价教程', '/zh/guides/']],
     home: '首页', breadcrumbHome: '调价先锋',
     trial: '免费试用', trialHero: '免费试用 7 天', seeWorkflow: '查看接入步骤',
     mechanicsKicker: '平台机制', workflowKicker: '接入步骤',
@@ -282,7 +283,7 @@ const locales = {
     reference: '参考资料', supportMore: '查看平台详情',
     pricing: (source) => `<section class="section section-muted"><div class="container"><div class="price-box"><div><p class="section-kicker">价格方案</p><h2>自动调价标准版 <strong>¥168</strong><span> / 店铺 / 月</span></h2><p>商品数量不限 · 注册自动开通 7 天免费试用 · 无需提交申请或等待审核</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_pricing">免费注册试用</a></div></div></section>`,
     cta: (page, source) => `<div><h2>先用一个店铺试跑</h2><p>注册后自动开通 7 天免费试用。首次接入时，客服可以协助确认授权信息、同步商品并完成基础规则配置。</p><a class="contact-email" href="tel:+8617720284880">客服电话 177 2028 4880</a></div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">免费注册试用</a><a class="btn btn-secondary" href="${app}/">已有账号，登录</a></div>`,
-    footer: `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/worten-repricer/">Worten</a><a href="/zh/fnac-repricer/">FNAC</a><a href="/zh/darty-repricer/">Darty</a><a href="/zh/onbuy-repricer/">OnBuy</a><a href="/zh/cdiscount-repricer/">Cdiscount</a><a href="${app}/help.html">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`
+    footer: `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/worten-repricer/">Worten</a><a href="/zh/fnac-repricer/">FNAC</a><a href="/zh/darty-repricer/">Darty</a><a href="/zh/onbuy-repricer/">OnBuy</a><a href="/zh/cdiscount-repricer/">Cdiscount</a><a href="/zh/guides/">调价教程</a><a href="${app}/help.html">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`
   }
 };
 
@@ -331,6 +332,7 @@ function renderPage(page) {
   const altL = alt && locales[alt.locale];
   const enUrl = page.locale === 'en' ? url : alt ? `${site}/${alt.slug}/` : url;
   const alternates = [[L.lang, url], ...(alt ? [[altL.lang, `${site}/${alt.slug}/`]] : []), ['x-default', enUrl]];
+  const og = ogImage(page.slug, L.lang);
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -371,9 +373,9 @@ ${alternates.map(([lang, href]) => `  <link rel="alternate" hreflang="${lang}" h
   <meta property="og:url" content="${url}">
   <meta property="og:site_name" content="${esc(L.siteName)}">
   <meta property="og:locale" content="${L.ogLocale}">
-  <meta property="og:image" content="${site}/doc-images/autopricy-og-cover.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="${og.url}">
+  <meta property="og:image:width" content="${og.width}">
+  <meta property="og:image:height" content="${og.height}">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
@@ -424,7 +426,7 @@ const priority = (slug) => (slug.replace(/^zh\//, '').startsWith('features/') ? 
 const sitemapUrls = [
   { loc: `${site}/`, priority: '1.0', changefreq: 'weekly' },
   ...allPages.map((page) => ({ loc: `${site}/${page.slug}/`, priority: priority(page.slug), changefreq: 'monthly' })),
-  ...guides.map((guide) => ({ loc: `${site}/guides/${guide.slug}/`, priority: '0.8', changefreq: 'monthly' }))
+  ...guideUrls.map((loc) => ({ loc, priority: '0.8', changefreq: 'monthly' }))
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -439,4 +441,4 @@ ${sitemapUrls.map(({ loc, priority, changefreq }) => `  <url>
 `;
 
 writeFileSync(resolve(distRoot, 'sitemap.xml'), sitemap);
-console.log(`Generated ${pages.length} English pages, ${zhPages.length} Chinese pages, ${guides.length} guides and ${sitemapUrls.length} sitemap URLs.`);
+console.log(`Generated ${pages.length} English pages, ${zhPages.length} Chinese pages, ${guideUrls.length} guide pages and ${sitemapUrls.length} sitemap URLs.`);

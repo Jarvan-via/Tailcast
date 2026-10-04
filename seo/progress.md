@@ -93,10 +93,18 @@ Built in this change set:
 - Legacy `wortenprice.com` Chinese keyword URLs now 301 to dedicated Chinese pages instead of homepage fragments (see `docs/seo-url-migration-map.md`).
 - Sitemap: 26 URLs, `lastmod` 2026-10-04. IndexNow key file `dist/438db09e85513490b9d62c07118a1572.txt` and `scripts/submit-urls.mjs` (IndexNow + optional Baidu push; dry run by default).
 
+Follow-up batch (same day):
+
+- Five Chinese guides under `/zh/guides/` (`scripts/zh-guides.mjs`), each the hreflang alternate of its English guide and citing the same marketplace sources; titles target Chinese seller queries (Worten 购物车规则, OnBuy 怎么抢购物车, Cdiscount 平台底价 vs 自动调价…). Chinese platform pages now link their guide first.
+- Guide hubs `/guides/` and `/zh/guides/` (CollectionPage + ItemList); guide breadcrumbs link the hub; landing-page nav, footers and the homepage link the hubs.
+- Per-platform Open Graph covers in `dist/og/` (14 JPEGs, ~50 KB each) rendered by `scripts/build-og-images.mjs` from `scripts/og.mjs`; every landing page and guide now uses its platform cover. Re-run the renderer only when cover copy changes (needs Playwright + Chromium).
+- `detail.png` (192 KB) replaced by `detail.webp` (48 KB) on the homepage and the Chinese min/max page; the PNG stays for any external references.
+- Checker: 33 URLs, hub-aware guide rules, Chinese source heading, og:image file must exist; the Chinese claim guard ignores negated questions (能保证…吗 / 不能保证).
+
 Manual steps after deploy (in order):
 
 1. Deploy `dist/` and reload Nginx with the four updated `deploy/nginx/*wortenprice*.conf` files; run `bash scripts/check-domain-migration.sh`.
-2. Google Search Console: resubmit the sitemap; request indexing for the ten `/zh/` URLs.
+2. Google Search Console: resubmit the sitemap; request indexing for the `/zh/` landing pages, `/zh/guides/` and the two hubs.
 3. 百度搜索资源平台: add `https://autopricy.com`, verify (HTML meta tag or file), submit the sitemap, then `BAIDU_PUSH_TOKEN=… node scripts/submit-urls.mjs --send --only=/zh/`.
 4. Bing Webmaster Tools: import from GSC or verify, submit the sitemap, then `node scripts/submit-urls.mjs --send` (IndexNow).
 5. Recheck in 7–14 days: `/zh/` index state (Google + Baidu `site:autopricy.com/zh/`), CTR on the rewritten English titles, Umami `seo_zh_*` register events.
@@ -105,4 +113,4 @@ Not done (needs owner input or content outside this repo):
 
 - Move the help center from `app.autopricy.com/help.html` (noindex) to indexable Chinese tutorials on the main domain.
 - Chinese distribution/backlinks: AMZ123-style seller navigation sites, 知乎, 公众号, 雨果网; marketplace partner directories (Octopia/Cdiscount, Mirakl, OnBuy); Chrome Web Store listing for the collection extension.
-- Chinese guides (e.g. Worten API 授权教程) and per-platform OG images.
+- Chinese how-to tutorials that need product screenshots or account steps (e.g. Worten API 授权教程), ideally merged with the help-center migration.

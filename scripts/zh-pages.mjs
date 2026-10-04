@@ -42,7 +42,7 @@ export const zhPages = [
       ['调价后多久生效？', '取决于 Worten 平台处理速度和接口限制。调价先锋会把“已提交”和“平台已确认”分开显示，不把请求成功当成已生效。'],
       ['用了自动调价就一定能拿到购物车吗？', '不能保证。价格只是购物车的因素之一，运费、库存、时效和店铺表现也会影响结果。']
     ],
-    related: [['Mirakl 平台自动调价', '/zh/mirakl-repricer/'], ['最低价保护', '/zh/features/min-max-price-rules/'], ['多店铺批量调价', '/zh/features/multi-store-management/']]
+    related: [['Worten 自动调价教程', '/zh/guides/worten-automatic-repricing/'], ['最低价保护', '/zh/features/min-max-price-rules/'], ['多店铺批量调价', '/zh/features/multi-store-management/']]
   },
   {
     slug: 'zh/fnac-repricer', theme: 'theme-fnac', code: 'F.', codeNote: 'XML 2.6<br>OFFER',
@@ -76,7 +76,7 @@ export const zhPages = [
       ['XML 提交成功是不是价格就改好了？', '不是。XML 批次还需要平台处理，调价先锋会分别显示提交和批次确认状态。'],
       ['FNAC 和 Darty 可以放在一个后台管理吗？', '可以。两个平台的店铺都能在同一个工作台里管理，但各自的店铺身份和竞争逻辑独立处理。']
     ],
-    related: [['Darty 自动调价', '/zh/darty-repricer/'], ['最低价保护', '/zh/features/min-max-price-rules/'], ['欧洲多平台自动调价', '/zh/multi-marketplace-repricing/']]
+    related: [['Fnac 和 Darty 调价指南', '/zh/guides/fnac-darty-repricing/'], ['Darty 自动调价', '/zh/darty-repricer/'], ['最低价保护', '/zh/features/min-max-price-rules/']]
   },
   {
     slug: 'zh/darty-repricer', theme: 'theme-darty', code: 'D.', codeNote: 'DARTY<br>OFFER',
@@ -109,7 +109,7 @@ export const zhPages = [
       ['已经提交的 Darty 改价还会失败吗？', '会。批次可能处理中或返回错误，所以确认状态会单独追踪。'],
       ['所有 Darty 店铺都能接入吗？', '接入前会先确认店铺账号和当前接口能力，确认可用后再开启自动调价。']
     ],
-    related: [['FNAC 自动调价', '/zh/fnac-repricer/'], ['自动调价原理', '/zh/features/automatic-repricing/'], ['欧洲多平台自动调价', '/zh/multi-marketplace-repricing/']]
+    related: [['Fnac 和 Darty 调价指南', '/zh/guides/fnac-darty-repricing/'], ['FNAC 自动调价', '/zh/fnac-repricer/'], ['自动调价原理', '/zh/features/automatic-repricing/']]
   },
   {
     slug: 'zh/onbuy-repricer', theme: 'theme-onbuy', code: 'O.', codeNote: 'UK<br>LISTING',
@@ -144,7 +144,7 @@ export const zhPages = [
       ['最低价就一定能拿到 OnBuy 购物车吗？', '不一定。价格很重要，但库存、配送、店铺表现和平台规则也会影响结果。'],
       ['会不会出现重复或冲突的改价？', '系统使用锁、配额感知的调度和状态历史，尽量避免同一 Listing 同时执行多个改价任务。']
     ],
-    related: [['最低价保护', '/zh/features/min-max-price-rules/'], ['多店铺批量调价', '/zh/features/multi-store-management/'], ['欧洲多平台自动调价', '/zh/multi-marketplace-repricing/']]
+    related: [['OnBuy 抢购物车教程', '/zh/guides/onbuy-winning-offer/'], ['最低价保护', '/zh/features/min-max-price-rules/'], ['多店铺批量调价', '/zh/features/multi-store-management/']]
   },
   {
     slug: 'zh/cdiscount-repricer', theme: 'theme-cdiscount', code: 'C.', codeNote: 'OCTOPIA<br>OFFER',
@@ -179,7 +179,7 @@ export const zhPages = [
       ['Package 成功是不是前台价格就改好了？', '不一定。Package 反馈和之后的平台回读是两份不同的证据，调价先锋会分别记录。'],
       ['可以同时管理多个 Cdiscount 店铺吗？', '可以。每个店铺单独授权，在同一个工作台里筛选、批量设置规则和查看结果。']
     ],
-    related: [['多店铺批量调价', '/zh/features/multi-store-management/'], ['自动调价原理', '/zh/features/automatic-repricing/'], ['FNAC 自动调价', '/zh/fnac-repricer/']]
+    related: [['Cdiscount 调价指南', '/zh/guides/cdiscount-repricing/'], ['多店铺批量调价', '/zh/features/multi-store-management/'], ['自动调价原理', '/zh/features/automatic-repricing/']]
   },
   {
     slug: 'zh/mirakl-repricer', theme: 'theme-multi', code: 'M.', codeNote: 'SELECTED<br>OPERATORS',
@@ -213,7 +213,7 @@ export const zhPages = [
       ['会低于我设置的最低价吗？', '不会。目标价被限制在最低价和最高价之间，边界缺失或无效时不会自动调价。'],
       ['最低价就能拿到购物车吗？', '不一定。库存、配送、店铺表现和平台规则同样影响排序。']
     ],
-    related: [['Worten 自动调价', '/zh/worten-repricer/'], ['欧洲多平台自动调价', '/zh/multi-marketplace-repricing/'], ['自动调价原理', '/zh/features/automatic-repricing/']]
+    related: [['Mirakl 平台调价指南', '/zh/guides/mirakl-repricing/'], ['Worten 自动调价', '/zh/worten-repricer/'], ['欧洲多平台自动调价', '/zh/multi-marketplace-repricing/']]
   },
   {
     slug: 'zh/multi-marketplace-repricing', theme: 'theme-multi', code: '∞', codeNote: 'STORES<br>CHANNELS',
@@ -300,7 +300,7 @@ export const zhPages = [
     ],
     mechanicsTitle: '价格边界如何影响每一次调价',
     mechanics: [['校验', '要求数值有效，且最低价不高于最高价。'], ['计算', '使用平台的跟卖数据，按该平台的规则计算目标价。'], ['约束', '目标价超出区间时，按配置拦截或调整到边界。'], ['记录', '保存原因、目标价和最终动作，方便复查。']],
-    shot: { src: '/doc-images/detail.png', width: 1146, height: 1528, alt: '调价先锋 Offer 详情：葡萄牙价格、西班牙价格、调价差值、最低价、最高价、是否自动涨价，以及西班牙站跟卖店铺列表', caption: '真实产品界面：每个 Offer 单独设置调价差值、最低价、最高价和是否自动涨价，下方是各站点的跟卖报价。' },
+    shot: { src: '/doc-images/detail.webp', width: 1146, height: 1528, alt: '调价先锋 Offer 详情：葡萄牙价格、西班牙价格、调价差值、最低价、最高价、是否自动涨价，以及西班牙站跟卖店铺列表', caption: '真实产品界面：每个 Offer 单独设置调价差值、最低价、最高价和是否自动涨价，下方是各站点的跟卖报价。' },
     noteTitle: '底价要反映你的真实成本',
     note: '调价先锋执行你设置的数值，不会自动计算真实利润。设置最低价时，请把平台佣金、税费、运费、促销和汇率等成本考虑进去。',
     workflowTitle: '开启自动调价前先设好边界',

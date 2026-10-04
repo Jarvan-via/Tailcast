@@ -34,6 +34,7 @@ for (const url of urls) {
   const visibleFaqCount = (html.match(/<details(?:\s|>)/gi) ?? []).length;
   const h2Count = (html.match(/<h2(?:\s|>)/gi) ?? []).length;
   const body = textContent(html);
+  const isGuide = /\/guides\/[^/]+\/$/.test(url);
   const lang = html.match(/<html lang="([^"]+)"/i)?.[1] ?? '';
   const isChinese = lang === 'zh-CN';
   // Chinese characters carry more meaning per character; Baidu and Google truncate earlier.
@@ -52,7 +53,11 @@ for (const url of urls) {
   if (!/name="robots" content="index, follow/.test(html)) errors.push(`${url}: missing index/follow robots meta`);
   if (/In today(?:'|’)?s fast-paced|ever-evolving|revolutionize your|unlock your potential/i.test(body)) errors.push(`${url}: banned filler phrase`);
   if (/Rakuten France repricer|Allegro repricer|Catch repricer|Mercado Libre repricer/i.test(body)) errors.push(`${url}: unsupported public repricer claim`);
-  if (/保证拿到购物车|保证赢得购物车|实时调价|乐天.{0,4}调价|Allegro.{0,4}调价|美客多.{0,4}调价|Catch.{0,4}调价/.test(body)) errors.push(`${url}: unsupported Chinese capability claim`);
+  if (/(?<!能|不|无法)保证(拿到|赢得)购物车|实时调价|乐天.{0,4}调价|Allegro.{0,4}调价|美客多.{0,4}调价|Catch.{0,4}调价/.test(body)) errors.push(`${url}: unsupported Chinese capability claim`);
+
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1] ?? '';
+  if (!ogImage) errors.push(`${url}: missing og:image`);
+  else if (ogImage.startsWith('https://autopricy.com/') && !existsSync(resolve(dist, new URL(ogImage).pathname.slice(1)))) errors.push(`${url}: og:image file missing (${ogImage})`);
 
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
   if (!schemas.length) errors.push(`${url}: missing JSON-LD`);
@@ -62,18 +67,20 @@ for (const url of urls) {
       const graph = parsed['@graph'] ?? [];
       const faq = graph.find((item) => item['@type'] === 'FAQPage');
       const article = graph.find((item) => item['@type'] === 'Article');
-      if (url !== 'https://autopricy.com/' && (!faq || faq.mainEntity.length !== visibleFaqCount)) {
+      const isHub = /\/guides\/$/.test(url);
+      if (url !== 'https://autopricy.com/' && !isHub && (!faq || faq.mainEntity.length !== visibleFaqCount)) {
         errors.push(`${url}: visible/schema FAQ mismatch (${visibleFaqCount}/${faq?.mainEntity?.length ?? 0})`);
       }
-      if (url.includes('/guides/') && !article) errors.push(`${url}: missing Article schema`);
+      if (isGuide && !article) errors.push(`${url}: missing Article schema`);
+      if (isHub && !graph.some((item) => item['@type'] === 'CollectionPage')) errors.push(`${url}: guide hub missing CollectionPage schema`);
     } catch (error) {
       errors.push(`${url}: invalid JSON-LD (${error.message})`);
     }
   }
 
-  if (url.includes('/guides/')) {
+  if (isGuide) {
     if (h2Count < 6) errors.push(`${url}: guide H2 count ${h2Count}, expected at least 6`);
-    if (!/Primary sources/.test(body)) errors.push(`${url}: missing primary source section`);
+    if (!/Primary sources|参考资料/.test(body)) errors.push(`${url}: missing primary source section`);
   }
 
   for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
@@ -95,7 +102,7 @@ for (const [url, alternates] of alternatesByUrl) {
 }
 
 if (new Set(urls).size !== urls.length) errors.push('sitemap contains duplicate URLs');
-if (urls.length !== 26) errors.push(`sitemap URL count ${urls.length}, expected 26`);
+if (urls.length !== 33) errors.push(`sitemap URL count ${urls.length}, expected 33`);
 
 console.log(`Checked ${urls.length} sitemap pages.`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);

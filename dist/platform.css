@@ -575,3 +575,8 @@ h2 { margin-top: 11px; font-size: clamp(32px, 4vw, 46px); line-height: 1.18; let
   .price-box { display: grid; padding: 26px 22px; }
   .price-box .btn { width: 100%; }
 }
+
+.guide-hub .related-link { display: flex; flex-direction: column; gap: 10px; }
+.guide-hub .related-link span { margin-bottom: 0; }
+.guide-hub .related-link p { color: var(--ink-650); font-size: 14px; line-height: 1.75; }
+.guide-hub .related-link em { margin-top: auto; color: var(--platform-accent-strong); font-size: 13px; font-style: normal; font-weight: 700; }
