@@ -1,5 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { ogImage } from './og.mjs';
+import { zhGuides } from './zh-guides.mjs';
 
 const site = 'https://autopricy.com';
 const app = 'https://app.autopricy.com';
@@ -98,29 +100,135 @@ export const guides = [
   }
 ];
 
-const esc = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const zhPublished = '2026-10-04';
 
-function renderGuide(guide) {
-  const url = `${site}/guides/${guide.slug}/`;
-  const source = `guide_${guide.slug.replaceAll('-', '_')}`;
-  const schema = {'@context':'https://schema.org','@graph':[
-    {'@type':'Article','@id':`${url}#article`,headline:guide.h1,description:guide.description,datePublished:published,dateModified:published,mainEntityOfPage:{'@id':`${url}#webpage`},author:{'@type':'Organization',name:'Autopricy'},publisher:{'@type':'Organization',name:'Autopricy',logo:{'@type':'ImageObject',url:`${site}/logo.svg`}}},
-    {'@type':'WebPage','@id':`${url}#webpage`,url,name:guide.title,description:guide.description,inLanguage:'en',about:{'@id':`${site}/#software`}},
-    {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Autopricy',item:`${site}/`},{'@type':'ListItem',position:2,name:guide.h1,item:url}]},
-    {'@type':'FAQPage',mainEntity:guide.faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
-  ]};
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(guide.title)}</title><meta name="description" content="${esc(guide.description)}"><meta name="robots" content="index, follow, max-image-preview:large"><link rel="canonical" href="${url}"><link rel="alternate" hreflang="en" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/platform.css"><meta property="og:title" content="${esc(guide.title)}"><meta property="og:description" content="${esc(guide.description)}"><meta property="og:type" content="article"><meta property="og:url" content="${url}"><meta property="og:image" content="${site}/doc-images/autopricy-og-cover.png"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script></head>
-<body class="theme-multi guide-page"><header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Autopricy home"><img src="/logo.svg" alt="Autopricy logo" width="32" height="32"><span>Autopricy<small>Marketplace repricing</small></span></a><nav class="nav-links" aria-label="Primary navigation"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/features/automatic-repricing/">Automatic repricing</a><a href="${guide.landing}">${esc(guide.platform)}</a><a class="btn btn-primary" href="${app}/?source=${source}#/register">Start free trial</a></nav></div></header>
-<main><article><header class="guide-hero"><div class="container guide-narrow"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Guides</span><span>/</span><span>${esc(guide.platform)}</span></nav><p class="eyebrow">Seller guide / ${esc(guide.platform)}</p><h1>${esc(guide.h1)}</h1><p class="hero-copy">${esc(guide.intro)}</p><p class="guide-meta">Published ${published} · Reviewed against product implementation and cited marketplace sources</p><a class="btn btn-primary" href="${guide.landing}">See ${esc(guide.platform)} repricing</a></div></header>
-<div class="container guide-shell"><aside class="guide-summary"><strong>Key takeaways</strong><ul>${guide.takeaways.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></aside><div class="guide-article"><p class="guide-context">Need the product workflow first? Review the <a href="${guide.landing}">${esc(guide.platform)} repricer page</a> for supported capabilities and limits.</p>${guide.sections.map(([heading, paragraphs],i)=>`<section id="section-${i+1}"><h2>${esc(heading)}</h2>${paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</section>`).join('')}<section><h2>Primary sources</h2><ul class="guide-sources">${guide.sources.map(([label,href])=>`<li><a href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`).join('')}</ul></section><section><h2>${esc(guide.platform)} repricing FAQ</h2><div class="faq-list">${guide.faq.map(([q,a],i)=>`<details${i===0?' open':''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section></div></div>
-<section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">Related resources</p><h2>Continue from guide to implementation</h2></div><div class="related-grid">${guide.related.map(([label,href])=>`<a class="related-link" href="${href}"><span>Autopricy resource</span><strong>${esc(label)} →</strong></a>`).join('')}</div></div></section><section class="section"><div class="container"><div class="cta"><div><h2>Test the workflow on a real store</h2><p>Start with one supported store, a controlled product scope and visible platform results.</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register">Start 7-day free trial</a></div></div></section></article></main>
-<footer class="site-footer"><div class="container footer-row"><span>© 2026 Autopricy · Beijing Qingshi Technology Co., Ltd.</span><nav class="footer-links"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/features/automatic-repricing/">Automatic repricing</a><a href="${guide.landing}">${esc(guide.platform)}</a><a href="${app}/privacy.html">Privacy</a></nav></div></footer><script>if(location.hostname.includes('autopricy.com')){const s=document.createElement('script');s.defer=true;s.src='${app}/umami.js';s.dataset.websiteId='20f3ddd5-3c5b-4b32-91ca-6db0ff7ade94';document.head.appendChild(s);}</script></body></html>\n`;
+const esc = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const umami = `<script>if(location.hostname.includes('autopricy.com')){const s=document.createElement('script');s.defer=true;s.src='${app}/umami.js';s.dataset.websiteId='20f3ddd5-3c5b-4b32-91ca-6db0ff7ade94';document.head.appendChild(s);}</script>`;
+
+const locales = {
+  en: {
+    lang: 'en', ogLocale: 'en_US', prefix: '', published, switchLabel: 'English',
+    brandHome: 'Autopricy home', logoAlt: 'Autopricy logo', brand: 'Autopricy', brandSmall: 'Marketplace repricing', navAria: 'Primary navigation',
+    nav: [['Marketplaces', '/multi-marketplace-repricing/'], ['Automatic repricing', '/features/automatic-repricing/']],
+    home: 'Home', guides: 'Guides', breadcrumbHome: 'Autopricy', trial: 'Start free trial', trialHero: 'Start 7-day free trial',
+    eyebrow: (g) => `Seller guide / ${g.platform}`,
+    meta: (date) => `Published ${date} · Reviewed against product implementation and cited marketplace sources`,
+    seePlatform: (g) => `See ${g.platform} repricing`, takeaways: 'Key takeaways',
+    context: (g) => `Need the product workflow first? Review the <a href="${g.landing}">${esc(g.platform)} repricer page</a> for supported capabilities and limits.`,
+    sources: 'Primary sources', faq: (g) => `${g.platform} repricing FAQ`,
+    relatedKicker: 'Related resources', relatedTitle: 'Continue from guide to implementation', relatedLabel: 'Autopricy resource',
+    ctaTitle: 'Test the workflow on a real store', ctaCopy: 'Start with one supported store, a controlled product scope and visible platform results.',
+    footer: (g) => `<span>© 2026 Autopricy · Beijing Qingshi Technology Co., Ltd.</span><nav class="footer-links"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/guides/">Guides</a><a href="${g?.landing ?? '/features/automatic-repricing/'}">${esc(g?.platform ?? 'Automatic repricing')}</a><a href="${app}/privacy.html">Privacy</a></nav>`,
+    hub: {
+      title: 'Marketplace Repricing Guides for European Sellers | Autopricy',
+      description: 'Practical repricing guides for Worten, FNAC, Darty, OnBuy, Cdiscount and Mirakl sellers: ranking rules, price boundaries, API updates and confirmation.',
+      eyebrow: 'Seller guides', h1: 'Marketplace repricing guides',
+      intro: 'Each guide explains how one marketplace orders offers, which data a repricer can use, how updates are confirmed and where automation should stop. Every guide cites the marketplace’s own documentation.',
+      read: 'Read guide →'
+    }
+  },
+  zh: {
+    lang: 'zh-CN', ogLocale: 'zh_CN', prefix: 'zh/', published: zhPublished, switchLabel: '中文',
+    brandHome: '调价先锋 Autopricy 首页', logoAlt: '调价先锋 Autopricy 标志', brand: '调价先锋', brandSmall: 'Autopricy', navAria: '主导航',
+    nav: [['支持平台', '/zh/multi-marketplace-repricing/'], ['自动调价', '/zh/features/automatic-repricing/']],
+    home: '首页', guides: '调价教程', breadcrumbHome: '调价先锋', trial: '免费试用', trialHero: '免费试用 7 天',
+    eyebrow: (g) => `卖家教程 / ${g.platform}`,
+    meta: (date) => `发布于 ${date} · 已对照产品实现和平台官方资料核对`,
+    seePlatform: (g) => `查看 ${g.platform} 自动调价`, takeaways: '本文要点',
+    context: (g) => `想先了解产品怎么做？请看 <a href="${g.landing}">${esc(g.platform)} 自动调价页面</a>，里面写明了支持的能力和限制。`,
+    sources: '参考资料', faq: (g) => `${g.platform} 调价常见问题`,
+    relatedKicker: '相关页面', relatedTitle: '从教程到实际操作', relatedLabel: '调价先锋',
+    ctaTitle: '先用一个店铺试跑', ctaCopy: '注册后自动开通 7 天免费试用，¥168/店铺/月，商品数量不限。客服电话 177 2028 4880。',
+    footer: () => `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/guides/">调价教程</a><a href="${app}/help.html">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`,
+    hub: {
+      title: '欧洲平台自动调价教程｜Worten、Fnac、OnBuy - 调价先锋',
+      description: 'Worten、Fnac、Darty、OnBuy、Cdiscount 和 Mirakl 平台的自动调价教程：购物车排序规则、价格边界、接口改价和生效确认，每篇都引用平台官方资料。',
+      eyebrow: '卖家教程', h1: '欧洲平台自动调价教程',
+      intro: '每篇教程讲清一个平台怎么排序报价、调价能用哪些数据、改价怎么确认生效，以及自动化应该在什么时候停下来。所有教程都引用平台自己的官方文档。',
+      read: '阅读教程 →'
+    }
+  }
+};
+
+const allGuides = [
+  ...guides.map((guide) => ({ ...guide, locale: 'en' })),
+  ...zhGuides.map((guide) => ({ ...guide, locale: 'zh' }))
+];
+
+function guideUrl(guide) {
+  return `${site}/${locales[guide.locale].prefix}guides/${guide.slug}/`;
 }
 
+function counterpart(guide) {
+  return allGuides.find((other) => other.slug === guide.slug && other.locale !== guide.locale);
+}
+
+function head({ L, title, description, keywords, url, alternates, ogType, og, schema }) {
+  return `<!DOCTYPE html><html lang="${L.lang}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(title)}</title><meta name="description" content="${esc(description)}">${keywords ? `<meta name="keywords" content="${esc(keywords)}">` : ''}<meta name="robots" content="index, follow, max-image-preview:large"><link rel="canonical" href="${url}">${alternates.map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${href}">`).join('')}<link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/platform.css"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="${ogType}"><meta property="og:url" content="${url}"><meta property="og:locale" content="${L.ogLocale}"><meta property="og:image" content="${og.url}"><meta property="og:image:width" content="${og.width}"><meta property="og:image:height" content="${og.height}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script></head>`;
+}
+
+function header(L, { source, extra = [], alt }) {
+  return `<header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="${esc(L.brandHome)}"><img src="/logo.svg" alt="${esc(L.logoAlt)}" width="32" height="32"><span>${esc(L.brand)}<small>${esc(L.brandSmall)}</small></span></a><nav class="nav-links" aria-label="${esc(L.navAria)}">${[...L.nav, ...extra].map(([label, href]) => `<a href="${href}">${esc(label)}</a>`).join('')}${alt ? `<a class="lang-switch" href="${alt.href}" hreflang="${alt.L.lang}" lang="${alt.L.lang}">${esc(alt.L.switchLabel)}</a>` : ''}<a class="btn btn-primary" href="${app}/?source=${source}#/register">${esc(L.trial)}</a></nav></div></header>`;
+}
+
+function renderGuide(guide) {
+  const L = locales[guide.locale];
+  const url = guideUrl(guide);
+  const alt = counterpart(guide);
+  const altUrl = alt && guideUrl(alt);
+  const enUrl = guide.locale === 'en' ? url : altUrl ?? url;
+  const source = `${guide.locale === 'zh' ? 'zh_' : ''}guide_${guide.slug.replaceAll('-', '_')}`;
+  const og = ogImage(guide.slug, L.lang);
+  const schema = {'@context':'https://schema.org','@graph':[
+    {'@type':'Article','@id':`${url}#article`,headline:guide.h1,description:guide.description,inLanguage:L.lang,datePublished:L.published,dateModified:L.published,image:og.url,mainEntityOfPage:{'@id':`${url}#webpage`},author:{'@type':'Organization',name:'Autopricy'},publisher:{'@type':'Organization',name:'Autopricy',logo:{'@type':'ImageObject',url:`${site}/logo.svg`}}},
+    {'@type':'WebPage','@id':`${url}#webpage`,url,name:guide.title,description:guide.description,inLanguage:L.lang,isPartOf:{'@id':`${site}/#website`},about:{'@id':`${site}/#software`}},
+    {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:L.breadcrumbHome,item:`${site}/`},{'@type':'ListItem',position:2,name:L.guides,item:`${site}/${L.prefix}guides/`},{'@type':'ListItem',position:3,name:guide.h1,item:url}]},
+    {'@type':'FAQPage',mainEntity:guide.faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
+  ]};
+  const alternates = [[L.lang, url], ...(alt ? [[locales[alt.locale].lang, altUrl]] : []), ['x-default', enUrl]];
+  return `${head({ L, title: guide.title, description: guide.description, keywords: guide.keywords, url, alternates, ogType: 'article', og, schema })}
+<body class="theme-multi guide-page">${header(L, { source, extra: [[guide.platform, guide.landing]], alt: alt && { href: altUrl.replace(site, ''), L: locales[alt.locale] } })}
+<main><article><header class="guide-hero"><div class="container guide-narrow"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">${esc(L.home)}</a><span>/</span><a href="/${L.prefix}guides/">${esc(L.guides)}</a><span>/</span><span>${esc(guide.platform)}</span></nav><p class="eyebrow">${esc(L.eyebrow(guide))}</p><h1>${esc(guide.h1)}</h1><p class="hero-copy">${esc(guide.intro)}</p><p class="guide-meta">${esc(L.meta(L.published))}</p><a class="btn btn-primary" href="${guide.landing}">${esc(L.seePlatform(guide))}</a></div></header>
+<div class="container guide-shell"><aside class="guide-summary"><strong>${esc(L.takeaways)}</strong><ul>${guide.takeaways.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></aside><div class="guide-article"><p class="guide-context">${L.context(guide)}</p>${guide.sections.map(([heading, paragraphs],i)=>`<section id="section-${i+1}"><h2>${esc(heading)}</h2>${paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</section>`).join('')}<section><h2>${esc(L.sources)}</h2><ul class="guide-sources">${guide.sources.map(([label,href])=>`<li><a href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`).join('')}</ul></section><section><h2>${esc(L.faq(guide))}</h2><div class="faq-list">${guide.faq.map(([q,a],i)=>`<details${i===0?' open':''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section></div></div>
+<section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.relatedKicker)}</p><h2>${esc(L.relatedTitle)}</h2></div><div class="related-grid">${guide.related.map(([label,href])=>`<a class="related-link" href="${href}"><span>${esc(L.relatedLabel)}</span><strong>${esc(label)} →</strong></a>`).join('')}</div></div></section><section class="section"><div class="container"><div class="cta"><div><h2>${esc(L.ctaTitle)}</h2><p>${esc(L.ctaCopy)}</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register">${esc(L.trialHero)}</a></div></div></section></article></main>
+<footer class="site-footer"><div class="container footer-row">${L.footer(guide)}</div></footer>${umami}</body></html>\n`;
+}
+
+function renderHub(locale) {
+  const L = locales[locale];
+  const H = L.hub;
+  const url = `${site}/${L.prefix}guides/`;
+  const other = locales[locale === 'en' ? 'zh' : 'en'];
+  const otherUrl = `${site}/${other.prefix}guides/`;
+  const items = allGuides.filter((guide) => guide.locale === locale);
+  const og = ogImage('multi', L.lang);
+  const schema = {'@context':'https://schema.org','@graph':[
+    {'@type':'CollectionPage','@id':`${url}#webpage`,url,name:H.title,description:H.description,inLanguage:L.lang,isPartOf:{'@id':`${site}/#website`},mainEntity:{'@type':'ItemList',itemListElement:items.map((guide, index) => ({'@type':'ListItem',position:index+1,url:guideUrl(guide),name:guide.title}))}},
+    {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:L.breadcrumbHome,item:`${site}/`},{'@type':'ListItem',position:2,name:L.guides,item:url}]}
+  ]};
+  const alternates = [[L.lang, url], [other.lang, otherUrl], ['x-default', `${site}/guides/`]];
+  return `${head({ L, title: H.title, description: H.description, url, alternates, ogType: 'website', og, schema })}
+<body class="theme-multi guide-page">${header(L, { source: `${locale === 'zh' ? 'zh_' : ''}guides_hub`, alt: { href: otherUrl.replace(site, ''), L: other } })}
+<main><header class="guide-hero"><div class="container guide-narrow"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">${esc(L.home)}</a><span>/</span><span>${esc(L.guides)}</span></nav><p class="eyebrow">${esc(H.eyebrow)}</p><h1>${esc(H.h1)}</h1><p class="hero-copy">${esc(H.intro)}</p></div></header>
+<section class="section"><div class="container"><div class="related-grid guide-hub">${items.map((guide) => `<a class="related-link" href="${guideUrl(guide).replace(site, '')}"><span>${esc(guide.platform)}</span><strong>${esc(guide.h1)}</strong><p>${esc(guide.description)}</p><em>${esc(H.read)}</em></a>`).join('')}</div></div></section>
+<section class="section"><div class="container"><div class="cta"><div><h2>${esc(L.ctaTitle)}</h2><p>${esc(L.ctaCopy)}</p></div><a class="btn btn-primary" href="${app}/?source=${locale === 'zh' ? 'zh_' : ''}guides_hub#/register">${esc(L.trialHero)}</a></div></div></section></main>
+<footer class="site-footer"><div class="container footer-row">${L.footer()}</div></footer>${umami}</body></html>\n`;
+}
+
+export const guideUrls = [
+  `${site}/guides/`, `${site}/zh/guides/`,
+  ...allGuides.map(guideUrl)
+];
+
 export function buildGuides(distRoot) {
-  for (const guide of guides) {
-    const output = resolve(distRoot, 'guides', guide.slug, 'index.html');
+  for (const guide of allGuides) {
+    const output = resolve(distRoot, `${locales[guide.locale].prefix}guides`, guide.slug, 'index.html');
     mkdirSync(resolve(output, '..'), { recursive: true });
     writeFileSync(output, renderGuide(guide));
+  }
+  for (const locale of ['en', 'zh']) {
+    const output = resolve(distRoot, `${locales[locale].prefix}guides`, 'index.html');
+    mkdirSync(resolve(output, '..'), { recursive: true });
+    writeFileSync(output, renderHub(locale));
   }
 }
