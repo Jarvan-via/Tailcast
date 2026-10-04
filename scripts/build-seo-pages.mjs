@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildGuides, guideUrls } from './build-guide-pages.mjs';
 import { ogImage } from './og.mjs';
+import { platformCssHref } from './assets.mjs';
 import { zhPages } from './zh-pages.mjs';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -366,7 +367,7 @@ ${page.keywords ? `  <meta name="keywords" content="${esc(page.keywords)}">\n` :
   <link rel="canonical" href="${url}">
 ${alternates.map(([lang, href]) => `  <link rel="alternate" hreflang="${lang}" href="${href}">`).join('\n')}
   <link rel="icon" href="${site}/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/platform.css">
+  <link rel="stylesheet" href="${platformCssHref}">
   <meta property="og:title" content="${esc(page.title)}">
   <meta property="og:description" content="${esc(page.description)}">
   <meta property="og:type" content="website">

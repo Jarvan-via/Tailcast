@@ -106,3 +106,20 @@ curl -sS https://autopricy.com/robots.txt
 curl -sS https://autopricy.com/sitemap.xml
 curl -sSIL https://autopricy.com/unknown-seo-migration-check
 ```
+
+## Performance — 2026-10-04 post-release measurements
+
+Measured public pages with Lighthouse 13.5.0 and Chrome, default mobile simulated throttling and desktop preset, one serial run per page/device after the 45-URL release and static cache change. These are local lab measurements, not field Core Web Vitals; INP was not measured, and TBT is not a replacement for field INP. Raw JSON is retained locally under ignored `output/seo-20261004/lighthouse/`.
+
+| Page | Device | Score | LCP (ms) | CLS | TBT (ms) | FCP (ms) |
+|---|---|---:|---:|---:|---:|---:|
+| https://autopricy.com/ | mobile | 64 | 2575.9 | 0.000000 | 4392.5 | 1761.9 |
+| https://autopricy.com/ | desktop | 74 | 660.9 | 0.000000 | 609.0 | 396.1 |
+| https://autopricy.com/zh/worten-repricer/ | mobile | 69 | 2007.9 | 0.000000 | 3859.0 | 1103.4 |
+| https://autopricy.com/zh/worten-repricer/ | desktop | 78 | 570.5 | 0.000015 | 506.3 | 356.9 |
+| https://autopricy.com/worten-repricer/ | mobile | 69 | 2025.1 | 0.000000 | 3122.3 | 1285.7 |
+| https://autopricy.com/worten-repricer/ | desktop | 80 | 578.7 | 0.000000 | 438.7 | 393.0 |
+
+The homepage mobile run reported that the device CPU was slower than Lighthouse expects, which can negatively affect the score. Other final serial runs did not report a run warning. An earlier concurrent exploratory run had more CPU warnings and is not the table above; do not interpret the difference as measured improvement caused by caching. Mobile TBT remains high in this local lab setup and warrants a separate trace/field-data review rather than a claim that performance is solved.
+
+Public `platform.css`, OG JPEG and help WebP responses were verified with `Cache-Control: public, max-age=2592000`; HTML, robots and sitemap did not receive that long cache header. Generated pages use a CSS SHA-256 query version so future stylesheet changes invalidate the URL. `immutable` was not set on these shared filenames. Nginx syntax passed before reload; configuration backup: `/etc/nginx/conf.d/autopricy-https.conf.backup-20261004-static-cache`.

@@ -146,3 +146,12 @@ Not done (needs owner input or content outside this repo):
 - Created three reviewed Chinese article drafts and an approximately 200-character directory introduction in `seo/content-drafts/`; attached source URLs and an editorial/claim record. These are draft artifacts, not published channel posts.
 - Discovered that Chrome task 7.3 was already partly satisfied: official store listing `pngledhnbhabccffpipmjmocglimgbcp` is public as “调价先锋采集器”. Verified through the store itself, added its link to homepage/tutorial and product master data. No developer payment or duplicate listing attempted.
 - Follow-up IndexNow submission after Help release: all 45 URLs received HTTP 200. Receipt is not proof of search indexing.
+
+## Handoff tasks 8–9 — 2026-10-04
+
+- Task 8.1: added one asset-only location to the public `autopricy.com` server, backed up `/etc/nginx/conf.d/autopricy-https.conf` to `.backup-20261004-static-cache`, tested nginx successfully and reloaded. Verified 30-day Cache-Control on CSS, JPEG and WebP, with no long cache on HTML/robots/sitemap. Synced the public rule to `deploy/nginx/autopricy-seo-guards.conf`.
+- Added content-hashed CSS query versions in the page generators to avoid stale styles after later releases; rebuilt, passed all 45-page checks with 0 warnings, and deployed.
+- Task 8.2: completed six serial public Lighthouse runs (three pages × mobile/desktop); exact LCP/CLS/TBT/FCP and scores are in `seo/technical-audit.md`. They are local lab observations; field INP/CWV remain unverified. Mobile TBT is high and one CPU warning is documented.
+- Task 8.3: owner explicitly chose to retain `yuanyongvia@gmail.com`; no replacement mailbox was guessed.
+- Task 9: created and verified active thread heartbeat `tailcast-seo-7-14`, scheduled for Sunday 10:00 Asia/Shanghai with two occurrences (2026-10-11 and 2026-10-18). It requests genuine GSC/Baidu/Umami data, stops at login/verification requirements, and avoids repeated unchanged-blocker notifications. Future measurements have not happened yet.
+- Legacy vip HTTPS remains the complete migration check blocker: origin certificate also expired on 2026-09-26; public DNS is an Aliyun CDN CNAME. Renewal/replacement of the CDN-delivered certificate needs the owner’s CDN administration. No insecure curl mode or removal of checks was used.

@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { ogImage } from './og.mjs';
+import { platformCssHref } from './assets.mjs';
 import { zhGuides } from './zh-guides.mjs';
 import { zhHelp } from './zh-help.mjs';
 
@@ -166,7 +167,7 @@ function counterpart(guide) {
 }
 
 function head({ L, title, description, keywords, url, alternates, ogType, og, schema }) {
-  return `<!DOCTYPE html><html lang="${L.lang}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(title)}</title><meta name="description" content="${esc(description)}">${keywords ? `<meta name="keywords" content="${esc(keywords)}">` : ''}<meta name="robots" content="index, follow, max-image-preview:large"><link rel="canonical" href="${url}">${alternates.map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${href}">`).join('')}<link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/platform.css"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="${ogType}"><meta property="og:url" content="${url}"><meta property="og:locale" content="${L.ogLocale}"><meta property="og:image" content="${og.url}"><meta property="og:image:width" content="${og.width}"><meta property="og:image:height" content="${og.height}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script></head>`;
+  return `<!DOCTYPE html><html lang="${L.lang}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(title)}</title><meta name="description" content="${esc(description)}">${keywords ? `<meta name="keywords" content="${esc(keywords)}">` : ''}<meta name="robots" content="index, follow, max-image-preview:large"><link rel="canonical" href="${url}">${alternates.map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${href}">`).join('')}<link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="${platformCssHref}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="${ogType}"><meta property="og:url" content="${url}"><meta property="og:locale" content="${L.ogLocale}"><meta property="og:image" content="${og.url}"><meta property="og:image:width" content="${og.width}"><meta property="og:image:height" content="${og.height}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script></head>`;
 }
 
 function header(L, { source, extra = [], alt }) {
