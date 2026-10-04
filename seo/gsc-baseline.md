@@ -87,3 +87,29 @@ An indexing request is not proof of indexing. Recheck the three non-indexed URLs
 3. Inspect the remaining five sitemap URLs: multi-marketplace plus the three feature pages and homepage if a fresh crawl is needed.
 4. Export Core Web Vitals and Page Indexing once Google has enough data for the new URL set.
 5. Create or grant access to the Domain property only if subdomain-wide reporting is needed; the URL-prefix property is sufficient for the public SEO site.
+
+## Phase 5 deployment baseline — 2026-10-04
+
+Property: verified URL-prefix `https://autopricy.com/`; existing Chrome session was accessible.
+
+- Re-submitted `sitemap.xml` after the 45-URL release. GSC displayed “已成功提交站点地图”; submitted date changed to 2026-10-04.
+- At that moment, the last read was still 2026-09-25, status success, 16 discovered pages and 0 videos. The new public sitemap has 45 URLs, but discovery is not yet confirmed at 45.
+- The existing performance report showed 19 clicks, 653 impressions, CTR 2.9%, average position 14.9; its displayed chart ranged 2026-07-15 to 2026-09-29. These are the values and dates visible in the current report, not a new post-release result. The 2026-08-24 reference was 7 clicks / 129 impressions / 5.4% CTR / position 15.6 with a different reporting window, so do not claim a like-for-like improvement.
+
+| Priority URL | Status before request | Request result |
+|---|---|---|
+| https://autopricy.com/zh/worten-repricer/ | Unknown to Google; not indexed | “已请求编入索引”; added to priority crawl queue |
+| https://autopricy.com/zh/fnac-repricer/ | Unknown to Google; not indexed | “已请求编入索引”; added to priority crawl queue |
+| https://autopricy.com/zh/cdiscount-repricer/ | Inspection did not finish; status unknown | Not requested; GSC retrieval stalled |
+| https://autopricy.com/zh/onbuy-repricer/ | Not checked yet | Pending |
+| https://autopricy.com/zh/darty-repricer/ | Not checked yet | Pending |
+| https://autopricy.com/zh/mirakl-repricer/ | Not checked yet | Pending |
+| https://autopricy.com/zh/multi-marketplace-repricing/ | Not checked yet | Pending |
+| https://autopricy.com/zh/guides/ | Not checked yet | Pending |
+| https://autopricy.com/guides/ | Not checked yet | Pending |
+
+Cdiscount inspection stalled at “正在从 Google 索引检索数据”. Rebinding the browser window and reloading the current inspection then the property overview produced a blank content area. No result or request confirmation was obtained. Browser control also reported `noWindowsAvailable`; this is an observed access/UI failure, not evidence of an indexing quota or a page defect. The remaining seven priority requests are incomplete and should resume from Cdiscount after GSC is accessible.
+
+A successful index request is not proof that Google indexed the page. Help pages and remaining features/guides follow after the first nine priorities, subject to quota and human verification requirements.
+
+Day-7 and day-14 follow-up: 2026-10-11 and 2026-10-18 at 10:00 Asia/Shanghai, active thread heartbeat `tailcast-seo-7-14`. Compare current page-level GSC data, Baidu indexing when verified, and Umami `seo_zh_` registration-click events. Missing access/data remains unknown; clicks are registration intent, not completed registrations.

@@ -155,3 +155,18 @@ Not done (needs owner input or content outside this repo):
 - Task 8.3: owner explicitly chose to retain `yuanyongvia@gmail.com`; no replacement mailbox was guessed.
 - Task 9: created and verified active thread heartbeat `tailcast-seo-7-14`, scheduled for Sunday 10:00 Asia/Shanghai with two occurrences (2026-10-11 and 2026-10-18). It requests genuine GSC/Baidu/Umami data, stops at login/verification requirements, and avoids repeated unchanged-blocker notifications. Future measurements have not happened yet.
 - Legacy vip HTTPS remains the complete migration check blocker: origin certificate also expired on 2026-09-26; public DNS is an Aliyun CDN CNAME. Renewal/replacement of the CDN-delivered certificate needs the owner’s CDN administration. No insecure curl mode or removal of checks was used.
+
+## Delivery and remaining manual gates — 2026-10-04
+
+- Code/artifacts and channel research were committed on linear `main` (9494de5, 49f1f81, 9bb74bf, 4f08738); production deploy was performed separately and verified.
+- Complete migration script after app robots repair: five failures, all expired TLS on `https://vip.wortenprice.com/` and its help/privacy/terms/unknown checks. Public legacy Chinese redirects, apex, canonicals, unknown public 404, app noindex and app robots all pass.
+- Manual gates from the handoff: renew/configure the legacy vip CDN certificate (and its expired origin certificate); Bing login/import and sitemap submission; Baidu site verification meta, verification completion, sitemap and token via `BAIDU_PUSH_TOKEN`; renewed per-site software-directory authorization and company review/publication of drafts. No token, password or verification code is in the repository.
+- Public content deployment, GSC requests, search-engine receipt, indexing and completed registrations remain distinct outcomes. See `seo/gsc-baseline.md` for actual observed GSC statuses.
+
+## Handoff task 3 follow-up — observed GSC results — 2026-10-04
+
+- Accessed the owner's existing verified Chrome GSC session; successfully re-submitted `sitemap.xml` after the 45-URL deployment. GSC last-read remains 2026-09-25 with 16 discovered URLs; the updated submission date is 2026-10-04. Discovery/indexing of all 45 is not confirmed.
+- Both Chinese Worten and FNAC inspected as unknown to Google / not indexed, then each displayed “已请求编入索引” and confirmation of entry into the priority crawl queue.
+- Cdiscount inspection stalled while retrieving Google index data. Browser rebinding, inspection reload and property-overview reload produced blank content; browser control also returned `noWindowsAvailable`. No Cdiscount indexing request was sent, and the next six priority URLs plus subsequent Help/features/guide requests remain pending. Task 3's first-nine-request acceptance is not met. Exact statuses and baseline metrics are in `seo/gsc-baseline.md`.
+- Bing showed its public Sign In page; Baidu showed its login flow. Did not enter credentials, solve verification, import sites or submit their sitemaps. Resume after owner completes login and Baidu site-verification setup.
+- Final local page checks: 45 pages, 0 warnings. English contact remains `yuanyongvia@gmail.com` per owner response.
