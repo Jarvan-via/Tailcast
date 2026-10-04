@@ -139,3 +139,10 @@ Not done (needs owner input or content outside this repo):
 - Backed up the 33-URL release to `/home/homepage/autopricy/dist.backup-20261004-before-help`; deployed without `--delete`. All 45 public sitemap URLs return 200; public/local sitemap SHA-256 `6eec3c4e59adfd8d69109436db5fa968bf928ed886ba3892aea94c0e728f73f0` matches. Full app help remains `noindex,follow`.
 - Re-submitted the new 45-URL set to IndexNow: see subsequent receipt record. Google/Bing/Baidu sitemap discovery can lag and must be confirmed separately.
 - Repaired the app robots file at its actual current root from `deploy/app-autopricy-robots.txt`: HTTP 200 with `Disallow: /`. The separate legacy vip TLS issue is still pending CDN administration.
+
+## Handoff task 7 — channel materials — 2026-10-04
+
+- Saved verified official partner routes and unresolved eligibility requirements in `seo/backlinks/partner-programs.md` for Mirakl, Octopia/Cdiscount, OnBuy/OnCommerce and Worten. No partner application, email, registration or directory submission was sent. Software directory authorization remains expired; per-site approval is still required.
+- Created three reviewed Chinese article drafts and an approximately 200-character directory introduction in `seo/content-drafts/`; attached source URLs and an editorial/claim record. These are draft artifacts, not published channel posts.
+- Discovered that Chrome task 7.3 was already partly satisfied: official store listing `pngledhnbhabccffpipmjmocglimgbcp` is public as “调价先锋采集器”. Verified through the store itself, added its link to homepage/tutorial and product master data. No developer payment or duplicate listing attempted.
+- Follow-up IndexNow submission after Help release: all 45 URLs received HTTP 200. Receipt is not proof of search indexing.

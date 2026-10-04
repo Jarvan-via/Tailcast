@@ -3,7 +3,7 @@
 const help = (slug, platform, landing, title, description, intro, takeaways, sections, faq, images = []) => ({
   slug, platform, landing, title, description, h1: title.replace(' | 调价先锋', ''), intro,
   takeaways, sections, faq, images, locale: 'zh', kind: 'help',
-  sources: [['调价先锋应用内帮助中心', 'https://app.autopricy.com/help.html']],
+  sources: [['调价先锋应用内帮助中心', 'https://app.autopricy.com/help.html'], ...(slug === 'product-collection-extension' ? [['Chrome 应用商店安装', 'https://chromewebstore.google.com/detail/pngledhnbhabccffpipmjmocglimgbcp']] : [])],
   related: [['帮助中心目录', '/zh/help/'], ['对应平台与功能', landing], ['中文调价教程', '/zh/guides/']]
 });
 export const zhHelp = [

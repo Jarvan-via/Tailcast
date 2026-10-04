@@ -79,3 +79,9 @@ The logo, Chinese cover and OnBuy sample-store workspace were visually reviewed 
 ## Form blockers
 
 The current public evidence does not establish an English legal company name, maker identity, founding year, street address, company size, social profiles, credit-card policy or demo availability. SourceForge currently asks for several of these fields, so its form cannot be completed truthfully without additional verified data. Product Hunt also requires a personal maker account and separate launch materials.
+
+## Chrome Web Store — reverified 2026-10-04
+
+- Existing public listing: [调价先锋采集器](https://chromewebstore.google.com/detail/pngledhnbhabccffpipmjmocglimgbcp).
+- The official store page opened successfully in Chrome and displayed the extension title and public overview. An application already exists; no new developer account, payment or listing submission was necessary.
+- Added the verified store link to the homepage footer and public installation tutorial. Store listing acceptance does not prove every platform workflow or current browser eligibility.
