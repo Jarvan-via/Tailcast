@@ -126,3 +126,16 @@ Not done (needs owner input or content outside this repo):
 - Task 4: IndexNow dry run listed 33 URLs, then the live submission returned HTTP 202. This confirms receipt, not indexing. Bing login/import and sitemap submission remain manual.
 - Task 5: pending Baidu verification meta and account verification; no token supplied or stored, no Baidu API push performed.
 - Local raw verification artifacts are under ignored `output/seo-20261004/`; public URLs, status, hashes and rollback paths are preserved here.
+
+## Handoff task 6 — public Chinese help center — 2026-10-04
+
+- Read the active app root `/home/homepage/wortener-autopricy/dist/help.html` (SHA-256 `e27a006cd39c3ef6b5760aa9c9978ee16639001ca60cd1baf49fc90bfb686b8e`); the application help file was not modified.
+- Added 11 task-specific tutorials plus `/zh/help/`, using `scripts/zh-help.mjs` and the existing Chinese guide template: authorization, binding, Offer sync, rule export/import, schedule, batch follow-selling, OnBuy Product/Listing, Cdiscount API/Product/Offer, batch actions, invoices and collection extension.
+- Retained platform-specific fields and asynchronous-result boundaries. Excluded obsolete Catch availability and the source FAQ’s unsupported instantaneous/guaranteed-result wording. The capability matrix constrains all new copy.
+- Reused only three reviewed screenshots: blank rule-import form, schedule form and an export toolbar explicitly identified as local sample data in the source. Converted them to WebP at quality 82 with Chinese alt and intrinsic dimensions. No seller credentials or customer data were present. Remaining authorization, shop/product/order-list screenshots were not republished pending individual data review.
+- Linked the hub from homepage footer, all ten Chinese platform/feature pages, and Chinese guide footers. Added `seo_zh_help_*` registration-click events; these measure intent, not completed registrations.
+- Checker now validates 45 sitemap URLs, unique title/description, Help Article/CollectionPage schema, visible/schema FAQ consistency, corresponding platform/feature links and image targets. Rebuild and checks passed with 0 warnings.
+- Browser checked all 12 new pages at 1440 × 900 and 390 × 900: one H1, no horizontal overflow, no missing completed images; representative screenshots were visually reviewed.
+- Backed up the 33-URL release to `/home/homepage/autopricy/dist.backup-20261004-before-help`; deployed without `--delete`. All 45 public sitemap URLs return 200; public/local sitemap SHA-256 `6eec3c4e59adfd8d69109436db5fa968bf928ed886ba3892aea94c0e728f73f0` matches. Full app help remains `noindex,follow`.
+- Re-submitted the new 45-URL set to IndexNow: see subsequent receipt record. Google/Bing/Baidu sitemap discovery can lag and must be confirmed separately.
+- Repaired the app robots file at its actual current root from `deploy/app-autopricy-robots.txt`: HTTP 200 with `Disallow: /`. The separate legacy vip TLS issue is still pending CDN administration.

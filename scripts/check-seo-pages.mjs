@@ -10,6 +10,8 @@ const urls = [...sitemap.matchAll(/<loc>(https:\/\/autopricy\.com\/[^<]*)<\/loc>
 const errors = [];
 const warnings = [];
 const alternatesByUrl = new Map();
+const seenTitles = new Map();
+const seenDescriptions = new Map();
 
 function pagePath(url) {
   const pathname = new URL(url).pathname;
@@ -34,6 +36,7 @@ for (const url of urls) {
   const visibleFaqCount = (html.match(/<details(?:\s|>)/gi) ?? []).length;
   const h2Count = (html.match(/<h2(?:\s|>)/gi) ?? []).length;
   const body = textContent(html);
+  const isHelp = /\/zh\/help\/[^/]+\/$/.test(url);
   const isGuide = /\/guides\/[^/]+\/$/.test(url);
   const lang = html.match(/<html lang="([^"]+)"/i)?.[1] ?? '';
   const isChinese = lang === 'zh-CN';
@@ -43,6 +46,11 @@ for (const url of urls) {
   const titleLength = [...title].length;
   const descriptionLength = [...description].length;
 
+  for (const [label, value, seen] of [['title', title, seenTitles], ['description', description, seenDescriptions]]) {
+    if (value && seen.has(value)) errors.push(`${url}: duplicate ${label} with ${seen.get(value)}`);
+    if (value) seen.set(value, url);
+  }
+  if (isHelp && h2Count < 6) errors.push(`${url}: help page needs workflow, sources and FAQ sections`);
   if (!title) errors.push(`${url}: missing title`);
   if (url !== 'https://autopricy.com/' && (titleLength < titleRange[0] || titleLength > titleRange[1])) warnings.push(`${url}: title length ${titleLength}`);
   if (descriptionLength < descriptionRange[0] || descriptionLength > descriptionRange[1]) warnings.push(`${url}: meta description length ${descriptionLength}`);
@@ -67,11 +75,11 @@ for (const url of urls) {
       const graph = parsed['@graph'] ?? [];
       const faq = graph.find((item) => item['@type'] === 'FAQPage');
       const article = graph.find((item) => item['@type'] === 'Article');
-      const isHub = /\/guides\/$/.test(url);
+      const isHub = /\/(guides|help)\/$/.test(url);
       if (url !== 'https://autopricy.com/' && !isHub && (!faq || faq.mainEntity.length !== visibleFaqCount)) {
         errors.push(`${url}: visible/schema FAQ mismatch (${visibleFaqCount}/${faq?.mainEntity?.length ?? 0})`);
       }
-      if (isGuide && !article) errors.push(`${url}: missing Article schema`);
+      if ((isGuide || isHelp) && !article) errors.push(`${url}: missing Article schema`);
       if (isHub && !graph.some((item) => item['@type'] === 'CollectionPage')) errors.push(`${url}: guide hub missing CollectionPage schema`);
     } catch (error) {
       errors.push(`${url}: invalid JSON-LD (${error.message})`);
@@ -83,6 +91,11 @@ for (const url of urls) {
     if (!/Primary sources|参考资料/.test(body)) errors.push(`${url}: missing primary source section`);
   }
 
+  if (isHelp && !/href="\/zh\/(?:[a-z-]+-repricer|features\/[^"]+)\//.test(html)) errors.push(`${url}: missing corresponding platform or feature link`);
+  for (const [, src, alt] of html.matchAll(/<img[^>]*src="([^"]+)"[^>]*alt="([^"]*)"/g)) {
+    if (isHelp && !alt) errors.push(`${url}: missing image alt`);
+    if (src.startsWith('/') && !existsSync(resolve(dist, src.slice(1)))) errors.push(`${url}: missing image ${src}`);
+  }
   for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
     if (!href.startsWith('/') || href.startsWith('//')) continue;
     const path = href.split('#', 1)[0].split('?', 1)[0];
@@ -102,7 +115,7 @@ for (const [url, alternates] of alternatesByUrl) {
 }
 
 if (new Set(urls).size !== urls.length) errors.push('sitemap contains duplicate URLs');
-if (urls.length !== 33) errors.push(`sitemap URL count ${urls.length}, expected 33`);
+if (urls.length !== 45) errors.push(`sitemap URL count ${urls.length}, expected 45`);
 
 console.log(`Checked ${urls.length} sitemap pages.`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);

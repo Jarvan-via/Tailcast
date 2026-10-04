@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { ogImage } from './og.mjs';
 import { zhGuides } from './zh-guides.mjs';
+import { zhHelp } from './zh-help.mjs';
 
 const site = 'https://autopricy.com';
 const app = 'https://app.autopricy.com';
@@ -139,7 +140,7 @@ const locales = {
     sources: '参考资料', faq: (g) => `${g.platform} 调价常见问题`,
     relatedKicker: '相关页面', relatedTitle: '从教程到实际操作', relatedLabel: '调价先锋',
     ctaTitle: '先用一个店铺试跑', ctaCopy: '注册后自动开通 7 天免费试用，¥168/店铺/月，商品数量不限。客服电话 177 2028 4880。',
-    footer: () => `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/guides/">调价教程</a><a href="${app}/help.html">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`,
+    footer: () => `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/guides/">调价教程</a><a href="/zh/help/">帮助中心</a><a href="/zh/help/">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`,
     hub: {
       title: '欧洲平台自动调价教程｜Worten、Fnac、OnBuy - 调价先锋',
       description: 'Worten、Fnac、Darty、OnBuy、Cdiscount 和 Mirakl 平台的自动调价教程：购物车排序规则、价格边界、接口改价和生效确认，每篇都引用平台官方资料。',
@@ -152,15 +153,16 @@ const locales = {
 
 const allGuides = [
   ...guides.map((guide) => ({ ...guide, locale: 'en' })),
-  ...zhGuides.map((guide) => ({ ...guide, locale: 'zh' }))
+  ...zhGuides.map((guide) => ({ ...guide, locale: 'zh' })),
+  ...zhHelp
 ];
 
 function guideUrl(guide) {
-  return `${site}/${locales[guide.locale].prefix}guides/${guide.slug}/`;
+  return `${site}/${locales[guide.locale].prefix}${guide.kind === 'help' ? 'help' : 'guides'}/${guide.slug}/`;
 }
 
 function counterpart(guide) {
-  return allGuides.find((other) => other.slug === guide.slug && other.locale !== guide.locale);
+  return allGuides.find((other) => other.slug === guide.slug && other.locale !== guide.locale && other.kind === guide.kind);
 }
 
 function head({ L, title, description, keywords, url, alternates, ogType, og, schema }) {
@@ -168,29 +170,30 @@ function head({ L, title, description, keywords, url, alternates, ogType, og, sc
 }
 
 function header(L, { source, extra = [], alt }) {
-  return `<header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="${esc(L.brandHome)}"><img src="/logo.svg" alt="${esc(L.logoAlt)}" width="32" height="32"><span>${esc(L.brand)}<small>${esc(L.brandSmall)}</small></span></a><nav class="nav-links" aria-label="${esc(L.navAria)}">${[...L.nav, ...extra].map(([label, href]) => `<a href="${href}">${esc(label)}</a>`).join('')}${alt ? `<a class="lang-switch" href="${alt.href}" hreflang="${alt.L.lang}" lang="${alt.L.lang}">${esc(alt.L.switchLabel)}</a>` : ''}<a class="btn btn-primary" href="${app}/?source=${source}#/register">${esc(L.trial)}</a></nav></div></header>`;
+  return `<header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="${esc(L.brandHome)}"><img src="/logo.svg" alt="${esc(L.logoAlt)}" width="32" height="32"><span>${esc(L.brand)}<small>${esc(L.brandSmall)}</small></span></a><nav class="nav-links" aria-label="${esc(L.navAria)}">${[...L.nav, ...extra].map(([label, href]) => `<a href="${href}">${esc(label)}</a>`).join('')}${alt ? `<a class="lang-switch" href="${alt.href}" hreflang="${alt.L.lang}" lang="${alt.L.lang}">${esc(alt.L.switchLabel)}</a>` : ''}<a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register">${esc(L.trial)}</a></nav></div></header>`;
 }
 
 function renderGuide(guide) {
-  const L = locales[guide.locale];
+  const L = guide.kind === 'help' ? { ...locales.zh, guides: '帮助中心', meta: (date) => `更新于 ${date} · 操作说明以当前平台页面为准`, seePlatform: () => '查看对应功能', context: () => '首次使用先确认当前店铺、平台与操作范围。' } : locales[guide.locale];
+  const hubPath = guide.kind === 'help' ? 'help' : 'guides';
   const url = guideUrl(guide);
   const alt = counterpart(guide);
   const altUrl = alt && guideUrl(alt);
   const enUrl = guide.locale === 'en' ? url : altUrl ?? url;
-  const source = `${guide.locale === 'zh' ? 'zh_' : ''}guide_${guide.slug.replaceAll('-', '_')}`;
+  const source = `${guide.locale === 'zh' ? 'zh_' : ''}${guide.kind === 'help' ? 'help' : 'guide'}_${guide.slug.replaceAll('-', '_')}`;
   const og = ogImage(guide.slug, L.lang);
   const schema = {'@context':'https://schema.org','@graph':[
     {'@type':'Article','@id':`${url}#article`,headline:guide.h1,description:guide.description,inLanguage:L.lang,datePublished:L.published,dateModified:L.published,image:og.url,mainEntityOfPage:{'@id':`${url}#webpage`},author:{'@type':'Organization',name:'Autopricy'},publisher:{'@type':'Organization',name:'Autopricy',logo:{'@type':'ImageObject',url:`${site}/logo.svg`}}},
     {'@type':'WebPage','@id':`${url}#webpage`,url,name:guide.title,description:guide.description,inLanguage:L.lang,isPartOf:{'@id':`${site}/#website`},about:{'@id':`${site}/#software`}},
-    {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:L.breadcrumbHome,item:`${site}/`},{'@type':'ListItem',position:2,name:L.guides,item:`${site}/${L.prefix}guides/`},{'@type':'ListItem',position:3,name:guide.h1,item:url}]},
+    {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:L.breadcrumbHome,item:`${site}/`},{'@type':'ListItem',position:2,name:L.guides,item:`${site}/${L.prefix}${hubPath}/`},{'@type':'ListItem',position:3,name:guide.h1,item:url}]},
     {'@type':'FAQPage',mainEntity:guide.faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
   ]};
   const alternates = [[L.lang, url], ...(alt ? [[locales[alt.locale].lang, altUrl]] : []), ['x-default', enUrl]];
   return `${head({ L, title: guide.title, description: guide.description, keywords: guide.keywords, url, alternates, ogType: 'article', og, schema })}
 <body class="theme-multi guide-page">${header(L, { source, extra: [[guide.platform, guide.landing]], alt: alt && { href: altUrl.replace(site, ''), L: locales[alt.locale] } })}
-<main><article><header class="guide-hero"><div class="container guide-narrow"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">${esc(L.home)}</a><span>/</span><a href="/${L.prefix}guides/">${esc(L.guides)}</a><span>/</span><span>${esc(guide.platform)}</span></nav><p class="eyebrow">${esc(L.eyebrow(guide))}</p><h1>${esc(guide.h1)}</h1><p class="hero-copy">${esc(guide.intro)}</p><p class="guide-meta">${esc(L.meta(L.published))}</p><a class="btn btn-primary" href="${guide.landing}">${esc(L.seePlatform(guide))}</a></div></header>
-<div class="container guide-shell"><aside class="guide-summary"><strong>${esc(L.takeaways)}</strong><ul>${guide.takeaways.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></aside><div class="guide-article"><p class="guide-context">${L.context(guide)}</p>${guide.sections.map(([heading, paragraphs],i)=>`<section id="section-${i+1}"><h2>${esc(heading)}</h2>${paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</section>`).join('')}<section><h2>${esc(L.sources)}</h2><ul class="guide-sources">${guide.sources.map(([label,href])=>`<li><a href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`).join('')}</ul></section><section><h2>${esc(L.faq(guide))}</h2><div class="faq-list">${guide.faq.map(([q,a],i)=>`<details${i===0?' open':''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section></div></div>
-<section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.relatedKicker)}</p><h2>${esc(L.relatedTitle)}</h2></div><div class="related-grid">${guide.related.map(([label,href])=>`<a class="related-link" href="${href}"><span>${esc(L.relatedLabel)}</span><strong>${esc(label)} →</strong></a>`).join('')}</div></div></section><section class="section"><div class="container"><div class="cta"><div><h2>${esc(L.ctaTitle)}</h2><p>${esc(L.ctaCopy)}</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register">${esc(L.trialHero)}</a></div></div></section></article></main>
+<main><article><header class="guide-hero"><div class="container guide-narrow"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">${esc(L.home)}</a><span>/</span><a href="/${L.prefix}${hubPath}/">${esc(L.guides)}</a><span>/</span><span>${esc(guide.platform)}</span></nav><p class="eyebrow">${esc(L.eyebrow(guide))}</p><h1>${esc(guide.h1)}</h1><p class="hero-copy">${esc(guide.intro)}</p><p class="guide-meta">${esc(L.meta(L.published))}</p><a class="btn btn-primary" href="${guide.landing}">${esc(L.seePlatform(guide))}</a></div></header>
+<div class="container guide-shell"><aside class="guide-summary"><strong>${esc(L.takeaways)}</strong><ul>${guide.takeaways.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></aside><div class="guide-article"><p class="guide-context">${L.context(guide)}</p>${guide.sections.map(([heading, paragraphs],i)=>`<section id="section-${i+1}"><h2>${esc(heading)}</h2>${paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}${(guide.images ?? []).filter(image => image.after === i).map(image => `<figure><img src="${image.src}" alt="${esc(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" style="max-width:100%;height:auto"><figcaption>${esc(image.alt)}；界面示例，实际设置以当前店铺为准。</figcaption></figure>`).join('')}</section>`).join('')}<section><h2>${esc(L.sources)}</h2><ul class="guide-sources">${guide.sources.map(([label,href])=>`<li><a href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`).join('')}</ul></section><section><h2>${esc(L.faq(guide))}</h2><div class="faq-list">${guide.faq.map(([q,a],i)=>`<details${i===0?' open':''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section></div></div>
+<section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.relatedKicker)}</p><h2>${esc(L.relatedTitle)}</h2></div><div class="related-grid">${guide.related.map(([label,href])=>`<a class="related-link" href="${href}"><span>${esc(L.relatedLabel)}</span><strong>${esc(label)} →</strong></a>`).join('')}</div></div></section><section class="section"><div class="container"><div class="cta"><div><h2>${esc(L.ctaTitle)}</h2><p>${esc(L.ctaCopy)}</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register">${esc(L.trialHero)}</a></div></div></section></article></main>
 <footer class="site-footer"><div class="container footer-row">${L.footer(guide)}</div></footer>${umami}</body></html>\n`;
 }
 
@@ -200,7 +203,7 @@ function renderHub(locale) {
   const url = `${site}/${L.prefix}guides/`;
   const other = locales[locale === 'en' ? 'zh' : 'en'];
   const otherUrl = `${site}/${other.prefix}guides/`;
-  const items = allGuides.filter((guide) => guide.locale === locale);
+  const items = allGuides.filter((guide) => guide.locale === locale && guide.kind !== 'help');
   const og = ogImage('multi', L.lang);
   const schema = {'@context':'https://schema.org','@graph':[
     {'@type':'CollectionPage','@id':`${url}#webpage`,url,name:H.title,description:H.description,inLanguage:L.lang,isPartOf:{'@id':`${site}/#website`},mainEntity:{'@type':'ItemList',itemListElement:items.map((guide, index) => ({'@type':'ListItem',position:index+1,url:guideUrl(guide),name:guide.title}))}},
@@ -216,19 +219,35 @@ function renderHub(locale) {
 }
 
 export const guideUrls = [
-  `${site}/guides/`, `${site}/zh/guides/`,
+  `${site}/guides/`, `${site}/zh/guides/`, `${site}/zh/help/`,
   ...allGuides.map(guideUrl)
 ];
 
 export function buildGuides(distRoot) {
   for (const guide of allGuides) {
-    const output = resolve(distRoot, `${locales[guide.locale].prefix}guides`, guide.slug, 'index.html');
+    const output = resolve(distRoot, `${locales[guide.locale].prefix}${guide.kind === 'help' ? 'help' : 'guides'}`, guide.slug, 'index.html');
     mkdirSync(resolve(output, '..'), { recursive: true });
     writeFileSync(output, renderGuide(guide));
   }
+  const helpOutput = resolve(distRoot, 'zh/help/index.html');
+  mkdirSync(resolve(helpOutput, '..'), { recursive: true });
+  writeFileSync(helpOutput, renderHelpHub());
   for (const locale of ['en', 'zh']) {
     const output = resolve(distRoot, `${locales[locale].prefix}guides`, 'index.html');
     mkdirSync(resolve(output, '..'), { recursive: true });
     writeFileSync(output, renderHub(locale));
   }
+}
+
+function renderHelpHub() {
+  const L = locales.zh;
+  const url = `${site}/zh/help/`;
+  const title = '调价先锋帮助中心：授权、同步与调价设置';
+  const description = '按操作任务查看店铺授权、商品同步、表格规则导入导出、调价计划、OnBuy Listing、Cdiscount Offer、批量操作和采集插件教程。每篇说明适用平台、操作范围与结果检查，首次使用可从绑定店铺开始。';
+  const schema = {'@context': 'https://schema.org', '@graph': [
+    {'@type': 'CollectionPage', '@id': `${url}#webpage`, url, name: title, description, inLanguage: 'zh-CN', mainEntity: {'@type': 'ItemList', itemListElement: zhHelp.map((g, i) => ({'@type': 'ListItem', position: i + 1, name: g.h1, url: guideUrl(g)}))}},
+    {'@type': 'BreadcrumbList', itemListElement: [{'@type': 'ListItem', position: 1, name: '首页', item: `${site}/`}, {'@type': 'ListItem', position: 2, name: '帮助中心', item: url}]}
+  ]};
+  return `${head({L, title, description, url, alternates: [['zh-CN', url]], ogType: 'website', og: ogImage('multi', L.lang), schema})}
+<body class="theme-multi guide-page">${header(L, {source: 'zh_help_hub'})}<main><header class="guide-hero"><div class="container guide-narrow"><nav class="breadcrumb"><a href="/">首页</a><span>/</span><span>帮助中心</span></nav><p class="eyebrow">操作教程</p><h1>调价先锋帮助中心</h1><p class="hero-copy">从授权和同步，到填写价格规则与查看平台结果。按当前任务选择教程，不同平台分别操作。</p></div></header><section class="section"><div class="container"><div class="related-grid guide-hub">${zhHelp.map(g => `<a class="related-link" href="${guideUrl(g).replace(site, '')}"><span>${esc(g.platform)}</span><strong>${esc(g.h1)}</strong><p>${esc(g.description)}</p><em>查看步骤 →</em></a>`).join('')}</div></div></section><section class="section"><div class="container"><p>需要了解调价原理？查看<a href="/zh/guides/">中文调价教程</a>。应用内仍可使用<a href="${app}/help.html">完整操作说明</a>。</p></div></section></main><footer class="site-footer"><div class="container footer-row">${L.footer()}</div></footer>${umami}</body></html>\n`;
 }
