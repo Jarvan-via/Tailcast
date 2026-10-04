@@ -8,7 +8,7 @@ const published = '2026-08-24';
 export const guides = [
   {
     slug: 'mirakl-repricing', platform: 'Mirakl', landing: '/mirakl-repricer/',
-    title: 'Mirakl Repricing Guide: APIs, Rules and Safe Automation',
+    title: 'Mirakl Repricing Guide: How It Works and What to Check',
     description: 'Learn how Mirakl repricing works across selected marketplace operators, from Offer data and channel pricing to import status, limits, and verification.',
     h1: 'Mirakl repricing: what sellers need to verify before automating',
     intro: 'Mirakl provides a marketplace platform, not one universal seller workflow. Each operator decides the channels, Offer fields, pricing controls and competitive data it exposes. A safe repricing setup starts by validating the exact operator rather than assuming that one connector works everywhere.',
@@ -26,7 +26,7 @@ export const guides = [
   },
   {
     slug: 'worten-automatic-repricing', platform: 'Worten', landing: '/worten-repricer/',
-    title: 'Worten Automatic Repricing: A Practical Seller Guide',
+    title: 'Worten Automatic Repricing: How to Change Prices Safely',
     description: 'A practical guide to Worten automatic repricing, including Winning Offer signals, price boundaries, Offer identity, submission, and confirmation.',
     h1: 'How automatic repricing works on Worten',
     intro: 'Worten highlights a Winning Offer in the Buy Box, but the lowest item price alone does not guarantee that position. Sellers need a repricing loop that considers the available Offer context, protects margin and verifies what the marketplace actually processed.',
@@ -44,7 +44,7 @@ export const guides = [
   },
   {
     slug: 'onbuy-winning-offer', platform: 'OnBuy', landing: '/onbuy-repricer/',
-    title: 'How to Compete for the OnBuy Winning Offer Safely',
+    title: 'How to Win the OnBuy Buy Box Without a Price War',
     description: 'Learn how to approach the OnBuy Winning Offer with Product and Listing identity, total seller costs, bounded repricing, winning checks, and safe rollout.',
     h1: 'How to compete for the OnBuy Winning Offer without uncontrolled price cuts',
     intro: 'An OnBuy repricer should not lower every Listing on every cycle. The useful question is whether the Listing is currently winning, which action is allowed inside the seller’s price range, and whether OnBuy later confirms the change.',
@@ -62,7 +62,7 @@ export const guides = [
   },
   {
     slug: 'fnac-darty-repricing', platform: 'FNAC and Darty', landing: '/fnac-repricer/',
-    title: 'FNAC and Darty Repricing: Shared XML, Different Rules',
+    title: 'FNAC and Darty Repricing Guide: Shared XML, Different Rules',
     description: 'Understand FNAC and Darty repricing: their shared XML 2.6 boundary, marketplace-specific seller logic, Offer comparison, batch updates, and status checks.',
     h1: 'FNAC and Darty repricing: what is shared and what must stay separate',
     intro: 'FNAC and Darty can share an XML 2.6 integration boundary, but they are not interchangeable marketplaces. Store identity, seller filtering, competitive context and ranking information must remain explicit for each platform.',
@@ -80,7 +80,7 @@ export const guides = [
   },
   {
     slug: 'cdiscount-repricing', platform: 'Cdiscount', landing: '/cdiscount-repricer/',
-    title: 'Cdiscount Repricing Guide: Packages, Rules and Read-Back',
+    title: 'Cdiscount Repricing Guide: Native Floor Price vs Repricer',
     description: 'Learn Cdiscount repricing through Octopia Offer APIs: OAuth, SellerId, JSON package updates, price-floor validation, feedback, and marketplace read-back.',
     h1: 'Cdiscount repricing: from a price rule to a verified marketplace result',
     intro: 'Cdiscount Offer updates use the Octopia API workflow. A reliable repricer needs the correct OAuth and SellerId context, valid Offer identity, bounded calculations, package feedback and a later marketplace read-back.',

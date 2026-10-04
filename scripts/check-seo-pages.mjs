@@ -9,6 +9,7 @@ const sitemap = readFileSync(resolve(dist, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>(https:\/\/autopricy\.com\/[^<]*)<\/loc>/g)].map((match) => match[1]);
 const errors = [];
 const warnings = [];
+const alternatesByUrl = new Map();
 
 function pagePath(url) {
   const pathname = new URL(url).pathname;
@@ -33,15 +34,25 @@ for (const url of urls) {
   const visibleFaqCount = (html.match(/<details(?:\s|>)/gi) ?? []).length;
   const h2Count = (html.match(/<h2(?:\s|>)/gi) ?? []).length;
   const body = textContent(html);
+  const lang = html.match(/<html lang="([^"]+)"/i)?.[1] ?? '';
+  const isChinese = lang === 'zh-CN';
+  // Chinese characters carry more meaning per character; Baidu and Google truncate earlier.
+  const titleRange = isChinese ? [15, 40] : [35, 70];
+  const descriptionRange = isChinese ? [50, 120] : [100, 160];
+  const titleLength = [...title].length;
+  const descriptionLength = [...description].length;
 
   if (!title) errors.push(`${url}: missing title`);
-  if (url !== 'https://autopricy.com/' && (title.length < 35 || title.length > 70)) warnings.push(`${url}: title length ${title.length}`);
-  if (description.length < 100 || description.length > 160) warnings.push(`${url}: meta description length ${description.length}`);
+  if (url !== 'https://autopricy.com/' && (titleLength < titleRange[0] || titleLength > titleRange[1])) warnings.push(`${url}: title length ${titleLength}`);
+  if (descriptionLength < descriptionRange[0] || descriptionLength > descriptionRange[1]) warnings.push(`${url}: meta description length ${descriptionLength}`);
+  if (url.startsWith('https://autopricy.com/zh/') && !isChinese) errors.push(`${url}: /zh/ page must declare lang="zh-CN"`);
+  alternatesByUrl.set(url, new Map([...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].map(([, hreflang, href]) => [hreflang, href])));
   if (canonical !== url) errors.push(`${url}: canonical ${canonical || '(missing)'}`);
   if (h1Count !== 1) errors.push(`${url}: H1 count ${h1Count}`);
   if (!/name="robots" content="index, follow/.test(html)) errors.push(`${url}: missing index/follow robots meta`);
   if (/In today(?:'|’)?s fast-paced|ever-evolving|revolutionize your|unlock your potential/i.test(body)) errors.push(`${url}: banned filler phrase`);
   if (/Rakuten France repricer|Allegro repricer|Catch repricer|Mercado Libre repricer/i.test(body)) errors.push(`${url}: unsupported public repricer claim`);
+  if (/保证拿到购物车|保证赢得购物车|实时调价|乐天.{0,4}调价|Allegro.{0,4}调价|美客多.{0,4}调价|Catch.{0,4}调价/.test(body)) errors.push(`${url}: unsupported Chinese capability claim`);
 
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
   if (!schemas.length) errors.push(`${url}: missing JSON-LD`);
@@ -74,8 +85,17 @@ for (const url of urls) {
   }
 }
 
+for (const [url, alternates] of alternatesByUrl) {
+  for (const [hreflang, href] of alternates) {
+    if (hreflang === 'x-default' || href === url) continue;
+    const back = alternatesByUrl.get(href);
+    if (!back) errors.push(`${url}: hreflang ${hreflang} target ${href} is not in the sitemap`);
+    else if (![...back].some(([backLang, backHref]) => backLang !== 'x-default' && backHref === url)) errors.push(`${url}: hreflang ${hreflang} target ${href} does not link back`);
+  }
+}
+
 if (new Set(urls).size !== urls.length) errors.push('sitemap contains duplicate URLs');
-if (urls.length !== 16) errors.push(`sitemap URL count ${urls.length}, expected 16`);
+if (urls.length !== 26) errors.push(`sitemap URL count ${urls.length}, expected 26`);
 
 console.log(`Checked ${urls.length} sitemap pages.`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);

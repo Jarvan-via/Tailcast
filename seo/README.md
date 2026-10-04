@@ -21,7 +21,7 @@ Every public capability claim must be supported by current code plus, where the 
 
 ## Current phase
 
-Phase 1 research and the Phase 2 landing-page release were completed on 2026-08-24. Ten SEO pages are live; no directory submission has been performed.
+Phase 1 research and the Phase 2 landing-page release were completed on 2026-08-24. On 2026-10-04 the primary audience was confirmed as Chinese cross-border sellers and ten Chinese `/zh/` pages were added alongside the English pages (Phase 5 in `progress.md`). Page data lives in `scripts/build-seo-pages.mjs` (English), `scripts/zh-pages.mjs` (Chinese) and `scripts/build-guide-pages.mjs`; run `node scripts/build-seo-pages.mjs && node scripts/check-seo-pages.mjs` after any change.
 
 - [keyword-research.md](./keyword-research.md): live SERP observations, intent, competition, and Business Value Scores.
 - [competitors.md](./competitors.md): direct competitors, adjacent suites, page patterns, and weak-content gaps.
