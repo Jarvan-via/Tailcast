@@ -23,6 +23,8 @@ URL fragments (`#features`) are never sent to the server and are ignored by sear
 
 ## Business application
 
+On 2026-10-04, `vip.wortenprice.com` was switched from the Aliyun CDN CNAME to a direct A record for `123.57.231.102` (TTL 600). The old CNAME is paused. Nginx serves a renewed Let's Encrypt certificate valid through 2027-01-02, and both HTTP and HTTPS provide the exact entry-point redirects below. HTTP-01 challenge paths remain reachable for automatic renewal. Private certificate/key material stays on `ali`.
+
 | Legacy URL | Target URL | Status | Tested | Notes |
 |---|---|---:|---|---|
 | `https://vip.wortenprice.com/` | `https://app.autopricy.com/` | 301 | Yes | The SPA redirects unauthenticated users to its real login route. |
