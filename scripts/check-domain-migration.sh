@@ -132,7 +132,10 @@ else
   check_redirect 'https://wortenprice.com/' 'https://autopricy.com/'
 fi
 check_redirect 'https://www.wortenprice.com/' 'https://autopricy.com/'
-check_redirect 'https://www.wortenprice.com/tiaojia.html' 'https://autopricy.com/#features'
+check_redirect 'https://www.wortenprice.com/tiaojia.html' 'https://autopricy.com/zh/multi-marketplace-repricing/'
+check_redirect 'https://www.wortenprice.com/zidong-tiaojia.html' 'https://autopricy.com/zh/features/automatic-repricing/'
+check_redirect 'https://www.wortenprice.com/jingzheng-tiaojia.html' 'https://autopricy.com/zh/features/automatic-repricing/'
+check_redirect 'https://www.wortenprice.com/piliang-tiaojia.html' 'https://autopricy.com/zh/features/multi-store-management/'
 check_redirect 'https://vip.wortenprice.com/' 'https://app.autopricy.com/'
 check_redirect 'https://vip.wortenprice.com/help.html' 'https://app.autopricy.com/help.html'
 check_redirect 'https://vip.wortenprice.com/privacy.html' 'https://app.autopricy.com/privacy.html'

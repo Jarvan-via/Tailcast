@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildGuides, guides } from './build-guide-pages.mjs';
+import { zhPages } from './zh-pages.mjs';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distRoot = resolve(projectRoot, 'dist');
@@ -11,8 +12,8 @@ const app = 'https://app.autopricy.com';
 const pages = [
   {
     slug: 'mirakl-repricer', theme: 'theme-multi', code: 'M.', codeNote: 'SELECTED<br>OPERATORS',
-    title: 'Mirakl Repricer for Selected European Marketplaces | Autopricy',
-    description: 'A rule-based Mirakl repricer for selected marketplace operators, with price boundaries, operator-specific offer logic, and visible confirmation states.',
+    title: 'Mirakl Repricer & Repricing Software – Free Trial | Autopricy', crumb: 'Mirakl Repricer',
+    description: 'Repricing software for selected Mirakl marketplaces such as Worten: operator-aware rules, min/max price protection and status tracking. 7-day free trial.',
     eyebrow: 'Mirakl repricer / selected operators',
     h1: 'Mirakl repricing that respects each marketplace operator',
     intro: 'Autopricy automates eligible Offer price changes on selected Mirakl-powered marketplaces. It keeps operator data, channel rules, minimum and maximum prices, submission, and confirmation separate—because a Mirakl connector is not one universal repricing algorithm.',
@@ -50,8 +51,8 @@ const pages = [
   },
   {
     slug: 'worten-repricer', theme: 'theme-worten', code: 'W.', codeNote: 'OFFER<br>REPRICING',
-    title: 'Worten Repricer for Marketplace Sellers | Autopricy',
-    description: 'Automate eligible Worten Offer price changes within minimum and maximum boundaries, using available competitor signals and visible confirmation states.',
+    title: 'Worten Repricer & Repricing Software – Free Trial | Autopricy', crumb: 'Worten Repricer',
+    description: 'Automatically reprice Worten offers against competitors without dropping below your minimum price. Unlimited SKUs, multi-store, 7-day free trial.',
     eyebrow: 'Worten repricer / marketplace sellers',
     h1: 'Worten repricing with clear price boundaries and results',
     intro: 'Autopricy monitors available Worten Offer signals, applies seller-defined pricing rules, and submits eligible updates without crossing the configured minimum or maximum. The workflow records whether a change was calculated, submitted, confirmed, protected or failed.',
@@ -77,8 +78,8 @@ const pages = [
   },
   {
     slug: 'fnac-repricer', theme: 'theme-fnac', code: 'F.', codeNote: 'XML 2.6<br>OFFERS',
-    title: 'FNAC Repricer for Marketplace Offers | Autopricy',
-    description: 'FNAC repricing software with XML Offer updates, available competitor comparison, price boundaries, batch tracking, and visible execution states.',
+    title: 'FNAC Repricer & Repricing Software – Free Trial | Autopricy', crumb: 'FNAC Repricer',
+    description: 'Automatically reprice FNAC marketplace offers against competing sellers, inside your min/max price range. XML batch tracking, 7-day free trial.',
     eyebrow: 'FNAC repricer / Offer operations', h1: 'FNAC repricing built around Offer data and batch confirmation',
     intro: 'Autopricy manages eligible FNAC Offer repricing through the marketplace’s XML workflow. It compares available seller Offers, applies minimum and maximum prices, submits updates in batches, and keeps batch processing separate from confirmed results.',
     signalTitle: 'FNAC XML Offer loop', signalStatus: 'Batch-aware',
@@ -100,8 +101,8 @@ const pages = [
   },
   {
     slug: 'darty-repricer', theme: 'theme-darty', code: 'D.', codeNote: 'DARTY<br>OFFERS',
-    title: 'Darty Repricer for Marketplace Sellers | Autopricy',
-    description: 'Darty repricing software with marketplace-specific competitor handling, minimum and maximum prices, XML Offer updates, and batch status tracking.',
+    title: 'Darty Repricer & Repricing Software – Free Trial | Autopricy', crumb: 'Darty Repricer',
+    description: 'Darty repricing software that follows competing offers within your minimum and maximum prices, with XML batch tracking. Unlimited SKUs, 7-day free trial.',
     eyebrow: 'Darty repricer / marketplace sellers', h1: 'Darty repricing with marketplace-specific competitor handling',
     intro: 'Autopricy supports bounded Darty Offer repricing through the FNAC/Darty XML 2.6 integration boundary, while preserving Darty’s own shop identity and competitor logic. Price requests, batch processing and confirmed outcomes remain distinct.',
     signalTitle: 'Darty Offer control', signalStatus: 'Darty-specific',
@@ -121,8 +122,8 @@ const pages = [
   },
   {
     slug: 'onbuy-repricer', theme: 'theme-onbuy', code: 'O.', codeNote: 'PRODUCTS<br>LISTINGS',
-    title: 'OnBuy Repricing Software for Winning Offers | Autopricy',
-    description: 'OnBuy repricing software with Product and Listing sync, minimum and maximum prices, winning checks, protected updates, and confirmation history.',
+    title: 'OnBuy Repricer & Repricing Software – Free Trial | Autopricy', crumb: 'OnBuy Repricer',
+    description: 'Compete for the OnBuy winning offer without a race to the bottom: lower to compete, raise after winning, never below your floor. 7-day free trial.',
     eyebrow: 'OnBuy repricer / winning checks', h1: 'OnBuy repricing that knows when to compete—and when to stop',
     intro: 'Autopricy connects OnBuy Product and Listing data to bounded repricing rules. It can evaluate the current winning state, lower an eligible price when competition requires it, and explore a controlled increase after winning without crossing the configured maximum.',
     signalTitle: 'OnBuy winning loop', signalStatus: 'Quota-aware',
@@ -143,8 +144,8 @@ const pages = [
   },
   {
     slug: 'cdiscount-repricer', theme: 'theme-cdiscount', code: 'C.', codeNote: 'OCTOPIA<br>OFFERS',
-    title: 'Cdiscount Repricer with Price Rules and Feedback | Autopricy',
-    description: 'Cdiscount repricing software with OAuth store connection, item price rules, minimum and maximum protection, package feedback, and read-back tracking.',
+    title: 'Cdiscount Repricer & Repricing Software – Free Trial | Autopricy', crumb: 'Cdiscount Repricer',
+    description: 'Cdiscount repricing software for multi-store sellers: bulk price rules, min/max protection, package feedback and read-back. 7-day free trial.',
     eyebrow: 'Cdiscount repricer / Octopia workflow', h1: 'Cdiscount repricing with rules, package feedback and read-back',
     intro: 'Autopricy connects a Cdiscount seller through the current OAuth and SellerId workflow, synchronises Product and Offer data, applies bounded item-price rules, and records package feedback and later read-back. It complements the marketplace’s native tools when a seller needs multi-store control and a visible operations history.',
     signalTitle: 'Cdiscount execution chain', signalStatus: 'Feedback-aware',
@@ -165,8 +166,8 @@ const pages = [
   },
   {
     slug: 'multi-marketplace-repricing', theme: 'theme-multi', code: '∞', codeNote: 'STORES<br>CHANNELS',
-    title: 'Multi-Marketplace Repricing Software for European Sellers',
-    description: 'Manage bounded repricing across Worten, FNAC, Darty, OnBuy, Cdiscount and selected Mirakl operators without turning your workflow into an ERP.',
+    title: 'Multi-Marketplace Repricing Software for Europe | Autopricy', crumb: 'Multi-marketplace repricing',
+    description: 'One repricing workspace for Worten, FNAC, Darty, OnBuy, Cdiscount and selected Mirakl marketplaces. Min/max protection, unlimited SKUs, 7-day free trial.',
     eyebrow: 'Multi-marketplace repricing / Europe', h1: 'One repricing workspace, marketplace-specific execution',
     intro: 'Autopricy gives cross-border sellers one place to manage pricing rules and execution history across supported European marketplaces. The workspace is shared; authorisation, data, competition, submission and confirmation remain platform-specific.',
     signalTitle: 'Shared control, distinct adapters', signalStatus: 'No ERP scope',
@@ -186,8 +187,8 @@ const pages = [
   },
   {
     slug: 'features/automatic-repricing', theme: 'theme-multi', code: 'A.', codeNote: 'OBSERVE<br>VERIFY',
-    title: 'Automatic Marketplace Repricing with Visible Results | Autopricy',
-    description: 'Automate marketplace pricing through an evidence chain: eligibility, market input, bounded decision, submission, platform result, and stored history.',
+    title: 'Automatic Repricing Software for EU Marketplaces | Autopricy', crumb: 'Automatic repricing',
+    description: 'Automatic repricing for European marketplaces: track competitor offers, reprice within min/max rules and see every confirmed change. 7-day free trial.',
     eyebrow: 'Feature / automatic repricing', h1: 'Automatic repricing is a control loop, not a price-change button',
     intro: 'Autopricy connects market inputs to explicit seller rules, price boundaries, marketplace submission and result tracking. Automation is enabled only where the platform and store provide the data and actions required for a safe loop.',
     signalTitle: 'Repricing evidence chain', signalStatus: 'End to end',
@@ -207,8 +208,8 @@ const pages = [
   },
   {
     slug: 'features/min-max-price-rules', theme: 'theme-safety', code: '±', codeNote: 'PRICE<br>BOUNDARIES',
-    title: 'Minimum and Maximum Price Rules for Marketplace Repricing',
-    description: 'Protect marketplace repricing with Offer-level minimum and maximum prices, validation, explicit protection states, and bounded recovery strategies.',
+    title: 'Min & Max Price Rules: Repricing Without Losing Margin | Autopricy', crumb: 'Min & max price rules',
+    description: 'Set a hard minimum and maximum price for every offer so automatic repricing never goes below your floor. Validation, protection logs, 7-day free trial.',
     eyebrow: 'Feature / price safety', h1: 'Minimum and maximum prices are hard operating boundaries',
     intro: 'Autopricy evaluates eligible repricing actions inside seller-defined minimum and maximum values. The boundaries are attached to the real Offer and visible in operations, so a competitive target cannot silently become an unprofitable price.',
     signalTitle: 'Offer price guardrail', signalStatus: 'Seller-defined',
@@ -228,8 +229,8 @@ const pages = [
   },
   {
     slug: 'features/multi-store-management', theme: 'theme-multi', code: 'N.', codeNote: 'SHOP-SCOPED<br>OPERATIONS',
-    title: 'Multi-Store Marketplace Repricing Management | Autopricy',
-    description: 'Manage repricing across multiple marketplace stores with shop-scoped credentials, filters, bulk rule operations, and shared execution history.',
+    title: 'Multi-Store Repricing: Manage Many Marketplace Shops | Autopricy', crumb: 'Multi-store management',
+    description: 'Reprice many marketplace stores from one workspace: shop-scoped credentials, filters, bulk rule edits and per-store history. 7-day free trial.',
     eyebrow: 'Feature / multi-store operations', h1: 'Manage many marketplace stores without mixing their authority',
     intro: 'Autopricy brings supported stores into one operational workspace while keeping credentials, identifiers, rules, tasks and results scoped to the correct shop. Teams can filter and act in bulk without turning a shared view into shared authority.',
     signalTitle: 'Shop-scoped workspace', signalStatus: 'Separated by design',
@@ -249,6 +250,53 @@ const pages = [
   }
 ];
 
+const updated = '2026-10-04';
+const umami = `<script>if(location.hostname.includes('autopricy.com')){const s=document.createElement('script');s.defer=true;s.src='${app}/umami.js';s.dataset.websiteId='20f3ddd5-3c5b-4b32-91ca-6db0ff7ade94';document.head.appendChild(s);}</script>`;
+
+const locales = {
+  en: {
+    lang: 'en', ogLocale: 'en_US', siteName: 'Autopricy', switchLabel: 'English',
+    brandHome: 'Autopricy home', logoAlt: 'Autopricy logo', brand: 'Autopricy', brandSmall: 'Marketplace repricing',
+    navAria: 'Primary navigation',
+    nav: [['Marketplaces', '/multi-marketplace-repricing/'], ['Automatic repricing', '/features/automatic-repricing/'], ['Price safety', '/features/min-max-price-rules/']],
+    home: 'Home', breadcrumbHome: 'Autopricy',
+    trial: 'Start free trial', trialHero: 'Start 7-day free trial', seeWorkflow: 'See the workflow',
+    mechanicsKicker: 'Marketplace mechanics', workflowKicker: 'Workflow',
+    relatedKicker: 'Related resources', relatedTitle: 'Continue with the relevant workflow', relatedLabel: 'Autopricy resource',
+    faqKicker: 'FAQ', faqTitle: (page) => `${page.h1}: common questions`,
+    reference: 'Reference', supportMore: 'View platform details',
+    pricing: () => '',
+    cta: (page, source) => `<div><h2>Test the workflow on a real store</h2><p>Start with one supported store, a controlled product scope, explicit boundaries and visible platform results.</p><a class="contact-email" href="mailto:yuanyongvia@gmail.com">yuanyongvia@gmail.com</a></div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">Start free trial</a><a class="btn btn-secondary" href="mailto:yuanyongvia@gmail.com?subject=${encodeURIComponent(page.h1)}">Ask about fit</a></div>`,
+    footer: `<span>© 2026 Autopricy · Beijing Qingshi Technology Co., Ltd.</span><nav class="footer-links" aria-label="Footer navigation"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/worten-repricer/">Worten</a><a href="/fnac-repricer/">FNAC</a><a href="/darty-repricer/">Darty</a><a href="/onbuy-repricer/">OnBuy</a><a href="/cdiscount-repricer/">Cdiscount</a><a href="${app}/privacy.html">Privacy</a></nav>`
+  },
+  zh: {
+    lang: 'zh-CN', ogLocale: 'zh_CN', siteName: '调价先锋 Autopricy', switchLabel: '中文',
+    brandHome: '调价先锋 Autopricy 首页', logoAlt: '调价先锋 Autopricy 标志', brand: '调价先锋', brandSmall: 'Autopricy',
+    navAria: '主导航',
+    nav: [['支持平台', '/zh/multi-marketplace-repricing/'], ['自动调价', '/zh/features/automatic-repricing/'], ['最低价保护', '/zh/features/min-max-price-rules/']],
+    home: '首页', breadcrumbHome: '调价先锋',
+    trial: '免费试用', trialHero: '免费试用 7 天', seeWorkflow: '查看接入步骤',
+    mechanicsKicker: '平台机制', workflowKicker: '接入步骤',
+    relatedKicker: '相关页面', relatedTitle: '继续了解', relatedLabel: '调价先锋',
+    faqKicker: '常见问题', faqTitle: (page) => `${page.crumb}常见问题`,
+    reference: '参考资料', supportMore: '查看平台详情',
+    pricing: (source) => `<section class="section section-muted"><div class="container"><div class="price-box"><div><p class="section-kicker">价格方案</p><h2>自动调价标准版 <strong>¥168</strong><span> / 店铺 / 月</span></h2><p>商品数量不限 · 注册自动开通 7 天免费试用 · 无需提交申请或等待审核</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_pricing">免费注册试用</a></div></div></section>`,
+    cta: (page, source) => `<div><h2>先用一个店铺试跑</h2><p>注册后自动开通 7 天免费试用。首次接入时，客服可以协助确认授权信息、同步商品并完成基础规则配置。</p><a class="contact-email" href="tel:+8617720284880">客服电话 177 2028 4880</a></div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">免费注册试用</a><a class="btn btn-secondary" href="${app}/">已有账号，登录</a></div>`,
+    footer: `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/worten-repricer/">Worten</a><a href="/zh/fnac-repricer/">FNAC</a><a href="/zh/darty-repricer/">Darty</a><a href="/zh/onbuy-repricer/">OnBuy</a><a href="/zh/cdiscount-repricer/">Cdiscount</a><a href="${app}/help.html">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`
+  }
+};
+
+const allPages = [
+  ...pages.map((page) => ({ ...page, locale: 'en' })),
+  ...zhPages.map((page) => ({ ...page, locale: 'zh' }))
+];
+const bySlug = new Map(allPages.map((page) => [page.slug, page]));
+
+// English page `x/` and Chinese page `zh/x/` are translations of each other.
+function counterpart(page) {
+  return page.locale === 'zh' ? bySlug.get(page.slug.slice(3)) : bySlug.get(`zh/${page.slug}`);
+}
+
 function esc(value) {
   return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 }
@@ -257,33 +305,44 @@ function renderCards(items) {
   return items.map(([index, title, text]) => `<article class="card"><span class="card-index">${esc(index)}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('\n');
 }
 
-function renderMechanics(page) {
+function renderMechanics(page, L) {
   if (page.support) {
-    return `<ul class="support-list">${page.support.map(([name, text, href]) => `<li><a href="${href}"><strong>${esc(name)}</strong></a><span>${esc(text)}</span><em class="availability">View platform details</em></li>`).join('')}</ul>`;
+    return `<ul class="support-list">${page.support.map(([name, text, href]) => `<li><a href="${href}"><strong>${esc(name)}</strong></a><span>${esc(text)}</span><em class="availability">${esc(L.supportMore)}</em></li>`).join('')}</ul>`;
   }
   return `<table class="mechanics"><tbody>${page.mechanics.map(([name, text]) => `<tr><th scope="row">${esc(name)}</th><td>${esc(text)}</td></tr>`).join('')}</tbody></table>`;
 }
 
-function renderSources(sources = []) {
+function renderSources(sources = [], L) {
   if (!sources.length) return '';
-  return `<p class="source-note">Reference: ${sources.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`).join(' · ')}</p>`;
+  return `<p class="source-note">${esc(L.reference)}: ${sources.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`).join(' · ')}</p>`;
+}
+
+function renderShot(shot) {
+  if (!shot) return '';
+  return `<section class="section"><div class="container"><figure class="shot-figure" style="max-width: ${Math.min(shot.width, 960, Math.round((760 * shot.width) / shot.height))}px"><img src="${shot.src}" alt="${esc(shot.alt)}" width="${shot.width}" height="${shot.height}" loading="lazy" decoding="async"><figcaption>${esc(shot.caption)}</figcaption></figure></div></section>`;
 }
 
 function renderPage(page) {
+  const L = locales[page.locale];
   const url = `${site}/${page.slug}/`;
   const source = page.slug.replaceAll('/', '_');
+  const crumb = page.crumb ?? page.h1;
+  const alt = counterpart(page);
+  const altL = alt && locales[alt.locale];
+  const enUrl = page.locale === 'en' ? url : alt ? `${site}/${alt.slug}/` : url;
+  const alternates = [[L.lang, url], ...(alt ? [[altL.lang, `${site}/${alt.slug}/`]] : []), ['x-default', enUrl]];
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'WebPage', '@id': `${url}#webpage`, url, name: page.title,
-        description: page.description, inLanguage: 'en',
+        description: page.description, inLanguage: L.lang,
         isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#software` }
       },
       {
         '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Autopricy', item: `${site}/` },
-          { '@type': 'ListItem', position: 2, name: page.h1, item: url }
+          { '@type': 'ListItem', position: 1, name: L.breadcrumbHome, item: `${site}/` },
+          { '@type': 'ListItem', position: 2, name: crumb, item: url }
         ]
       },
       {
@@ -295,22 +354,23 @@ function renderPage(page) {
   };
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${L.lang}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(page.title)}</title>
   <meta name="description" content="${esc(page.description)}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+${page.keywords ? `  <meta name="keywords" content="${esc(page.keywords)}">\n` : ''}  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="${url}">
-  <link rel="alternate" hreflang="en" href="${url}">
-  <link rel="alternate" hreflang="x-default" href="${url}">
+${alternates.map(([lang, href]) => `  <link rel="alternate" hreflang="${lang}" href="${href}">`).join('\n')}
   <link rel="icon" href="${site}/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/platform.css">
   <meta property="og:title" content="${esc(page.title)}">
   <meta property="og:description" content="${esc(page.description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${url}">
+  <meta property="og:site_name" content="${esc(L.siteName)}">
+  <meta property="og:locale" content="${L.ogLocale}">
   <meta property="og:image" content="${site}/doc-images/autopricy-og-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -320,41 +380,39 @@ function renderPage(page) {
 <body class="${page.theme}">
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="/" aria-label="Autopricy home"><img src="/logo.svg" alt="Autopricy logo" width="32" height="32"><span>Autopricy<small>Marketplace repricing</small></span></a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="/multi-marketplace-repricing/">Marketplaces</a>
-        <a href="/features/automatic-repricing/">Automatic repricing</a>
-        <a href="/features/min-max-price-rules/">Price safety</a>
-        <a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_header">Start free trial</a>
+      <a class="brand" href="/" aria-label="${esc(L.brandHome)}"><img src="/logo.svg" alt="${esc(L.logoAlt)}" width="32" height="32"><span>${esc(L.brand)}<small>${esc(L.brandSmall)}</small></span></a>
+      <nav class="nav-links" aria-label="${esc(L.navAria)}">
+${L.nav.map(([label, href]) => `        <a href="${href}">${esc(label)}</a>`).join('\n')}
+${alt ? `        <a class="lang-switch" href="/${alt.slug}/" hreflang="${altL.lang}" lang="${altL.lang}">${esc(altL.switchLabel)}</a>\n` : ''}        <a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_header">${esc(L.trial)}</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>${esc(page.h1)}</span></nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">${esc(L.home)}</a><span>/</span><span>${esc(crumb)}</span></nav>
         <div class="hero-grid">
-          <div><p class="eyebrow">${esc(page.eyebrow)}</p><h1>${esc(page.h1)}</h1><p class="hero-copy">${esc(page.intro)}</p><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_hero">Start 7-day free trial</a><a class="btn btn-secondary" href="#workflow">See the workflow</a></div></div>
+          <div><p class="eyebrow">${esc(page.eyebrow)}</p><h1>${esc(page.h1)}</h1><p class="hero-copy">${esc(page.intro)}</p><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_hero">${esc(L.trialHero)}</a><a class="btn btn-secondary" href="#workflow">${esc(L.seeWorkflow)}</a></div></div>
           <aside class="signal-panel" aria-label="${esc(page.signalTitle)}"><div class="platform-code" aria-hidden="true"><strong>${esc(page.code)}</strong><span>${page.codeNote}</span></div><div class="signal-head"><strong>${esc(page.signalTitle)}</strong><span>${esc(page.signalStatus)}</span></div><ul class="signal-list">${page.signals.map(([name, text, state]) => `<li><span><strong>${esc(name)}</strong><br>${esc(text)}</span><b>${esc(state)}</b></li>`).join('')}</ul></aside>
         </div>
       </div>
     </section>
     <section class="section"><div class="container"><div class="section-head"><p class="section-kicker">${esc(page.problemKicker)}</p><h2>${esc(page.problemTitle)}</h2><p class="section-copy">${esc(page.problemCopy)}</p></div><div class="grid-3">${renderCards(page.pains)}</div></div></section>
-    <section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">Marketplace mechanics</p><h2>${esc(page.mechanicsTitle)}</h2></div>${renderMechanics(page)}${renderSources(page.sources)}</div></section>
-    <section class="section"><div class="container"><div class="agent-note"><h2>${esc(page.noteTitle)}</h2><p>${esc(page.note)}</p></div></div></section>
-    <section class="section section-muted" id="workflow"><div class="container"><div class="section-head"><p class="section-kicker">Workflow</p><h2>${esc(page.workflowTitle)}</h2></div><div class="grid-4 steps">${page.workflow.map(([title, text]) => `<article class="card step"><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></div></section>
+    <section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.mechanicsKicker)}</p><h2>${esc(page.mechanicsTitle)}</h2></div>${renderMechanics(page, L)}${renderSources(page.sources, L)}</div></section>
+${page.shot ? `    ${renderShot(page.shot)}\n` : ''}    <section class="section"><div class="container"><div class="agent-note"><h2>${esc(page.noteTitle)}</h2><p>${esc(page.note)}</p></div></div></section>
+    <section class="section section-muted" id="workflow"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.workflowKicker)}</p><h2>${esc(page.workflowTitle)}</h2></div><div class="grid-4 steps">${page.workflow.map(([title, text]) => `<article class="card step"><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></div></section>
     <section class="section"><div class="container"><div class="example-box"><div><span class="example-label">${esc(page.exampleLabel)}</span><h2>${esc(page.exampleTitle)}</h2></div><p>${page.example}</p></div></div></section>
-    <section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">Related resources</p><h2>Continue with the relevant workflow</h2></div><div class="related-grid">${page.related.map(([title, href]) => `<a class="related-link" href="${href}"><span>Autopricy resource</span><strong>${esc(title)} →</strong></a>`).join('')}</div></div></section>
-    <section class="section"><div class="container"><div class="section-head"><p class="section-kicker">FAQ</p><h2>${esc(page.h1)}: common questions</h2></div><div class="faq-list">${page.faq.map(([question, answer], index) => `<details${index === 0 ? ' open' : ''}><summary>${esc(question)}</summary><p>${esc(answer)}</p></details>`).join('')}</div></div></section>
-    <section class="section"><div class="container"><div class="cta"><div><h2>Test the workflow on a real store</h2><p>Start with one supported store, a controlled product scope, explicit boundaries and visible platform results.</p><a class="contact-email" href="mailto:yuanyongvia@gmail.com">yuanyongvia@gmail.com</a></div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">Start free trial</a><a class="btn btn-secondary" href="mailto:yuanyongvia@gmail.com?subject=${encodeURIComponent(page.h1)}">Ask about fit</a></div></div></div></section>
+${page.locale === 'zh' ? `    ${L.pricing(source)}\n` : ''}    <section class="section section-muted"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.relatedKicker)}</p><h2>${esc(L.relatedTitle)}</h2></div><div class="related-grid">${page.related.map(([title, href]) => `<a class="related-link" href="${href}"><span>${esc(L.relatedLabel)}</span><strong>${esc(title)} →</strong></a>`).join('')}</div></div></section>
+    <section class="section"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.faqKicker)}</p><h2>${esc(L.faqTitle({ ...page, crumb }))}</h2></div><div class="faq-list">${page.faq.map(([question, answer], index) => `<details${index === 0 ? ' open' : ''}><summary>${esc(question)}</summary><p>${esc(answer)}</p></details>`).join('')}</div></div></section>
+    <section class="section"><div class="container"><div class="cta">${L.cta(page, source)}</div></div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-row"><span>© 2026 Autopricy · Beijing Qingshi Technology Co., Ltd.</span><nav class="footer-links" aria-label="Footer navigation"><a href="/multi-marketplace-repricing/">Marketplaces</a><a href="/worten-repricer/">Worten</a><a href="/fnac-repricer/">FNAC</a><a href="/darty-repricer/">Darty</a><a href="/onbuy-repricer/">OnBuy</a><a href="/cdiscount-repricer/">Cdiscount</a><a href="${app}/privacy.html">Privacy</a></nav></div></footer>
-  <script>if(location.hostname.includes('autopricy.com')){const s=document.createElement('script');s.defer=true;s.src='${app}/umami.js';s.dataset.websiteId='20f3ddd5-3c5b-4b32-91ca-6db0ff7ade94';document.head.appendChild(s);}</script>
+  <footer class="site-footer"><div class="container footer-row">${L.footer}</div></footer>
+  ${umami}
 </body>
 </html>\n`;
 }
 
-for (const page of pages) {
+for (const page of allPages) {
   const output = resolve(distRoot, page.slug, 'index.html');
   mkdirSync(dirname(output), { recursive: true });
   writeFileSync(output, renderPage(page));
@@ -362,9 +420,10 @@ for (const page of pages) {
 
 buildGuides(distRoot);
 
+const priority = (slug) => (slug.replace(/^zh\//, '').startsWith('features/') ? '0.8' : '0.9');
 const sitemapUrls = [
   { loc: `${site}/`, priority: '1.0', changefreq: 'weekly' },
-  ...pages.map((page) => ({ loc: `${site}/${page.slug}/`, priority: page.slug.startsWith('features/') ? '0.8' : '0.9', changefreq: 'monthly' })),
+  ...allPages.map((page) => ({ loc: `${site}/${page.slug}/`, priority: priority(page.slug), changefreq: 'monthly' })),
   ...guides.map((guide) => ({ loc: `${site}/guides/${guide.slug}/`, priority: '0.8', changefreq: 'monthly' }))
 ];
 
@@ -372,7 +431,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapUrls.map(({ loc, priority, changefreq }) => `  <url>
     <loc>${loc}</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>${updated}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`).join('\n')}
@@ -380,4 +439,4 @@ ${sitemapUrls.map(({ loc, priority, changefreq }) => `  <url>
 `;
 
 writeFileSync(resolve(distRoot, 'sitemap.xml'), sitemap);
-console.log(`Generated ${pages.length} landing pages, ${guides.length} guides and ${sitemapUrls.length} sitemap URLs.`);
+console.log(`Generated ${pages.length} English pages, ${zhPages.length} Chinese pages, ${guides.length} guides and ${sitemapUrls.length} sitemap URLs.`);

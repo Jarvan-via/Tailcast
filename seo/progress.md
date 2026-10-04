@@ -1,15 +1,16 @@
 # SEO Project Progress
 
-Last updated: 2026-08-25
+Last updated: 2026-10-04
 
 ## Phase status
 
 | Phase | Status | Evidence / next gate |
 |---|---|---|
+| Phase 5 — Chinese-seller pivot: zh landing pages, CTR metadata, legacy redirects | Built 2026-10-04; deploy + nginx reload pending | See "Phase 5" below |
 | Phase 1 — skills, product, keyword, competitor, audit | Complete with explicit measurement blockers | Research files in this directory; no product code changed |
 | Phase 2 — architecture + first 10 pages + sitemap/schema/internal links | Live | Released to `ali` on 2026-08-24; ten pages, 11-URL sitemap, home resource hub, schema, repeatable checks and browser evidence verified publicly |
 | Phase 3 — five guides | Live | Five evidence-bound guides, Article/FAQ schema, citations and two-way internal links; deployed and publicly verified on `ali` |
-| Phase 4 — 10–20 quality directory candidates and submissions | Pass A started | First 10 sites inspected: 7 passed, Product Hunt routed to a separate launch workflow, and 2 AI-directory mismatches skipped; no forms or submissions |
+| Phase 4 — 10–20 quality directory candidates and submissions | Pass A started; stalled since 2026-08-25 (approval window expired 2026-09-25) | First 10 sites inspected: 7 passed, Product Hunt routed to a separate launch workflow, and 2 AI-directory mismatches skipped; no forms or submissions |
 
 ## Completed on 2026-08-24
 
@@ -78,3 +79,30 @@ No backlink candidate should move to `submitted` before these steps pass.
 - Skipped SellerTrove and EcomAI because Autopricy is not positioned as an AI product and their current audience/platform framing is a weak fit.
 - Saved per-site evidence, quality dimensions, duplicate-search notes and idempotency keys under `seo/backlinks/`.
 - Search Console sitemap resubmission remains pending because the authenticated page repeatedly timed out under browser control; no blind submission was attempted.
+
+## Phase 5 — Chinese-seller pivot — 2026-10-04
+
+Decision (project owner, 2026-10-04): paying customers are Chinese cross-border sellers. Evidence: Chinese homepage, CNY pricing, +86 support, ICP filing; GSC clicks came from Japan, Hong Kong and Singapore (typical Chinese VPN exits) while US/UK/NL impressions produced no clicks.
+
+Built in this change set:
+
+- Ten Chinese pages under `/zh/` (`scripts/zh-pages.mjs`): Worten, FNAC, Darty, OnBuy, Cdiscount, Mirakl, multi-marketplace hub, automatic repricing, min/max protection, multi-store bulk repricing. Pages carry real product screenshots where one matches the platform, the ¥168/店铺/月 plan, phone support, Chinese FAQ and FAQPage schema. Claims stay inside `product-capabilities.md`; the checker rejects 保证拿到购物车 / 实时调价 and unsupported-platform repricing wording.
+- English pages and their `/zh/` counterparts declare reciprocal `hreflang` (`en`, `zh-CN`, `x-default` → English) and show a visible language switch, so Chinese searchers landing on English pages can move to Chinese copy. The checker verifies reciprocity.
+- English titles/descriptions rewritten for CTR (both "Repricer" and "Repricing Software", free trial, unlimited SKUs); short breadcrumb names; five guide titles sharpened. Baseline: `/worten-repricer/` had 56 impressions and 0 clicks.
+- Homepage: keyword-bearing title/description/H1, `WebSite` entity (fixes the dangling `#website` reference on every landing page and gives Google a site name), Organization/Software `alternateName`; resource grid, platform strip and footer link the Chinese pages; English pages keep a footer column.
+- Legacy `wortenprice.com` Chinese keyword URLs now 301 to dedicated Chinese pages instead of homepage fragments (see `docs/seo-url-migration-map.md`).
+- Sitemap: 26 URLs, `lastmod` 2026-10-04. IndexNow key file `dist/438db09e85513490b9d62c07118a1572.txt` and `scripts/submit-urls.mjs` (IndexNow + optional Baidu push; dry run by default).
+
+Manual steps after deploy (in order):
+
+1. Deploy `dist/` and reload Nginx with the four updated `deploy/nginx/*wortenprice*.conf` files; run `bash scripts/check-domain-migration.sh`.
+2. Google Search Console: resubmit the sitemap; request indexing for the ten `/zh/` URLs.
+3. 百度搜索资源平台: add `https://autopricy.com`, verify (HTML meta tag or file), submit the sitemap, then `BAIDU_PUSH_TOKEN=… node scripts/submit-urls.mjs --send --only=/zh/`.
+4. Bing Webmaster Tools: import from GSC or verify, submit the sitemap, then `node scripts/submit-urls.mjs --send` (IndexNow).
+5. Recheck in 7–14 days: `/zh/` index state (Google + Baidu `site:autopricy.com/zh/`), CTR on the rewritten English titles, Umami `seo_zh_*` register events.
+
+Not done (needs owner input or content outside this repo):
+
+- Move the help center from `app.autopricy.com/help.html` (noindex) to indexable Chinese tutorials on the main domain.
+- Chinese distribution/backlinks: AMZ123-style seller navigation sites, 知乎, 公众号, 雨果网; marketplace partner directories (Octopia/Cdiscount, Mirakl, OnBuy); Chrome Web Store listing for the collection extension.
+- Chinese guides (e.g. Worten API 授权教程) and per-platform OG images.
