@@ -114,3 +114,15 @@ Not done (needs owner input or content outside this repo):
 - Move the help center from `app.autopricy.com/help.html` (noindex) to indexable Chinese tutorials on the main domain.
 - Chinese distribution/backlinks: AMZ123-style seller navigation sites, 知乎, 公众号, 雨果网; marketplace partner directories (Octopia/Cdiscount, Mirakl, OnBuy); Chrome Web Store listing for the collection extension.
 - Chinese how-to tutorials that need product screenshots or account steps (e.g. Worten API 授权教程), ideally merged with the help-center migration.
+
+## Handoff tasks 1–5 — 2026-10-04
+
+- Read `seo/codex-handoff.md` from commit `5044f96`; fast-forwarded local `main` to `origin/main` (`6bf699a`). Retained the handoff document in this change set.
+- Task 1: rebuilt 33 URLs and passed `SEO checks passed with 0 warning(s)`; deployed to `ali:/home/homepage/autopricy/dist` without `--delete`. Backup: `/home/homepage/autopricy/dist.backup-20261004-phase5-6bf699a`. All 33 public URLs and the IndexNow key, OG image and detail screenshot returned 200. Public sitemap matched local SHA-256 `03b279a93640490d3700a38b715be0c6cd3ff1a40e3d10918a75987419a7e80f`.
+- Rollback to the pre-release tree: `ssh ali 'sudo mv /home/homepage/autopricy/dist /home/homepage/autopricy/dist.failed-20261004-phase5 && sudo cp -a /home/homepage/autopricy/dist.backup-20261004-phase5-6bf699a /home/homepage/autopricy/dist'`. The failed tree remains available, and repository-external files are preserved in the backup.
+- Task 2: changed only the four exact-path redirects in each of the four live legacy HTTP/HTTPS configs; backed up each to `<original>.backup-20261004-phase5`; `sudo nginx -t` passed before reload. All four public www redirects passed 301 → correct Chinese URL → 200, including apex homepage migration.
+- Full domain check exposed two existing blockers: expired `vip.wortenprice.com` TLS certificate and missing `app.autopricy.com/robots.txt`. No TLS bypass or `SKIP_APEX` used. Follow-up repair is recorded below.
+- Task 3: pending an authenticated GSC session; no new sitemap/index requests claimed.
+- Task 4: IndexNow dry run listed 33 URLs, then the live submission returned HTTP 202. This confirms receipt, not indexing. Bing login/import and sitemap submission remain manual.
+- Task 5: pending Baidu verification meta and account verification; no token supplied or stored, no Baidu API push performed.
+- Local raw verification artifacts are under ignored `output/seo-20261004/`; public URLs, status, hashes and rollback paths are preserved here.

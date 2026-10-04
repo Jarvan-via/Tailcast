@@ -8,10 +8,10 @@ Updated: 2026-10-04
 |---|---|---:|---|---|
 | `https://wortenprice.com/` | `https://autopricy.com/` | 301 | Yes | Apex DNS now points to the `ali` Nginx origin and the dedicated TLS certificate is active. |
 | `https://www.wortenprice.com/` | `https://autopricy.com/` | 301 | Yes | Direct Nginx origin. |
-| `https://www.wortenprice.com/tiaojia.html` | `https://autopricy.com/zh/multi-marketplace-repricing/` | 301 | Pending deploy | 2026-10-04: moved from the homepage fragment to the dedicated Chinese repricing hub (调价). |
-| `https://www.wortenprice.com/zidong-tiaojia.html` | `https://autopricy.com/zh/features/automatic-repricing/` | 301 | Pending deploy | 2026-10-04: dedicated Chinese automatic-repricing page (自动调价). |
-| `https://www.wortenprice.com/jingzheng-tiaojia.html` | `https://autopricy.com/zh/features/automatic-repricing/` | 301 | Pending deploy | 2026-10-04: the Chinese automatic-repricing page covers competitive repricing (竞争调价). |
-| `https://www.wortenprice.com/piliang-tiaojia.html` | `https://autopricy.com/zh/features/multi-store-management/` | 301 | Pending deploy | 2026-10-04: dedicated Chinese bulk / multi-store repricing page (批量调价). |
+| `https://www.wortenprice.com/tiaojia.html` | `https://autopricy.com/zh/multi-marketplace-repricing/` | 301 | Yes | 2026-10-04: moved from the homepage fragment to the dedicated Chinese repricing hub (调价). |
+| `https://www.wortenprice.com/zidong-tiaojia.html` | `https://autopricy.com/zh/features/automatic-repricing/` | 301 | Yes | 2026-10-04: dedicated Chinese automatic-repricing page (自动调价). |
+| `https://www.wortenprice.com/jingzheng-tiaojia.html` | `https://autopricy.com/zh/features/automatic-repricing/` | 301 | Yes | 2026-10-04: the Chinese automatic-repricing page covers competitive repricing (竞争调价). |
+| `https://www.wortenprice.com/piliang-tiaojia.html` | `https://autopricy.com/zh/features/multi-store-management/` | 301 | Yes | 2026-10-04: dedicated Chinese bulk / multi-store repricing page (批量调价). |
 | `https://www.wortenprice.com/robots.txt` | `https://autopricy.com/robots.txt` | 301 | Yes | Keeps crawlers able to follow the migration. |
 | `https://www.wortenprice.com/sitemap.xml` | `https://autopricy.com/sitemap.xml` | 301 | Yes | The new sitemap contains only canonical public pages. |
 | `https://www.wortenprice.com/image/qr.png` | None | 410 | Yes | Historical QR asset has no canonical replacement. |
