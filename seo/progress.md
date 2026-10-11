@@ -181,3 +181,13 @@ Not done (needs owner input or content outside this repo):
 - Strict TLS checks against the explicit origin and ordinary DNS from `ali` passed. A fresh local direct connection also returned Nginx HTTP 301 to `https://app.autopricy.com/`; the full Help redirect chain returned 200. The local HTTPS proxy still cached the old CDN certificate, so verification also used a direct connection without that proxy; certificate verification was never disabled.
 - Expanded the migration check to HTTP VIP redirects and HTTPS login/register. Remote complete migration check: all 36 checks passed, no skipped apex and no insecure TLS option. Local complete migration check also passed all 36 checks, with `NO_PROXY` scoped only to VIP to avoid the stale local HTTPS proxy cache; all TLS checks remained enabled.
 - After the ten-minute DNS cache window, selected only VIP in the CDN console and attempted Stop. No completion/Offline confirmation was available: Chrome showed concurrent Claude debugging, pages/windows changed during control, and the CDN content became blank. Stop status remains unconfirmed; DNS already bypasses CDN. Asked the owner to pause the other browser controller or stop only VIP in the console. This is browser contention, not a request for new authorization.
+
+## Handoff task 9 — 第 7 天复查 — 2026-10-11
+
+- 实际 heartbeat 触发于北京时间 18:00:46；通过现有登录 Chrome 只读查询 GSC 和 Umami。详细窗口、指标及未知项已追加到 `seo/gsc-baseline.md`，没有重新提交 sitemap / 索引、注册账号或发送外部消息。
+- GSC sitemap：上次读取 2026-10-04，状态成功，发现 **45** 个网页（部署时为 16），确认已重新读取全部网址。公网 sitemap 45 个唯一 URL，逐个 HEAD **45/45 返回 200**，SHA-256 与 10 月 4 日部署一致。发现不等于收录。
+- URL 检查确认 9 个中文重点页已收录：Worten、FNAC、Cdiscount、OnBuy、Darty、Mirakl、多平台页、中文教程目录、帮助中心目录。Worten / FNAC 从上次未知未收录变为已收录；28 个中文 sitemap 网址中另 19 个未逐页核实，保留未知。全站索引报告仍仅更新到 10 月 4 日，不能用其 18 / 5 的数字替代当前中文页统计。
+- 英文 Worten 精确 URL：2026-07-15 至 10-08 为 **3 点击 / 150 展示 / CTR 2% / 平均排名 8.6**；部署后自定义 10-04 至 10-08 为 **0 点击 / 7 展示 / CTR 0% / 平均排名 5.9**。全站当前三个月窗口为 20 / 754 / 2.7% / 15.4。GSC 最新到 10-08，之后的数据未知；8 月 24 日窗口不同，不据此宣称部署带来的增长或 CTR 改善。
+- Umami 自定义 10-04 至 10-10，活动日志搜索 `seo_zh_`：已确认至少 **6 次**多平台中文页注册点击（header 至少 3、hero 至少 3），完整总数因界面读取异常仍未知。已尝试滚动、重绑、恢复缩放和刷新；未用浏览器匹配数、全站事件数或可见行数冒充完整总数。只表示点击注册入口的意向，不是完成注册、独立用户或已证明的自然搜索归因；8 月 24 日没有对应计数基线。
+- 百度资源平台打开及重试均未取得可读后台，本次登录 / 验证和中文收录数未知；未绕过登录、验证码或 token 条件。旧登录 / 验证阻塞没有新的完成证据，不重复发送同一提醒。
+- 验证：`node scripts/check-seo-pages.mjs` 检查 45 页，通过且 0 warnings；文档差异另经 `git diff --check`。仅追加两份记录，没有修改生成页面或部署网站。本轮部分完成，百度收录与 Umami 完整总数仍待取证；保留 2026-10-18 第二次复查，之后结束该提醒。
