@@ -105,6 +105,7 @@
           {"@type":"Question","name":"需要提供平台账号和密码吗？","acceptedAnswer":{"@type":"Answer","text":"不需要提供平台后台登录密码。店铺通过平台 API 授权信息接入。"}},
           {"@type":"Question","name":"多久执行一次调价？","acceptedAnswer":{"@type":"Answer","text":"系统会持续运行，并根据平台接口能力、店铺规模和当前配置定时完成价格检查与调价。"}},
           {"@type":"Question","name":"Autopricy 如何提升购物车竞争力？","acceptedAnswer":{"@type":"Answer","text":"Autopricy 持续跟踪竞争价格，并按照你设置的价格边界和调价策略及时执行调整，帮助商品保持价格竞争力。购物车结果还会受到库存、物流、店铺表现和平台规则等因素影响。"}},
+          {"@type":"Question","name":"采集的商品可以直接刊登到 Worten 吗？","acceptedAnswer":{"@type":"Answer","text":"可以。用插件采集 Fruugo、Worten 上的商品，在采集库定好价格后点「刊登到 Worten」，类目、葡语标题和描述、属性由 AI 自动完成，审核通过后自动挂 Offer。每个 Worten 店铺每天免费刊登 200 个商品。"}},
           {"@type":"Question","name":"如何收费？","acceptedAnswer":{"@type":"Answer","text":"自动调价标准版为 168 元 / 店铺 / 月，商品数量不限。"}},
           {"@type":"Question","name":"如何开始免费试用？","acceptedAnswer":{"@type":"Answer","text":"完成注册后，系统会自动开通 7 天免费试用，无需提交申请或等待审核。进入工作台后，即可绑定店铺并开始同步 Offer。"}}
         ]
@@ -243,6 +244,18 @@
     .workflow-note { margin-top: 20px; padding: 18px 20px; border-left: 3px solid var(--brand); color: var(--text); background: var(--brand-soft); font-size: 14px; }
 
     .tool-card { min-height: 210px; }
+    .listing-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+    .listing-badge { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border-radius: 999px; color: var(--brand); background: var(--brand-soft); font-size: 13px; font-weight: 800; }
+    .listing-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+    .listing-two div { padding: 18px 20px; border: 1px solid #c9dbff; border-radius: var(--radius); background: var(--brand-soft); }
+    .listing-two b { display: block; font-size: 18px; }
+    .listing-two span { color: var(--muted); font-size: 14px; }
+    .listing-auto { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; color: var(--text); font-size: 15px; }
+    .listing-auto li { position: relative; padding-left: 28px; }
+    .listing-auto li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 6px; color: var(--white); background: var(--success); font-size: 12px; font-weight: 800; line-height: 20px; text-align: center; }
+    .listing-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .listing-shot { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
+    .listing-shot img { width: 100%; height: auto; }
     .tools-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
     .tool-badge { display: inline-block; margin-top: 18px; padding: 4px 8px; border-radius: 6px; color: var(--muted); background: #eef1f5; font-size: 12px; font-weight: 700; }
 
@@ -324,6 +337,7 @@
       .callout.three { right: -6px; bottom: 8px; }
       .platform-strip { padding: 58px 0 64px; }
       .grid-3, .grid-6, .steps, .price-grid { grid-template-columns: 1fr; }
+      .listing-grid, .listing-two { grid-template-columns: 1fr; gap: 24px; }
       .capability, .tool-card { min-height: auto; }
       .showcase-grid { display: grid; grid-template-columns: 1fr; gap: 16px; overflow: visible; padding-bottom: 0; }
       .shot-card, .shot-card.large { min-width: 0; grid-row: auto; }
@@ -366,6 +380,7 @@
       <nav class="nav-links" id="nav-links" aria-label="主导航">
         <a href="#features">产品能力</a>
         <a href="#platforms">支持平台</a>
+        <a href="#listing">Worten 刊登</a>
         <a href="#workflow">使用方式</a>
         <a href="#pricing">价格</a>
         <a href="#faq">常见问题</a>
@@ -509,6 +524,31 @@
       </div>
     </section>
 
+    <section class="section" id="listing">
+      <div class="container listing-grid">
+        <div>
+          <span class="listing-badge">新功能 · Worten 刊登</span>
+          <h2>Worten 刊登新品<br>只需采集 + 定价</h2>
+          <p class="section-copy">不用再下载类目模板、在表格里逐行填写葡语标题、描述和几十个属性。Worten 上还没有的商品，也能批量上架。</p>
+          <div class="listing-two">
+            <div><b>1. 采集</b><span>用浏览器插件采集 Fruugo、Worten 上的商品</span></div>
+            <div><b>2. 定价</b><span>按 1688 采购价和利润率算出售价与最低价</span></div>
+          </div>
+          <ul class="listing-auto">
+            <li>AI 匹配 Worten 类目，写葡语标题和描述，补齐必填属性，整理商品图片</li>
+            <li>资料齐全自动提交审核；被退回的商品由 AI 按原因修改后重新提交</li>
+            <li>审核通过后自动挂 Offer，并开启自动调价</li>
+          </ul>
+          <p class="fine-print">每个 Worten 店铺每天免费刊登 200 个商品；也可以接入自己的 DeepSeek Key，不限数量。少数系统补不了的信息会单独列出原因，由你确认。</p>
+          <div class="listing-actions">
+            <a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_listing">免费试用</a>
+            <a class="btn btn-secondary" href="https://app.autopricy.com/help.html#Worten刊登" target="_blank" rel="noopener">查看刊登说明</a>
+          </div>
+        </div>
+        <div class="listing-shot"><img src="./doc-images/autopricy-worten-listing.webp" alt="Autopricy Worten 刊登页，按需处理、进行中、已上线分组展示刊登商品和处理原因" width="1740" height="1380" loading="lazy" decoding="async"></div>
+      </div>
+    </section>
+
     <section class="section section-soft" id="tools">
       <div class="container">
         <div class="section-head"><p class="section-label">更多运营工具</p><h2>自动调价之外，常用运营操作也能集中完成</h2><p class="section-copy">围绕店铺日常运营，Autopricy 还提供 Offer、库存、发票和商品采集等辅助能力。</p></div>
@@ -516,7 +556,7 @@
           <article class="card tool-card"><h3>Offer 管理</h3><p>集中查询和维护多个店铺的商品、价格、库存和状态。</p></article>
           <article class="card tool-card"><h3>批量导入导出</h3><p>通过表格批量设置价格边界、修改库存或导出商品数据。</p></article>
           <article class="card tool-card"><h3>发票处理</h3><p>集中处理需要开具和上传的订单发票，减少重复操作。</p><span class="tool-badge">部分平台支持</span></article>
-          <article class="card tool-card"><h3>商品采集工具</h3><p>通过浏览器插件采集商品信息，为跟卖和商品维护提供数据支持。</p><span class="tool-badge">部分平台支持</span></article>
+          <article class="card tool-card"><h3>商品采集工具</h3><p>通过浏览器插件采集商品信息，为跟卖、Worten 刊登和商品维护提供数据支持。</p><span class="tool-badge">部分平台支持</span></article>
         </div>
       </div>
     </section>
@@ -544,6 +584,7 @@
           <details><summary>需要提供平台账号和密码吗？</summary><p>不需要提供平台后台登录密码。店铺通过平台 API 授权信息接入。</p></details>
           <details><summary>多久执行一次调价？</summary><p>系统会持续运行，并根据平台接口能力、店铺规模和当前配置定时完成价格检查与调价。</p></details>
           <details><summary>Autopricy 如何提升购物车竞争力？</summary><p>Autopricy 持续跟踪竞争价格，并按照你设置的价格边界和调价策略及时执行调整，帮助商品保持价格竞争力。购物车结果还会受到库存、物流、店铺表现和平台规则等因素影响。</p></details>
+          <details><summary>采集的商品可以直接刊登到 Worten 吗？</summary><p>可以。用插件采集 Fruugo、Worten 上的商品，在采集库定好价格后点「刊登到 Worten」，类目、葡语标题和描述、属性由 AI 自动完成，审核通过后自动挂 Offer。每个 Worten 店铺每天免费刊登 200 个商品。</p></details>
           <details><summary>如何收费？</summary><p>自动调价标准版为 168 元 / 店铺 / 月，商品数量不限。</p></details>
           <details><summary>如何开始免费试用？</summary><p>完成注册后，系统会自动开通 7 天免费试用，无需提交申请或等待审核。进入工作台后，即可绑定店铺并开始同步 Offer。</p></details>
         </div>

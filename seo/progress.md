@@ -203,3 +203,10 @@ Not done (needs owner input or content outside this repo):
 - 百度首页本次显示“登录”，未取得已登录且已验证站点后台数据；按约束停止该步骤，收录数保持未知，未输入凭证或绕过验证，不重复发送旧登录提醒。百度指标仍未完成，不能因两轮结束而称为已核实。
 - 线上 sitemap 45 个唯一网址全部 HEAD 200，SHA-256 与部署及第 7 天相同。本地 45 页检查通过、0 warnings；提交前另做 `git diff --check`。只修改两份记录，没有生成页面变更或部署。
 - 2026-10-11、2026-10-18 两次计划复查均已执行。已通过自动化工具将 `tailcast-seo-7-14` 设为 **PAUSED**，返回确认成功，并核对本地持久化状态；按用户要求结束此提醒，保留百度待登录补查及 OnBuy 教程未收录的记录。
+
+## 首页新增 Worten 刊登板块 — 2026-10-19
+
+- 用户要求在官网体现 Worten 刊登重大升级。`dist/index.html` 新增 `#listing` 板块（导航「Worten 刊登」）：核心信息「只需采集 + 定价」，系统自动完成类目、葡语标题/描述、属性、提交审核、退回修复、上线挂 Offer 并开启调价；注明每店每天免费 200 个、少数信息需人工确认。配图 `dist/doc-images/autopricy-worten-listing.webp`（示例数据的刊登页示意图，无客户数据）。
+- 「商品采集工具」卡片补充「Worten 刊登」；FAQ 与 FAQPage JSON-LD 同步新增「采集的商品可以直接刊登到 Worten 吗？」。
+- 能力依据记入 `seo/product-capabilities.md` 新增行；未宣称保证审核通过、即时上线或其他平台刊登。没有新增独立落地页、sitemap 条目或 OG 图。
+- 验证：`node scripts/check-seo-pages.mjs` 45 页通过；JSON-LD 解析通过；1440 / 390 宽度渲染无横向溢出。
