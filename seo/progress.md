@@ -216,3 +216,7 @@ Not done (needs owner input or content outside this repo):
 - 用户要求把企业微信渠道码放到官网。二维码是 worten-admin `GET /customer/wecom/channel-qrcodes` 生成的长期码，放在 `dist/wecom/`（general / mirakl / fnac / onbuy / cdiscount）；扫码加好友后由 admin 自动发对应平台欢迎语并打「来源平台」标签。
 - `scripts/wecom.mjs` 维护页面 → 渠道映射：中文平台落地页和对应中文调价教程在 CTA 放该平台码（Worten、Mirakl → mirakl；FNAC、Darty → fnac；OnBuy；Cdiscount）；其他中文页面（多平台、功能页、教程/帮助中心目录、帮助文章）页脚放通用码；首页页脚「账户与联系」放通用码。每页只出现一个码；英文页不放（只有 CSS 版本号变化）。
 - 验证：`node scripts/build-seo-pages.mjs` + `node scripts/check-seo-pages.mjs` 45 页通过、0 warnings；本地 1440 / 375 宽度渲染无横向溢出，二维码图片加载正常。
+
+## 2026-10-27 homepage value proposition
+
+- Pushed `4b3b889 feat(home): 首屏文案改为卖家口吻…` to `origin/main` and deployed only `dist/index.html` to `ali:/home/homepage/autopricy/dist/` (sudo rsync; backup `dist/index.html.backup-20261027-tagline`). Live title, H1 and platform-section H2 verified via curl. Tagline decision: `worten-ai-context/designs/2026-10-26-value-proposition-inventory.md`.
