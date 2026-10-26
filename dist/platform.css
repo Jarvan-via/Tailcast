@@ -452,6 +452,15 @@ h2 { margin-top: 11px; font-size: clamp(32px, 4vw, 46px); line-height: 1.18; let
 
 .contact-email:hover { text-decoration: underline; }
 
+.wecom-card { display: flex; gap: 14px; align-items: center; margin-top: 20px; }
+.wecom-card img { flex: none; padding: 6px; border-radius: 8px; background: #fff; }
+.wecom-card p { display: grid; gap: 4px; margin: 0; font-size: 14px; }
+.wecom-card strong { color: #fff; }
+.wecom-card span { color: #c6d1df; }
+
+.wecom-footer { display: flex; flex: none; gap: 12px; align-items: center; font-size: 13px; line-height: 1.6; white-space: nowrap; }
+.wecom-footer img { flex: none; padding: 4px; border-radius: 6px; background: #fff; }
+
 .guide-hero {
   padding: 0 0 72px;
   border-bottom: 1px solid var(--line);

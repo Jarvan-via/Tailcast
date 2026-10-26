@@ -5,6 +5,7 @@ import { buildGuides, guideUrls } from './build-guide-pages.mjs';
 import { ogImage } from './og.mjs';
 import { platformCssHref } from './assets.mjs';
 import { zhPages } from './zh-pages.mjs';
+import { wecomCard, wecomChannel, wecomFooter } from './wecom.mjs';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distRoot = resolve(projectRoot, 'dist');
@@ -283,7 +284,7 @@ const locales = {
     faqKicker: '常见问题', faqTitle: (page) => `${page.crumb}常见问题`,
     reference: '参考资料', supportMore: '查看平台详情',
     pricing: (source) => `<section class="section section-muted"><div class="container"><div class="price-box"><div><p class="section-kicker">价格方案</p><h2>自动调价标准版 <strong>¥168</strong><span> / 店铺 / 月</span></h2><p>商品数量不限 · 注册自动开通 7 天免费试用 · 无需提交申请或等待审核</p></div><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_pricing">免费注册试用</a></div></div></section>`,
-    cta: (page, source) => `<div><h2>先用一个店铺试跑</h2><p>注册后自动开通 7 天免费试用。首次接入时，客服可以协助确认授权信息、同步商品并完成基础规则配置。</p><a class="contact-email" href="tel:+8617720284880">客服电话 177 2028 4880</a></div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">免费注册试用</a><a class="btn btn-secondary" href="${app}/">已有账号，登录</a></div>`,
+    cta: (page, source) => `<div><h2>先用一个店铺试跑</h2><p>注册后自动开通 7 天免费试用。首次接入时，客服可以协助确认授权信息、同步商品并完成基础规则配置。</p><a class="contact-email" href="tel:+8617720284880">客服电话 177 2028 4880</a>${wecomChannel(page.slug) ? wecomCard(wecomChannel(page.slug)) : ''}</div><div class="hero-actions"><a class="btn btn-primary" href="${app}/?source=${source}#/register" data-umami-event="seo_${source}_register_footer">免费注册试用</a><a class="btn btn-secondary" href="${app}/">已有账号，登录</a></div>`,
     footer: `<span>© 2026 调价先锋 Autopricy · 北京轻石科技有限公司 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2026039016号</a></span><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/zh/multi-marketplace-repricing/">支持平台</a><a href="/zh/worten-repricer/">Worten</a><a href="/zh/fnac-repricer/">FNAC</a><a href="/zh/darty-repricer/">Darty</a><a href="/zh/onbuy-repricer/">OnBuy</a><a href="/zh/cdiscount-repricer/">Cdiscount</a><a href="/zh/guides/">调价教程</a><a href="/zh/help/">帮助中心</a><a href="${app}/privacy.html">隐私政策</a></nav>`
   }
 };
@@ -409,7 +410,7 @@ ${page.locale === 'zh' ? `    ${L.pricing(source)}\n` : ''}    <section class="s
     <section class="section"><div class="container"><div class="section-head"><p class="section-kicker">${esc(L.faqKicker)}</p><h2>${esc(L.faqTitle({ ...page, crumb }))}</h2></div><div class="faq-list">${page.faq.map(([question, answer], index) => `<details${index === 0 ? ' open' : ''}><summary>${esc(question)}</summary><p>${esc(answer)}</p></details>`).join('')}</div></div></section>
     <section class="section"><div class="container"><div class="cta">${L.cta(page, source)}</div></div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-row">${L.footer}</div></footer>
+  <footer class="site-footer"><div class="container footer-row">${L.footer}${page.locale === 'zh' && !wecomChannel(page.slug) ? wecomFooter : ''}</div></footer>
   ${umami}
 </body>
 </html>\n`;
