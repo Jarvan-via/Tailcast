@@ -220,3 +220,10 @@ Not done (needs owner input or content outside this repo):
 ## 2026-10-27 homepage value proposition
 
 - Pushed `4b3b889 feat(home): 首屏文案改为卖家口吻…` to `origin/main` and deployed only `dist/index.html` to `ali:/home/homepage/autopricy/dist/` (sudo rsync; backup `dist/index.html.backup-20261027-tagline`). Live title, H1 and platform-section H2 verified via curl. Tagline decision: `worten-ai-context/designs/2026-10-26-value-proposition-inventory.md`.
+
+## 首页嵌入宣传视频 + VideoObject — 2026-10-31
+
+- 用户要求把 YouTube Short `14VJsGnNUc8`（v2 37s 宣传片，2026-10-31 发布在 Autopricy 频道）嵌到官网并加结构化数据。`dist/index.html` 在平台区后新增 `#video` 板块：左侧 9:16 YouTube iframe（`loading="lazy"`），右侧「37 秒看懂调价先锋」文案、免费试用和「在 YouTube 观看」按钮（Umami 事件 `homepage_register_video` / `homepage_video_youtube`）。导航不变。
+- 大陆访客多数打不开 YouTube：页面用 `i.ytimg.com` 缩略图探测，失败或 5 秒无响应时把 iframe 换成自托管 `dist/video/autopricy-promo-37s.mp4`（6.3 MB，`preload="none"`）。iframe 仍在初始 HTML 中，供 Google 发现视频。
+- `@graph` 新增 `VideoObject`（`#video`）：`embedUrl` 为 YouTube，`contentUrl` 为自托管 mp4，`thumbnailUrl` 为 `dist/doc-images/autopricy-promo-poster.jpg`（720×1280 定版帧），`uploadDate` 2026-10-31，`duration` PT37S。没有新增 sitemap 条目或 OG 图。
+- 验证：JSON-LD 解析通过；`node scripts/check-seo-pages.mjs` 45 页通过、0 warnings；Playwright 把本地文件映射到 `https://autopricy.com/` 后 1440 宽 iframe 正常播放；390 宽无横向溢出；屏蔽 youtube.com / ytimg.com 后切换为自托管视频并显示封面。

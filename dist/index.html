@@ -96,6 +96,19 @@
         }
       },
       {
+        "@type": "VideoObject",
+        "@id": "https://autopricy.com/#video",
+        "name": "调价先锋 Autopricy：Worten 卖家自动跟价抢回购物车",
+        "description": "37 秒看懂调价先锋：采集、刊登、跟卖、调价在一个账号里完成，竞品降价自动跟价、守住最低价，把 Worten 购物车抢回来。",
+        "thumbnailUrl": ["https://autopricy.com/doc-images/autopricy-promo-poster.jpg"],
+        "uploadDate": "2026-10-31",
+        "duration": "PT37S",
+        "embedUrl": "https://www.youtube.com/embed/14VJsGnNUc8",
+        "contentUrl": "https://autopricy.com/video/autopricy-promo-37s.mp4",
+        "inLanguage": "zh-CN",
+        "publisher": { "@id": "https://autopricy.com/#organization" }
+      },
+      {
         "@type": "FAQPage",
         "@id": "https://autopricy.com/#faq",
         "mainEntity": [
@@ -256,6 +269,9 @@
     .listing-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
     .listing-shot { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
     .listing-shot img { width: 100%; height: auto; }
+    .video-grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 560px); justify-content: center; gap: 64px; align-items: center; }
+    .video-frame { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border-radius: var(--radius-lg); background: #0b1220 url(./doc-images/autopricy-promo-poster.jpg) center / cover; box-shadow: var(--shadow); }
+    .video-frame iframe, .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #0b1220; }
     .tools-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
     .tool-badge { display: inline-block; margin-top: 18px; padding: 4px 8px; border-radius: 6px; color: var(--muted); background: #eef1f5; font-size: 12px; font-weight: 700; }
 
@@ -340,6 +356,8 @@
       .platform-strip { padding: 58px 0 64px; }
       .grid-3, .grid-6, .steps, .price-grid { grid-template-columns: 1fr; }
       .listing-grid, .listing-two { grid-template-columns: 1fr; gap: 24px; }
+      .video-grid { grid-template-columns: 1fr; gap: 32px; }
+      .video-frame { width: 100%; max-width: 320px; margin-inline: auto; }
       .capability, .tool-card { min-height: auto; }
       .showcase-grid { display: grid; grid-template-columns: 1fr; gap: 16px; overflow: visible; padding-bottom: 0; }
       .shot-card, .shot-card.large { min-width: 0; grid-row: auto; }
@@ -444,6 +462,23 @@
           <div class="platform-mark" title="Article 和 Listing 价格/库存管理；不作为竞争型 repricer 宣传"><img src="./platform-logos/fyndiq.png" alt="Fyndiq listing tools" width="304" height="110"></div>
           <div class="platform-mark" title="上线前按具体店铺验证"><img class="logo-photo" src="./platform-logos/eprice.jpg" alt="ePRICE" width="978" height="639"></div>
           <a class="platform-mark" href="/zh/mirakl-repricer/"><span class="platform-wordmark">部分 Mirakl 平台</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="video">
+      <div class="container video-grid">
+        <div class="video-frame" id="promo-video">
+          <iframe src="https://www.youtube.com/embed/14VJsGnNUc8?rel=0" title="调价先锋 Autopricy 37 秒介绍视频" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+          <p class="section-label">37 秒看懂调价先锋</p>
+          <h2>采集、刊登、跟卖、调价<br>一个账号做完</h2>
+          <p class="section-copy">竞品降价自动跟上，碰到你设的最低价就停，把 Worten 购物车抢回来。商品采集、一键刊登和跟卖也在同一个工作台里。</p>
+          <div class="listing-actions">
+            <a class="btn btn-primary" href="https://app.autopricy.com/?source=homepage#/register" data-umami-event="homepage_register_video">免费试用</a>
+            <a class="btn btn-secondary" href="https://www.youtube.com/shorts/14VJsGnNUc8" target="_blank" rel="noopener" data-umami-event="homepage_video_youtube">在 YouTube 观看</a>
+          </div>
         </div>
       </div>
     </section>
@@ -639,6 +674,21 @@
         menuButton.setAttribute('aria-label', '打开导航');
         menuButton.textContent = '☰';
       }));
+    }
+    const promoVideo = document.getElementById('promo-video');
+    if (promoVideo) {
+      // YouTube is unreachable for many visitors in mainland China; fall back to the self-hosted copy.
+      let settled = false;
+      const useSelfHosted = () => {
+        if (settled) return;
+        settled = true;
+        promoVideo.innerHTML = '<video controls playsinline preload="none" poster="./doc-images/autopricy-promo-poster.jpg" src="./video/autopricy-promo-37s.mp4" title="调价先锋 Autopricy 37 秒介绍视频"></video>';
+      };
+      const timer = setTimeout(useSelfHosted, 5000);
+      const probe = new Image();
+      probe.onload = () => { settled = true; clearTimeout(timer); };
+      probe.onerror = () => { clearTimeout(timer); useSelfHosted(); };
+      probe.src = 'https://i.ytimg.com/vi/14VJsGnNUc8/default.jpg';
     }
     if (window.location.hostname.includes('autopricy.com')) {
       const umami = document.createElement('script');
